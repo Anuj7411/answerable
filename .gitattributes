@@ -1,0 +1,11 @@
+# Enforce LF line endings for all text files cross-platform.
+* text=auto eol=lf
+
+# Lockfiles and binary-ish formats
+pnpm-lock.yaml -text
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
