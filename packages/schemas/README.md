@@ -1,0 +1,39 @@
+# @answerable/schemas
+
+Type-safe JSON-LD generators for the [Answerable](https://github.com/Anuj7411/answerable) SEO toolkit. Each generator returns a fully-typed `WithContext<T>` object validated at the type level by [`schema-dts`](https://github.com/google/schema-dts).
+
+> **Pre-alpha.** Only `organization()` and `webSite()` ship today. Eight generators land in Phase 1 — see the [project roadmap](../../docs/internal/ROADMAP.md).
+
+## Install
+
+```bash
+pnpm add @answerable/schemas
+```
+
+## Usage
+
+```ts
+import { organization, webSite } from '@answerable/schemas';
+
+const org = organization({
+  name: 'Acme',
+  url: 'https://acme.com',
+  logo: 'https://acme.com/logo.png',
+  sameAs: ['https://twitter.com/acme', 'https://github.com/acme'],
+});
+
+const site = webSite({
+  name: 'Acme',
+  url: 'https://acme.com',
+  searchUrlTemplate: 'https://acme.com/search?q={search_term_string}',
+});
+
+// Inject as JSON-LD in your Next.js layout:
+// <script type="application/ld+json">{JSON.stringify(org)}</script>
+```
+
+All URL inputs are validated as absolute `http(s)` URLs at runtime — invalid input throws `InvalidUrlError` from `@answerable/core`.
+
+## License
+
+[MIT](../../LICENSE) © 2026 Anuj Ojha
