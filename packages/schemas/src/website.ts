@@ -1,12 +1,6 @@
 import { SchemaValidationError, parseAbsoluteUrl } from '@answerable/core';
-import type { WebSite, WithContext } from 'schema-dts';
-
-/**
- * schema-dts's `WebSite` is `WebSiteLeaf | … | string`. Narrow the
- * return type so callers can access fields like `.potentialAction`
- * directly without first ruling out the IRI-reference string form.
- */
-type WebSiteObject = WithContext<Exclude<WebSite, string>>;
+import type { WebSite } from 'schema-dts';
+import type { Schema } from './_internal.js';
 
 export interface WebSiteInput {
   readonly name: string;
@@ -34,10 +28,10 @@ export interface WebSiteInput {
  * @throws SchemaValidationError if `searchUrlTemplate` is missing the
  *   `{search_term_string}` placeholder.
  */
-export function webSite(input: WebSiteInput): WebSiteObject {
+export function webSite(input: WebSiteInput): Schema<WebSite> {
   const url: string = parseAbsoluteUrl(input.url);
 
-  const out: WebSiteObject = {
+  const out: Schema<WebSite> = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: input.name,
@@ -66,7 +60,7 @@ export function webSite(input: WebSiteInput): WebSiteObject {
       },
       'query-input': 'required name=search_term_string',
     } as const;
-    out.potentialAction = action as unknown as NonNullable<WebSiteObject['potentialAction']>;
+    out.potentialAction = action as unknown as NonNullable<Schema<WebSite>['potentialAction']>;
   }
 
   return out;

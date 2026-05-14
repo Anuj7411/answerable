@@ -1,13 +1,6 @@
 import { parseAbsoluteUrl } from '@answerable/core';
-import type { ContactPoint, Organization, WithContext } from 'schema-dts';
-
-/**
- * schema-dts's `Organization` is `OrganizationLeaf | … | string`, where
- * the trailing `string` represents the JSON-LD `@id` reference form.
- * Callers of our generators always receive an object; narrow the return
- * type so consumers can access fields like `.logo` without a guard.
- */
-type OrganizationObject = WithContext<Exclude<Organization, string>>;
+import type { ContactPoint, Organization } from 'schema-dts';
+import type { Schema } from './_internal.js';
 
 export interface ContactPointInput {
   readonly email?: string | undefined;
@@ -39,10 +32,10 @@ export interface OrganizationInput {
  * @throws InvalidUrlError if `url`, `logo`, or any `sameAs` entry is
  *   not a valid http(s) URL.
  */
-export function organization(input: OrganizationInput): OrganizationObject {
+export function organization(input: OrganizationInput): Schema<Organization> {
   const url: string = parseAbsoluteUrl(input.url);
 
-  const out: OrganizationObject = {
+  const out: Schema<Organization> = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: input.name,
