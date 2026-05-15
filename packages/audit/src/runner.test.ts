@@ -8,9 +8,20 @@ const URL = parseAbsoluteUrl('https://example.com');
 
 const PERFECT_HTML = `<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A precise page title between thirty and sixty</title>
     <meta name="description" content="A precise meta description that summarizes the page in roughly the 120-160 character window Google uses for SERP snippets without truncating.">
     <link rel="canonical" href="https://example.com/page">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta property="og:title" content="Acme">
+    <meta property="og:description" content="What Acme does.">
+    <meta property="og:image" content="https://example.com/og.png">
+    <meta property="og:url" content="https://example.com/page">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://example.com/og.png">
     <script type="application/ld+json">{"@type":"Organization","name":"Acme"}</script>
   </head>
   <body><h1>Hi</h1></body>
@@ -23,20 +34,42 @@ describe('runChecks', () => {
     const report = await runChecks({ url: URL, html: PERFECT_HTML, dom: loadHtml(PERFECT_HTML) });
     expect(report.score).toBe(100);
     expect(report.band).toBe('excellent');
-    expect(report.summary.pass).toBe(5);
+    expect(report.summary.pass).toBe(17);
     expect(report.summary.fail).toBe(0);
   });
 
-  it('returns 0 + critical band on a fixture missing everything', async () => {
+  it('lands in critical band on a fixture missing nearly everything', async () => {
+    // Note: A8 (robots) correctly passes on empty HTML because the absence of
+    // a robots meta means the default `index, follow` — which is the right
+    // behaviour for a live page. So the floor score isn't 0; it's whatever
+    // A8 contributes (2 of ~30 max points → ~7/100).
     const report = await runChecks({ url: URL, html: EMPTY_HTML, dom: loadHtml(EMPTY_HTML) });
-    expect(report.score).toBe(0);
+    expect(report.score).toBeLessThan(20);
     expect(report.band).toBe('critical');
-    expect(report.summary.fail).toBeGreaterThanOrEqual(4);
+    expect(report.summary.fail).toBeGreaterThanOrEqual(10);
   });
 
   it('preserves AUDIT-FRAMEWORK check order in results', async () => {
     const report = await runChecks({ url: URL, html: EMPTY_HTML, dom: loadHtml(EMPTY_HTML) });
-    expect(report.results.map((r) => r.id)).toEqual(['A1', 'A3', 'A4', 'A5', 'C1']);
+    expect(report.results.map((r) => r.id)).toEqual([
+      'A1',
+      'A3',
+      'A4',
+      'A5',
+      'A6',
+      'A7',
+      'A8',
+      'A9',
+      'A10',
+      'C1',
+      'C2',
+      'F1',
+      'F2',
+      'F3',
+      'F5',
+      'F6',
+      'F7',
+    ]);
   });
 
   it('records earnedPoints = 0 for non-pass statuses', async () => {
