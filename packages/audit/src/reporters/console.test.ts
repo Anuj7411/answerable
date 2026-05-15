@@ -8,9 +8,20 @@ const URL = parseAbsoluteUrl('https://example.com');
 
 const PERFECT_HTML = `<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A precise page title between thirty and sixty</title>
     <meta name="description" content="A precise meta description that summarizes the page in roughly the 120-160 character window Google uses for SERP snippets without truncating.">
     <link rel="canonical" href="https://example.com/page">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta property="og:title" content="Acme">
+    <meta property="og:description" content="What Acme does.">
+    <meta property="og:image" content="https://example.com/og.png">
+    <meta property="og:url" content="https://example.com/page">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://example.com/og.png">
     <script type="application/ld+json">{"@type":"Organization","name":"Acme"}</script>
   </head>
   <body></body>
@@ -41,7 +52,7 @@ describe('consoleReport', () => {
   it('lists every passed check at the bottom under [PASSED]', async () => {
     const report = await runChecks({ url: URL, html: PERFECT_HTML, dom: loadHtml(PERFECT_HTML) });
     const out = consoleReport(report, { color: false });
-    expect(out).toContain('[PASSED] 5');
+    expect(out).toContain('[PASSED] 17');
     expect(out).toContain('A1');
     expect(out).toContain('C1');
   });
