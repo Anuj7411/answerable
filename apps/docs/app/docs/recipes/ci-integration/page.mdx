@@ -1,0 +1,83 @@
+import { Callout } from 'nextra/components';
+
+# How to wire Answerable into CI
+
+**Problem.** You shipped a regression that quietly drops your SEO score from 85 to 60. By the time anyone notices, it's been live for a week and a couple of pages have stopped getting indexed. You want a CI check that catches score regressions before merge.
+
+**Solution.** Run `answerable audit --ci --min-score N` against a preview deployment in your PR pipeline. Non-zero exit fails the check.
+
+## GitHub Actions
+
+```yaml filename=".github/workflows/seo.yml"
+name: SEO
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Deploy your PR to a preview URL.
+      # If you use Vercel, capture the preview URL from the deployment.
+      # If you use Netlify, GitHub Pages, or roll your own — same idea.
+      - name: Wait for preview deployment
+        id: deploy
+        run: echo "url=https://my-pr-${{ github.event.number }}.preview.acme.com" >> $GITHUB_OUTPUT
+
+      - name: Audit the preview
+        run: pnpm dlx @answerable/cli audit ${{ steps.deploy.outputs.url }} --ci --min-score 80
+```
+
+That single line:
+
+1. Fetches the preview URL
+2. Runs every registered audit check
+3. Exits `1` if score < 80 (or whatever threshold you set)
+4. PR shows a red ❌ on the check
+5. Engineer fixes before merge
+
+## Tightening the threshold over time
+
+Start lenient (`--min-score 60`), ship the workflow, let your team see audits running on every PR. After a few weeks of organic improvements, ratchet to `--min-score 75`. Then `80`. Then `85`.
+
+This avoids the failure mode where a too-strict threshold blocks merges on day one and the team disables the workflow out of frustration.
+
+<Callout type="info">
+  **Pick the threshold from a baseline run.** Audit your current production site, take the score it gets today, and set `--min-score` to that minus 5. You'll catch regressions without false-positive-blocking the first PR.
+</Callout>
+
+## JSON output for dashboards
+
+The CLI also has `--json` for machine consumption — pipe it into a status check, a Slack notifier, or a long-running dashboard:
+
+```yaml
+- name: Audit and store result
+  run: |
+    pnpm dlx @answerable/cli audit ${{ steps.deploy.outputs.url }} --json > audit.json
+    cat audit.json | jq -r '.score'
+```
+
+The JSON shape matches `AuditReport` from the audit package — score, band, per-check results, summary counts.
+
+## Excluding a specific check
+
+Sometimes a check fires on a real-world site for a reason that's out of your control (e.g., your domain doesn't appear on G2 — yet). Until then, run the audit but accept the warning:
+
+```bash
+# Coming in a future release — for now, just inspect the JSON output
+# and grep / parse out the specific check IDs you care about.
+```
+
+<Callout type="warning">
+  Don't blanket-disable checks you can't fix today. Mute them per-PR with a comment, and revisit in the next sprint. The whole value of the audit is the surfacing.
+</Callout>
+
+## See also
+
+- **[`answerable audit` reference](/docs/reference/cli)** — full flag list and exit codes
+- **[Audit framework →](/docs/audit-framework)** — scoring model and band thresholds

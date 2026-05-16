@@ -1,0 +1,72 @@
+# @answerable/sitemap
+
+Sitemap builder with smart path-based defaults. Wraps Next.js's `MetadataRoute.Sitemap` type. Plus a `sitemapIndex()` helper for sites that exceed Google's 50k-URL per-file limit.
+
+## Install
+
+```bash
+pnpm add @answerable/sitemap
+```
+
+Requires `next >= 14` (peer dependency).
+
+## Exports
+
+| Symbol | Kind | Description |
+| --- | --- | --- |
+| `buildSitemap(routes, opts)` | function | Returns a `MetadataRoute.Sitemap` from path-only routes + a `baseUrl` |
+| `sitemapIndex(entries)` | function | Builds the sitemap-index structure for >50k-URL sites |
+| `SitemapRouteInput` | interface | One route — `path`, optional `lastModified`, `changeFrequency`, `priority`, `alternates` |
+| `BuildSitemapOptions` | interface | `{ baseUrl: string }` |
+| `SitemapIndexEntry` | interface | `{ url, lastModified? }` |
+| `ChangeFrequency` | type | The seven sitemap-spec values |
+
+## Usage
+
+```ts
+// app/sitemap.ts
+import { buildSitemap } from '@answerable/sitemap';
+import type { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return buildSitemap(
+    [
+      { path: '/' },
+      { path: '/about' },
+      { path: '/privacy' },
+      { path: '/blog/launch', lastModified: '2026-05-14' },
+    ],
+    { baseUrl: 'https://acme.com' },
+  );
+}
+```
+
+## Smart defaults
+
+`priority` and `changeFrequency` are inferred from path patterns when you don't set them explicitly:
+
+| Pattern | priority | changeFrequency |
+| --- | --- | --- |
+| `/` (home) | 1.0 | daily |
+| `/blog/*`, `/news/*`, `/posts/*` | 0.7 | weekly |
+| `/docs/*` | 0.6 | weekly |
+| `/products/*`, `/pricing` | 0.8 | weekly |
+| `/about`, `/privacy`, `/terms`, `/contact`, `/faq` | 0.3 | yearly |
+| Anything else | 0.5 | monthly |
+
+Explicit values always override inferred defaults — `priority: 0.95` on a `/blog/*` route uses 0.95 and still infers `weekly` for `changeFrequency`.
+
+## Validation
+
+- **Bad `baseUrl`** → `InvalidUrlError`
+- **Path doesn't start with `/`** → `SchemaValidationError`
+- **Path is a full URL** → `SchemaValidationError`
+- **`priority` outside 0.0–1.0** → `SchemaValidationError`
+- **Duplicate paths** → `SchemaValidationError`
+- **Bad `lastModified`** (impossible calendar date like `2026-02-30`) → `SchemaValidationError`
+
+All errors batch into one `SchemaValidationError`.
+
+## Source
+
+[packages/sitemap](https://github.com/Anuj7411/answerable/tree/main/packages/sitemap)

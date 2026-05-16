@@ -1,0 +1,79 @@
+import { Callout } from 'nextra/components';
+
+# How to add FAQ schema in 60 seconds
+
+**Problem.** Your FAQ page renders the Q&A as plain HTML. Google sees a wall of text and AI answer engines can't extract individual answers. You want each Q&A to surface as a quotable chunk.
+
+**Solution.** Emit `FAQPage` JSON-LD alongside the visible content. Both the schema and the rendered HTML use the same data — the schema is the structured signal, the HTML is the human view.
+
+## Step 1 — Install the schema package
+
+```bash
+pnpm add @answerable/schemas
+```
+
+## Step 2 — Generate the schema
+
+```tsx filename="app/faq/page.tsx"
+import { faqPage } from '@answerable/schemas';
+
+const faqSchema = faqPage({
+  questions: [
+    {
+      question: 'What is Acme?',
+      answer: 'A widget shop.',
+    },
+    {
+      question: 'How do I get started?',
+      answer: 'Pick a widget, click checkout, you have a widget.',
+    },
+    {
+      question: 'What payment methods do you accept?',
+      answer: 'Visa, Mastercard, Amex, Apple Pay, Google Pay, and Stripe Link.',
+    },
+  ],
+});
+
+export default function FaqPage() {
+  return (
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <h1>Frequently asked questions</h1>
+
+      <h2>What is Acme?</h2>
+      <p>A widget shop.</p>
+
+      <h2>How do I get started?</h2>
+      <p>Pick a widget, click checkout, you have a widget.</p>
+
+      <h2>What payment methods do you accept?</h2>
+      <p>Visa, Mastercard, Amex, Apple Pay, Google Pay, and Stripe Link.</p>
+    </main>
+  );
+}
+```
+
+That's it. The page now passes audit checks **C4** (FAQPage JSON-LD on FAQ pages) and **B5** (FAQ section present).
+
+<Callout type="info">
+  **Keep the schema and the HTML in sync.** Audit check **C10** (Phase 2) compares JSON-LD claims against visible content — if your schema lists three questions but the page shows two, that's a violation. Use the same data for both.
+</Callout>
+
+## Want it scaffolded for you?
+
+If you don't have an FAQ page yet, just run:
+
+```bash
+pnpm dlx @answerable/cli add faq
+```
+
+…and you'll get a complete FAQ page with starter questions, the JSON-LD wired up, and `defineSeo()` for metadata — in 5 seconds.
+
+## See also
+
+- **[`faqPage()` reference](/docs/reference/schemas)** — input shape and validation behaviour
+- **[Check C4 →](/docs/checks/C4)** — full audit-check documentation
+- **[Audit framework →](/docs/audit-framework)** — how the score works

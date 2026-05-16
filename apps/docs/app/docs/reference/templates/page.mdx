@@ -1,0 +1,63 @@
+# @answerable/templates
+
+Page templates the Answerable CLI installs into a user's Next.js project. Each template is a complete `.tsx` page wired up with `defineSeo()` + the matching JSON-LD generator — drop one in and you have a working, audit-ready page.
+
+You usually don't import this package directly; the CLI does. It's exposed so custom installers or alternate workflows can reuse the same registry.
+
+## Install
+
+```bash
+pnpm add @answerable/templates
+```
+
+## Exports
+
+| Symbol | Kind | Description |
+| --- | --- | --- |
+| `listTemplates()` | function | Returns every registered template in stable order |
+| `getTemplate(name)` | function | Look up by name; returns the same object across calls (safe to compare by reference) |
+| `renderTemplate(name, values)` | function | Render a template with token substitution; throws `SchemaValidationError` on missing/unknown tokens |
+| `renderContent(content, values)` | function | Lower-level: render arbitrary content; same validation semantics |
+| `extractTokens(content)` | function | Distinct tokens referenced in `content`, sorted |
+| `Template` | interface | `{ name, filename, content, requiredTokens }` |
+| `TemplateName` | union | `'about' | 'privacy' | 'terms' | 'faq' | 'contact'` |
+
+## Token engine
+
+`renderContent(content, values)` is **strict in both directions**:
+
+- Every `{{TOKEN}}` referenced in `content` must have a value (CLI re-prompts if you forget one)
+- Every key in `values` must correspond to a referenced token (catches typos like `PROECT_NAME` at install time)
+
+Both errors batch into a single `SchemaValidationError` listing the full sets.
+
+Token names match `{{[A-Z][A-Z0-9_]*}}` — uppercase, digits, underscores. JSX-style `{{ ... }}` (lowercase or with spaces inside) is preserved verbatim through substitution.
+
+## Templates shipping today
+
+| Template | Filename | Drives audit checks |
+| --- | --- | --- |
+| `about` | `app/about/page.tsx` | **D1**, **D5**, **C2** (Organization JSON-LD) |
+| `privacy` | `app/privacy/page.tsx` | **D2**, **D6** |
+| `terms` | `app/terms/page.tsx` | **D3**, **D6** |
+| `faq` | `app/faq/page.tsx` | **B5**, **C4** (FAQPage JSON-LD) |
+| `contact` | `app/contact/page.tsx` | **D4**, **D6** |
+
+## Usage
+
+```ts
+import { renderTemplate } from '@answerable/templates';
+
+const source = renderTemplate('about', {
+  PROJECT_NAME: 'Acme',
+  DOMAIN: 'acme.com',
+  URL: 'https://acme.com',
+  DESCRIPTION: 'The friendliest widget shop.',
+});
+
+// `source` is a TSX string ready to write to app/about/page.tsx.
+```
+
+## Source
+
+[packages/templates](https://github.com/Anuj7411/answerable/tree/main/packages/templates)

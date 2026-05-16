@@ -1,0 +1,62 @@
+# @answerable/cli
+
+The `answerable` command. Wraps the audit engine and templates package for terminal and CI use.
+
+## Install
+
+Globally:
+
+```bash
+pnpm add -g @answerable/cli
+```
+
+Or one-off (no install):
+
+```bash
+pnpm dlx @answerable/cli audit https://example.com
+```
+
+## Commands
+
+| Command | Purpose |
+| --- | --- |
+| `answerable init` | Interactive — 3 prompts → 7 files (5 trust pages + sitemap + robots) |
+| `answerable add <names>` | Install specific templates (space or comma-separated) |
+| `answerable audit <url>` | Fetch and run every registered check; print report |
+| `answerable explain <id>` | Full doc for a single check (the same content as `/docs/checks/<id>`) |
+
+## `answerable audit` flags
+
+| Flag | Description | Default |
+| --- | --- | --- |
+| `--json` | Emit JSON to stdout instead of human-readable | off |
+| `--ci` | Exit non-zero if score < `--min-score` | off |
+| `--min-score <n>` | Score threshold for `--ci` mode | `80` |
+| `--no-color` | Disable ANSI colours (non-TTY pipelines) | colour on |
+
+## Exit codes
+
+| Code | Meaning |
+| --- | --- |
+| `0` | Success (with `--ci`, score ≥ threshold) |
+| `1` | CI threshold not met |
+| `2` | Argument error, unknown check ID, audit failure, or `init`/`add` precondition failed |
+| `130` | User cancelled a prompt |
+
+## Programmatic exports
+
+The CLI is usable as a library — every command has a pure runner that returns `{ stdout, exitCode, error? }`:
+
+| Symbol | Description |
+| --- | --- |
+| `runAuditCommand(url, opts, deps?)` | Pure; inject `{ auditImpl }` for testing |
+| `runExplainCommand(id, opts)` | Pure; returns formatted doc text |
+| `runInitCommand(opts, deps)` | Pure; takes `{ fs, prompter }` |
+| `runAddCommand(names, opts, deps)` | Pure; same shape as init |
+| `createProgram()` | Returns the configured Commander instance |
+| `Fs`, `NodeFs`, `InMemoryFs` | Filesystem abstraction (production + test implementations) |
+| `Prompter`, `ClackPrompter`, `ScriptedPrompter` | Interactive prompts (production + test) |
+
+## Source
+
+[packages/cli](https://github.com/Anuj7411/answerable/tree/main/packages/cli)

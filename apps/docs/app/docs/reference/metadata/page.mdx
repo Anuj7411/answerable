@@ -1,0 +1,61 @@
+# @answerable/metadata
+
+Next.js App Router metadata helpers. Compose `title`, `description`, canonical URL, OpenGraph, Twitter cards, and robots directives from a single typed input — with smart fallbacks across the social-card chain.
+
+## Install
+
+```bash
+pnpm add @answerable/metadata
+```
+
+Requires `next >= 14` (peer dependency).
+
+## Exports
+
+| Symbol | Kind | Description |
+| --- | --- | --- |
+| `defineSeo(input)` | function | Returns a Next.js `Metadata` object covering title / description / canonical / OG / Twitter / robots |
+| `SeoInput` | interface | Top-level input shape |
+| `SeoTitle` | type | String or `{ default, template }` for child-page title interpolation |
+| `SeoOpenGraph` | interface | OG override block |
+| `SeoTwitter` | interface | Twitter override block |
+| `SeoRobots` | interface | Top-level robots + advanced `googleBot` directives |
+
+## Usage
+
+The standard pattern in `app/layout.tsx`:
+
+```tsx
+import { defineSeo } from '@answerable/metadata';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = defineSeo({
+  title: { default: 'Acme', template: '%s — Acme' },
+  description: 'The friendliest widget shop on the internet.',
+  url: 'https://acme.com',
+  siteName: 'Acme',
+  locale: 'en_US',
+  image: 'https://acme.com/og.png',
+});
+```
+
+That one call covers title template, description, canonical, `metadataBase`, OpenGraph (title, description, url, type, siteName, locale, images), Twitter (card, title, description, images), and optional robots directives — every social card and SEO signal Google looks at.
+
+## Smart fallback chain
+
+- A single top-level `image` populates both `openGraph.images` and `twitter.images`.
+- Explicit `openGraph.title` overrides; otherwise OG inherits from top-level title.
+- Twitter inherits from OG, then from top level — set `twitter.images` only when you want a separate Twitter crop.
+
+## Robots conflict guard
+
+Googlebot directives must be *at most as permissive* as the top-level directives. `defineSeo({ robots: { index: false, googleBot: { index: true } } })` rejects with a `SchemaValidationError` — Google can be told to be stricter than the global, never looser.
+
+## Drives audit checks
+
+- **A1** (title length), **A3** (description length), **A4** (canonical URL), **A8** (robots meta)
+- **F1–F7** (OpenGraph + Twitter cards)
+
+## Source
+
+[packages/metadata](https://github.com/Anuj7411/answerable/tree/main/packages/metadata)
