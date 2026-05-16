@@ -1,0 +1,67 @@
+import { Callout } from 'nextra/components';
+
+# @answerable/schemas
+
+Type-safe JSON-LD generators backed by [`schema-dts`](https://github.com/google/schema-dts). Each helper returns a `WithContext<T>` object you stringify into a `<script type="application/ld+json">` tag.
+
+## Install
+
+```bash
+pnpm add @answerable/schemas
+```
+
+## Exports
+
+| Symbol | Returns | Drives audit check |
+| --- | --- | --- |
+| `organization(input)` | `WithContext<Organization>` | **C2** |
+| `webSite(input)` | `WithContext<WebSite>` (with optional `SearchAction`) | **C3** |
+| `faqPage(input)` | `WithContext<FAQPage>` | **C4** |
+| `breadcrumb(input)` | `WithContext<BreadcrumbList>` | **C7** |
+| `article(input)` | `WithContext<Article>` | **C5**, signals for **D7/D8** |
+| `blogPosting(input)` | `WithContext<BlogPosting>` | **C5** |
+| `product(input)` | `WithContext<Product>` | **C6** |
+| `softwareApplication(input)` | `WithContext<SoftwareApplication>` | **C2** (apps) |
+| `howTo(input)` | `WithContext<HowTo>` | **C8** |
+
+All input types (`OrganizationInput`, `FaqPageInput`, etc.) are exported alongside the generator functions.
+
+## Usage
+
+```tsx
+import { organization } from '@answerable/schemas';
+
+const orgSchema = organization({
+  name: 'Acme',
+  url: 'https://acme.com',
+  logo: 'https://acme.com/logo.png',
+  sameAs: [
+    'https://twitter.com/acme',
+    'https://linkedin.com/company/acme',
+    'https://github.com/acme',
+  ],
+});
+
+// Drop into any Next.js page as JSON-LD:
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+/>
+```
+
+<Callout type="info">
+  **Every URL input is validated.** Pass `https://`, `http://`, or have a `InvalidUrlError` thrown immediately. No silent shipping of broken JSON-LD.
+</Callout>
+
+## Validation behaviour
+
+All generators follow two conventions across the package:
+
+- **URL validation throws immediately** — `parseAbsoluteUrl` is used internally on every URL field. The first bad URL throws `InvalidUrlError`.
+- **Other issues batch** — empty required fields, bad ISO 8601 dates, bad currency codes, out-of-range ratings, mismatched template placeholders all accumulate into one `SchemaValidationError` with the full list.
+
+So `article({ headline: '', author: {...}, datePublished: '5/14/2026' })` throws one error listing both the empty headline AND the bad date — never fix-rerun-find-next.
+
+## Source
+
+[packages/schemas](https://github.com/Anuj7411/answerable/tree/main/packages/schemas)

@@ -1,0 +1,74 @@
+# @answerable/audit
+
+The audit engine. Fetches a target URL, parses HTML, runs every registered check in parallel, and returns a structured report with score, severity-grouped findings, evidence, and fix recommendations.
+
+## Install
+
+```bash
+pnpm add @answerable/audit
+```
+
+## Exports
+
+| Symbol | Kind | Description |
+| --- | --- | --- |
+| `audit(url, options?)` | function | Fetches and runs — the convenience wrapper |
+| `runChecks(input)` | function | Pure runner — takes pre-parsed `{ url, html, dom }`, no network |
+| `consoleReport(report, opts?)` | function | Renders an `AuditReport` as a terminal-friendly string |
+| `bandFromScore(score)` | function | Maps integer score to AUDIT-FRAMEWORK band |
+| `fetchAndParse(url, opts?)` | function | Polite static crawler — used internally by `audit()` |
+| `loadHtml(html)` | function | cheerio wrapper exposed for custom integrations |
+| `AuditDom` | type | The cheerio `CheerioAPI` re-exported under our name |
+| `DEFAULT_CHECKS` | const | The full registered check set, in stable order |
+| `AuditReport` | interface | `{ url, fetchedAt, results, score, band, summary }` |
+| `CheckRunResult` | interface | One check's outcome with metadata + earned points |
+| `ScoreBand` | union | `'critical' | 'weak' | 'average' | 'strong' | 'excellent'` |
+| `CrawlError` | class | Thrown on non-2xx or network failure |
+
+Plus 33 individual `Check<AuditDom>` exports (one per registered check: `a1Title`, `b1SingleH1`, etc.) for users building a custom subset.
+
+## Usage
+
+The convenience wrapper that fetches and runs:
+
+```ts
+import { audit, consoleReport } from '@answerable/audit';
+
+const report = await audit('https://example.com');
+console.log(consoleReport(report));
+```
+
+The pure runner for tests or library integrations:
+
+```ts
+import { runChecks, loadHtml } from '@answerable/audit';
+import { parseAbsoluteUrl } from '@answerable/core';
+
+const html = '<!doctype html><html lang="en"><head><title>...</title></head>...';
+const report = await runChecks({
+  url: parseAbsoluteUrl('https://example.com'),
+  html,
+  dom: loadHtml(html),
+});
+```
+
+## A custom check subset
+
+```ts
+import { runChecks, a1Title, a3Description, c1JsonLd } from '@answerable/audit';
+
+const report = await runChecks({
+  url, html, dom,
+  checks: [a1Title, a3Description, c1JsonLd],
+});
+```
+
+Score is computed against the checks that actually ran — a partial-suite run scores on its own denominator rather than always against 100.
+
+## Scoring
+
+See [the audit framework page](/docs/audit-framework) for the full scoring model, band thresholds, and conventions.
+
+## Source
+
+[packages/audit](https://github.com/Anuj7411/answerable/tree/main/packages/audit)

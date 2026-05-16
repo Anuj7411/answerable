@@ -1,0 +1,67 @@
+# @answerable/core
+
+The shared foundation every other Answerable package builds on. Branded URL types, error classes with stable codes, severity / category enums, and the `Check<T>` interface that the audit framework runs against.
+
+## Install
+
+```bash
+pnpm add @answerable/core
+```
+
+## Exports
+
+| Symbol | Kind | Description |
+| --- | --- | --- |
+| `AbsoluteUrl`, `URLString` | branded types | `string` subtypes that can't be substituted by plain strings at compile time |
+| `parseAbsoluteUrl(s)` | function | Validates `s` and returns an `AbsoluteUrl`; throws `InvalidUrlError` on failure |
+| `tryParseAbsoluteUrl(s)` | function | Non-throwing variant; returns `null` on failure |
+| `AnswerableError` | class | Base error class with a stable `code: string` (survives realm boundaries unlike `instanceof`) |
+| `InvalidUrlError` | class | Thrown when a value claimed to be a URL fails validation |
+| `SchemaValidationError` | class | Thrown when input validation collects ≥1 issue; carries the full `issues` list |
+| `Severity` | type | `'critical' | 'high' | 'medium' | 'low'` |
+| `SEVERITY_ORDER` | const | Severities in descending-urgency order |
+| `Category` | type | The six audit categories (`meta-and-technical`, `content-structure`, ...) |
+| `CATEGORY_ID_PREFIX` | const | Maps each category to its single-letter ID prefix (A/B/C/D/E/F) |
+| `CATEGORY_POINT_BUDGET` | const | Per-category point budget; sums to exactly 100 |
+| `Check<TDom>` | interface | One audit check definition — id, category, severity, points, `run()`, optional `autoFix` |
+| `defineCheck()` | function | Identity helper that gives TS a chance to infer the generic on a check definition |
+
+## Usage
+
+```ts
+import { parseAbsoluteUrl, InvalidUrlError } from '@answerable/core';
+
+try {
+  const url = parseAbsoluteUrl(userInput);
+  // `url` is now an AbsoluteUrl — guaranteed to be `http(s)://...`
+} catch (e) {
+  if (e instanceof InvalidUrlError) {
+    console.error(`Bad URL: ${e.input} (${e.code})`);
+  }
+}
+```
+
+Or compose `defineCheck()` to author a custom audit check:
+
+```ts
+import { defineCheck } from '@answerable/core';
+import type { AuditDom } from '@answerable/audit';
+
+export const customCheck = defineCheck<AuditDom>({
+  id: 'X1',
+  category: 'meta-and-technical',
+  severity: 'high',
+  points: 2,
+  description: 'My organization-specific check',
+  rationale: 'Because we have rules.',
+  docsUrl: 'https://internal-docs/checks/X1',
+  run: ({ dom }) => {
+    const flag = dom('meta[name="x-internal"]').attr('content');
+    return flag === 'ok' ? { status: 'pass' } : { status: 'fail' };
+  },
+});
+```
+
+## Source
+
+[packages/core](https://github.com/Anuj7411/answerable/tree/main/packages/core)
