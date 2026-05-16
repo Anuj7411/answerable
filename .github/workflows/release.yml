@@ -41,8 +41,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm build
+      # No explicit build step — the publish action below invokes
+      # `pnpm release`, which runs `turbo run build --filter='./packages/*'`
+      # under the hood. Docs (`apps/docs`) and examples are excluded
+      # because they aren't published to npm and have heavier build
+      # toolchains (Next.js, Nextra) that block releases unnecessarily.
 
       - name: Create Release PR or publish
         uses: changesets/action@v1
