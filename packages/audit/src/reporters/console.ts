@@ -1,4 +1,5 @@
 import kleur from 'kleur';
+import { DEFAULT_CHECKS, TOTAL_PLANNED_CHECKS } from '../checks/registry.js';
 import type { AuditReport, CheckRunResult, ScoreBand } from '../types.js';
 
 const SEVERITY_ORDER = ['critical', 'high', 'medium', 'low'] as const;
@@ -77,6 +78,18 @@ export function consoleReport(report: AuditReport, options: ConsoleReportOptions
       lines.push(c.dim(`  ${r.id} · ${r.description}`));
     }
   }
+
+  // Framework coverage footer. Tells a user scoring 100/100 that they
+  // are scored against the currently-shipped subset, not the full spec
+  // — which prevents "perfect site forever" misreads as more checks
+  // land. Numbers come from the registry, so this stays accurate as
+  // we ship new checks without anyone remembering to bump it.
+  lines.push('');
+  lines.push(
+    c.dim(
+      `${DEFAULT_CHECKS.length} of ${TOTAL_PLANNED_CHECKS} audit checks active — see https://github.com/Anuj7411/answerable for the full framework`,
+    ),
+  );
 
   return lines.join('\n');
 }

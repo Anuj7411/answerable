@@ -96,4 +96,11 @@ describe('consoleReport', () => {
     const out = consoleReport(report, { color: false });
     expect(out).toMatch(/\d+ pass · \d+ fail · \d+ warn · \d+ skip/);
   });
+
+  it('shows a framework-coverage footer so 100/100 results stay honest', async () => {
+    const report = await runChecks({ url: URL, html: PERFECT_HTML, dom: loadHtml(PERFECT_HTML) });
+    const out = consoleReport(report, { color: false });
+    expect(out).toMatch(/\d+ of 50 audit checks active/);
+    expect(out).toContain('github.com/Anuj7411/answerable');
+  });
 });

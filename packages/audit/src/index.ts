@@ -19,7 +19,7 @@ export {
 
 export { type AuditDom, loadHtml } from './parser.js';
 
-export { DEFAULT_CHECKS } from './checks/registry.js';
+export { DEFAULT_CHECKS, TOTAL_PLANNED_CHECKS } from './checks/registry.js';
 
 export {
   audit,

@@ -35,6 +35,15 @@ import { f6TwitterCard } from './f6-twitter-card.js';
 import { f7TwitterImage } from './f7-twitter-image.js';
 
 /**
+ * Total number of audit checks planned in the full AUDIT-FRAMEWORK.md
+ * spec. `DEFAULT_CHECKS.length` divided by this number is the engine's
+ * current spec coverage (~63% at v0.1.x). Surfaced in reporters so
+ * users know the framework is shipping incrementally rather than
+ * inferring "100/100 means perfect site forever."
+ */
+export const TOTAL_PLANNED_CHECKS = 50;
+
+/**
  * Every check registered with the audit engine, in stable AUDIT-FRAMEWORK
  * order. Subsequent PRs append to this list — never reorder, never
  * renumber. Stable IDs (`A1`, `A3`, ...) are part of the public API
