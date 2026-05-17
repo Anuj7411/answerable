@@ -34,29 +34,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Node 24 ships with npm >= 11.5.1, which is required for
+          # Trusted Publishing's OIDC token exchange. Node 20 ships
+          # with npm 10.x and fails the auth handshake silently.
+          node-version: 24
           cache: pnpm
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Upgrade npm to latest
+        # Belt-and-braces: even with Node 24, pin npm to the latest
+        # release so future-dated runs don't regress if Node's bundled
+        # version drifts. Trusted Publishing requires >= 11.5.1.
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name: Debug — verify npm token auth
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "=== .npmrc contents (token redacted) ==="
-          cat $NPM_CONFIG_USERCONFIG 2>/dev/null | sed 's/_authToken=.*/_authToken=***/' || cat ~/.npmrc 2>/dev/null | sed 's/_authToken=.*/_authToken=***/'
-          echo ""
-          echo "=== npm whoami ==="
-          npm whoami || echo "WHOAMI FAILED — token is invalid"
-          echo ""
-          echo "=== npm access ls-packages (what the token can write) ==="
-          npm access list packages 2>&1 | head -30 || echo "ACCESS LIST FAILED"
-          echo ""
-          echo "=== Token type check (Bearer prefix means granular) ==="
-          token="${NPM_TOKEN}"
-          echo "Token starts with: ${token:0:4}***"
 
       # No explicit build step — the publish action below invokes
       # `pnpm release`, which runs `turbo run build --filter='./packages/*'`
@@ -75,10 +67,12 @@ jobs:
           title: 'chore(release): version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # Emit a build provenance attestation (verifiable supply-chain
-          # claim signed via the `id-token: write` permission above).
-          # Visible on the npm package page and verifiable at install
-          # time. Was temporarily disabled for the v0.1.0 bootstrap
-          # publish — re-enabled now that the packages exist on npm.
-          NPM_CONFIG_PROVENANCE: 'true'
+          # No NPM_TOKEN — authentication uses Trusted Publishing
+          # (OIDC) via the `id-token: write` permission above. Each
+          # @answerable-kit/* package is configured on npm to trust
+          # GitHub Actions for this repo's release.yml workflow.
+          # See: https://docs.npmjs.com/trusted-publishers
+          #
+          # Provenance attestations are emitted automatically under
+          # the Trusted Publishing flow — no NPM_CONFIG_PROVENANCE
+          # flag needed.
