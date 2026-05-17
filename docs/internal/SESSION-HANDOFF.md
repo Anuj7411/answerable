@@ -36,11 +36,11 @@ Phase 1 of [ROADMAP.md](./ROADMAP.md) is ~90% complete. Remaining: rename packag
 
 ## Active task
 
-Rename from `@answerable/` to `@answerable-toolkit/`, then publish v0.1.0. This is what we were in the middle of when the previous session's token budget ran out. **Resume here.**
+Rename from `@answerable/` to `@answerable-kit/`, then publish v0.1.0. This is what we were in the middle of when the previous session's token budget ran out. **Resume here.**
 
 ### Why the rename
 
-Our packages are coded as `@answerable/core`, `@answerable/schemas`, etc. The user tried to claim the `@answerable` org on npm but **it's taken by someone else**. They then mistakenly created `@answerable.dev` (with the dot), realized that was brittle (couples npm-scope to a domain they don't yet own), and as of session end were creating **`@answerable-toolkit`** instead.
+Our packages are coded as `@answerable/core`, `@answerable/schemas`, etc. The user tried to claim the `@answerable` org on npm but **it's taken by someone else**. They then mistakenly created `@answerable.dev` (with the dot), realized that was brittle (couples npm-scope to a domain they don't yet own), and as of session end were creating **`@answerable-kit`** instead.
 
 ### What's confirmed
 
@@ -48,19 +48,19 @@ Our packages are coded as `@answerable/core`, `@answerable/schemas`, etc. The us
 - ✅ User has owner access on npmjs.com
 - ✅ User has Workflow permissions toggle on in repo Settings (Allow GH Actions to create + approve PRs)
 - ✅ User created `@answerable.dev` npm org (mistakenly — should delete)
-- 🟡 User was *about to* create `@answerable-toolkit` npm org when the session ended
+- ✅ User created `@answerable-kit` npm org (owner: `anujojha18`) — confirmed live with the default `Developers` team in place
 - ❌ User has NOT yet generated NPM_TOKEN
 - ❌ User has NOT yet added NPM_TOKEN to repo secrets
 - ❌ The renaming PR has NOT yet been written
 
 ### Exact next steps the new session should drive
 
-**Step 1 — Confirm `@answerable-toolkit` org exists.** Ask: *"Did you create the `answerable-toolkit` org on npm? Confirming before I push the rename PR."* Wait for confirmation. If they say "no" or "yes but used a different name", adjust the rename target accordingly.
+**Step 1 — Org already exists.** `@answerable-kit` was created at end of previous session (owner `anujojha18`). No need to re-ask — go straight to Step 2.
 
-**Step 2 — Open the renaming PR.** Once confirmed, do the find-replace yourself. Every `@answerable/<pkg>` becomes `@answerable-toolkit/<pkg>`. Touches roughly:
+**Step 2 — Open the renaming PR.** Once confirmed, do the find-replace yourself. Every `@answerable/<pkg>` becomes `@answerable-kit/<pkg>`. Touches roughly:
 
 - 7 `package.json` files in `packages/*`
-- All workspace dep references (`"@answerable/core": "workspace:*"` → `"@answerable-toolkit/core": "workspace:*"`) in dependent packages
+- All workspace dep references (`"@answerable/core": "workspace:*"` → `"@answerable-kit/core": "workspace:*"`) in dependent packages
 - All `import { ... } from '@answerable/*'` statements in `packages/*/src/**/*.ts` and `packages/*/src/**/*.test.ts`
 - The `examples/basic-nextjs/` app (package.json deps + imports + README + page content showing the scope)
 - The `apps/docs/` site (package.json dep + import in `app/docs/checks/[id]/page.tsx` + every recipe and reference MDX file mentioning the scope)
@@ -74,7 +74,7 @@ After find/replace:
 - `pnpm install` (lockfile changes — workspace dep names shifted)
 - `pnpm check` (typecheck + lint + tests) — must pass
 - Add a single changeset describing the rename (all 7 packages, minor bump)
-- Open PR titled `chore: rename packages from @answerable/* to @answerable-toolkit/*`
+- Open PR titled `chore: rename packages from @answerable/* to @answerable-kit/*`
 - Wait for CI green, squash-merge
 
 **Step 3 — Supersede PR #20.** The current PR #20 ("chore(release): version packages") was generated against the OLD names. After the rename merges, it will conflict. Best path: close PR #20 manually before the rename, then the workflow opens a fresh Version PR after rename merges.
@@ -89,7 +89,7 @@ After find/replace:
 
 **Step 5 — User merges the (new) Version PR.** Triggers release workflow. Publishes packages.
 
-**Step 6 — Verify.** Check `https://www.npmjs.com/package/@answerable-toolkit/cli` resolves. Run `pnpm dlx @answerable-toolkit/cli audit https://example.com` to confirm install-from-npm works.
+**Step 6 — Verify.** Check `https://www.npmjs.com/package/@answerable-kit/cli` resolves. Run `pnpm dlx @answerable-kit/cli audit https://example.com` to confirm install-from-npm works.
 
 **Step 7 — Small README tweak.** Replace the line *"First npm publish lands when the audit framework reaches 50/50 checks"* with a real install instruction reflecting that v0.1.0 is now live.
 
@@ -265,7 +265,7 @@ Observed style notes:
 - They appreciate detail when something complex happens (architecture explanations, design tradeoffs), but expect terse answers to direct questions.
 - They're new to some operational flows (npm publishing, npm orgs, GH Actions secrets) so **step-by-step tutorials with verification at each step** work well when the task is hands-on.
 - They make the strategic calls (which path to take), I make the tactical calls (how to execute).
-- They sometimes pivot mid-task (e.g. went from `@answerable.dev` to `@answerable-toolkit` for clean architectural reasons). Adjust without complaining about lost work.
+- They sometimes pivot mid-task (e.g. went from `@answerable.dev` to `@answerable-kit` for clean architectural reasons). Adjust without complaining about lost work.
 
 ---
 
@@ -337,11 +337,11 @@ git checkout main && git pull
 
 ## The exact decision the new session should drive first
 
-The user's last action in the previous session was looking at the npm org creation page for **`answerable-toolkit`** with a screenshot showing the form. They had NOT yet confirmed the org was created.
+The user's last action was confirming **`@answerable-kit`** npm org is created and live (screenshot showed "answerable-kit was created with a default team called Developers", owner `anujojha18`). They considered `@answerable-toolkit` first but switched to the shorter `@answerable-kit` after a recommendation comparing on-brand short options (`@answerablejs`, `@answerable-kit`, `@useanswerable`).
 
 **Your opening message in the next session should be something like:**
 
-> "Welcome back. Picking up where we left off — you were about to create the `answerable-toolkit` npm org. **Did you create it?** Once you confirm it's live, I'll push the renaming PR (about 15 minutes of mechanical find-replace) so we can keep moving toward the v0.1.0 publish.
+> "Welcome back. `@answerable-kit` npm org is confirmed live from last session. I'll push the renaming PR now (`@answerable/*` → `@answerable-kit/*`, ~15 min mechanical find-replace) so we can keep moving toward the v0.1.0 publish.
 >
 > While you confirm, I'll start prepping the rename PR in the background — touching ~150 references across packages, docs, example, and README. I won't merge until you've confirmed the org exists and reviewed the PR."
 
@@ -357,14 +357,14 @@ Then either:
 
 By the end of the next session, the user should have:
 
-1. ✅ `@answerable-toolkit` org on npm with them as owner
+1. ✅ `@answerable-kit` org on npm with them as owner
 2. ✅ Renaming PR merged to main
 3. ✅ Old PR #20 closed (stale)
 4. ✅ New Version PR auto-opened (or opened by you with `gh`) with bumps for the renamed packages
 5. ✅ `NPM_TOKEN` in repo secrets
 6. ✅ Version PR merged
-7. ✅ Release workflow green; all 7 packages published as `@answerable-toolkit/<pkg>@0.1.0`
-8. ✅ `pnpm dlx @answerable-toolkit/cli audit https://example.com` works from any machine in the world
+7. ✅ Release workflow green; all 7 packages published as `@answerable-kit/<pkg>@0.1.0`
+8. ✅ `pnpm dlx @answerable-kit/cli audit https://example.com` works from any machine in the world
 9. ✅ Root README updated to remove the "first publish at 50/50 checks" line
 
 After that, **Step 17 — what's next.** Three paths to choose from:
