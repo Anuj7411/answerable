@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 /** Anything longer than this in visible body text is treated as "long enough to warrant chunking". */

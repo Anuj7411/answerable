@@ -1,5 +1,5 @@
-import { defineSeo } from '@answerable/metadata';
-import { organization } from '@answerable/schemas';
+import { defineSeo } from '@answerable-kit/metadata';
+import { organization } from '@answerable-kit/schemas';
 
 export const metadata = defineSeo({
   title: 'About Basic Next.js Example',

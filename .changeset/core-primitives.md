@@ -1,5 +1,5 @@
 ---
-"@answerable/core": minor
+"@answerable-kit/core": minor
 ---
 
 Introduce the core primitives every other Answerable package builds on:

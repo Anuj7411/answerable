@@ -1,5 +1,5 @@
 {
-  "name": "@answerable/cli",
+  "name": "@answerable-kit/cli",
   "version": "0.0.0",
   "description": "The `answerable` command — runs audits, prints reports, explains checks.",
   "license": "MIT",
@@ -39,9 +39,9 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@answerable/audit": "workspace:*",
-    "@answerable/core": "workspace:*",
-    "@answerable/templates": "workspace:*",
+    "@answerable-kit/audit": "workspace:*",
+    "@answerable-kit/core": "workspace:*",
+    "@answerable-kit/templates": "workspace:*",
     "@clack/prompts": "^0.9.0",
     "commander": "^13.0.0",
     "kleur": "^4.1.5"

@@ -1,5 +1,5 @@
 /**
- * @answerable/audit — audit engine for the Answerable SEO toolkit.
+ * @answerable-kit/audit — audit engine for the Answerable SEO toolkit.
  * Fetches a target URL, parses HTML, runs every registered check in
  * parallel, and returns a structured report. Ships with foundations
  * + the first 5 checks (A1, A3, A4, A5, C1); the remaining 45 land

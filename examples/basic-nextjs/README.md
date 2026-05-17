@@ -33,7 +33,7 @@ Visit http://localhost:3000 and try:
 
 ```bash
 # In another terminal — audit your local dev server:
-pnpm dlx @answerable/cli audit http://localhost:3000
+pnpm dlx @answerable-kit/cli audit http://localhost:3000
 ```
 
 You should see a score around 80+ out of 100. The remaining points are content-quality checks (B-series) and off-site signals (E-series) that this minimal example doesn't bother to fake.
@@ -58,4 +58,4 @@ EFFECTIVE_DATE  = 2026-05-15
 JURISDICTION    = the State of Delaware, USA
 ```
 
-If you change the templates in `@answerable/templates`, run `answerable init` in this directory and accept overwrites to regenerate.
+If you change the templates in `@answerable-kit/templates`, run `answerable init` in this directory and accept overwrites to regenerate.

@@ -8,10 +8,10 @@ import { Callout } from 'nextra/components';
 
 ## Recommended way: `defineSeo()`
 
-If you're using `@answerable/metadata`, the canonical is one field:
+If you're using `@answerable-kit/metadata`, the canonical is one field:
 
 ```tsx filename="app/layout.tsx"
-import { defineSeo } from '@answerable/metadata';
+import { defineSeo } from '@answerable-kit/metadata';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = defineSeo({
@@ -29,7 +29,7 @@ export const metadata: Metadata = defineSeo({
 When a child page should canonicalize to a different URL than its layout:
 
 ```tsx filename="app/products/widget/page.tsx"
-import { defineSeo } from '@answerable/metadata';
+import { defineSeo } from '@answerable-kit/metadata';
 
 export const metadata = defineSeo({
   title: 'Widget',
@@ -42,7 +42,7 @@ Each page gets its own canonical. Pagination, tagged views, and UTM-laden share 
 
 ## Manual way (without `defineSeo`)
 
-If you're not using `@answerable/metadata`, the Next.js shorthand:
+If you're not using `@answerable-kit/metadata`, the Next.js shorthand:
 
 ```tsx filename="app/layout.tsx"
 import type { Metadata } from 'next';
@@ -64,7 +64,7 @@ Note `metadataBase` — without it, Next.js emits warnings about resolving relat
 - **Trailing-slash mismatch.** Pick one (with or without `/`) and stick with it across canonical, sitemap, OG URL, and the actual route. Mixing them is the #1 way to split ranking signal.
 
 <Callout type="warning">
-  **Audit it.** Run `pnpm dlx @answerable/cli audit https://your-site.com` after deploying to confirm A4 is now passing.
+  **Audit it.** Run `pnpm dlx @answerable-kit/cli audit https://your-site.com` after deploying to confirm A4 is now passing.
 </Callout>
 
 ## See also

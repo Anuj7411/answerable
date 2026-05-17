@@ -1,13 +1,13 @@
 import { Callout } from 'nextra/components';
 
-# @answerable/schemas
+# @answerable-kit/schemas
 
 Type-safe JSON-LD generators backed by [`schema-dts`](https://github.com/google/schema-dts). Each helper returns a `WithContext<T>` object you stringify into a `<script type="application/ld+json">` tag.
 
 ## Install
 
 ```bash
-pnpm add @answerable/schemas
+pnpm add @answerable-kit/schemas
 ```
 
 ## Exports
@@ -29,7 +29,7 @@ All input types (`OrganizationInput`, `FaqPageInput`, etc.) are exported alongsi
 ## Usage
 
 ```tsx
-import { organization } from '@answerable/schemas';
+import { organization } from '@answerable-kit/schemas';
 
 const orgSchema = organization({
   name: 'Acme',

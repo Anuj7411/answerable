@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 const VALID_CARDS = new Set(['summary', 'summary_large_image', 'app', 'player']);

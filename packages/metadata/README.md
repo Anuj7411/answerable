@@ -1,4 +1,4 @@
-# @answerable/metadata
+# @answerable-kit/metadata
 
 Next.js App Router metadata helpers for the [Answerable](https://github.com/Anuj7411/answerable) SEO toolkit. Compose `title`, `description`, canonical URL, OpenGraph, Twitter, and robots directives from a single typed input — with smart fallbacks across the social-card chain.
 
@@ -7,7 +7,7 @@ Next.js App Router metadata helpers for the [Answerable](https://github.com/Anuj
 ## Install
 
 ```bash
-pnpm add @answerable/metadata
+pnpm add @answerable-kit/metadata
 # requires next >= 14
 ```
 
@@ -15,7 +15,7 @@ pnpm add @answerable/metadata
 
 ```tsx
 // app/layout.tsx
-import { defineSeo } from '@answerable/metadata';
+import { defineSeo } from '@answerable-kit/metadata';
 
 export const metadata = defineSeo({
   title: { default: 'Acme', template: '%s — Acme' },

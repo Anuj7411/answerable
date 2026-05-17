@@ -1,5 +1,5 @@
 ---
-"@answerable/audit": minor
+"@answerable-kit/audit": minor
 ---
 
 Add 16 more checks to the audit registry: content structure (B), E-E-A-T trust signals (D), and off-site citations (E). Audit grows from 17 → **33 checks** covering **~63 of 100 points**.

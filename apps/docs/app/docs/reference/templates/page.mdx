@@ -1,4 +1,4 @@
-# @answerable/templates
+# @answerable-kit/templates
 
 Page templates the Answerable CLI installs into a user's Next.js project. Each template is a complete `.tsx` page wired up with `defineSeo()` + the matching JSON-LD generator — drop one in and you have a working, audit-ready page.
 
@@ -7,7 +7,7 @@ You usually don't import this package directly; the CLI does. It's exposed so cu
 ## Install
 
 ```bash
-pnpm add @answerable/templates
+pnpm add @answerable-kit/templates
 ```
 
 ## Exports
@@ -46,7 +46,7 @@ Token names match `{{[A-Z][A-Z0-9_]*}}` — uppercase, digits, underscores. JSX-
 ## Usage
 
 ```ts
-import { renderTemplate } from '@answerable/templates';
+import { renderTemplate } from '@answerable-kit/templates';
 
 const source = renderTemplate('about', {
   PROJECT_NAME: 'Acme',

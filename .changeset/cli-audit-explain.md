@@ -1,8 +1,8 @@
 ---
-"@answerable/cli": minor
+"@answerable-kit/cli": minor
 ---
 
-Scaffold `@answerable/cli` — the seventh and final library package — exposing the `answerable` command. Wraps the audit engine for terminal and CI use.
+Scaffold `@answerable-kit/cli` — the seventh and final library package — exposing the `answerable` command. Wraps the audit engine for terminal and CI use.
 
 **Commands shipping today:**
 

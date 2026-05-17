@@ -1,5 +1,5 @@
-import { defineSeo } from '@answerable/metadata';
-import { faqPage } from '@answerable/schemas';
+import { defineSeo } from '@answerable-kit/metadata';
+import { faqPage } from '@answerable-kit/schemas';
 
 export const metadata = defineSeo({
   title: 'FAQ — Basic Next.js Example',

@@ -1,8 +1,8 @@
 ---
-"@answerable/schemas": minor
+"@answerable-kit/schemas": minor
 ---
 
-Add `howTo()` — the eighth and final Phase 1 generator, completing the `@answerable/schemas` package:
+Add `howTo()` — the eighth and final Phase 1 generator, completing the `@answerable-kit/schemas` package:
 
 - **`howTo(input)`** — emits `WithContext<HowTo>` with `name`, ordered `step` array (auto-numbered `position`), optional `description`, `totalTime`, `image`, `supply`, and `tool`. Drives audit check **C8**.
 - **`HowToStepInput`** — `name` + `text` required; optional `image` and `url` for richer steps (e.g. video timestamps).

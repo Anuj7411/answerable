@@ -1,4 +1,4 @@
-import { SchemaValidationError } from '@answerable/core';
+import { SchemaValidationError } from '@answerable-kit/core';
 import type { FAQPage } from 'schema-dts';
 import type { Schema } from './_internal.js';
 

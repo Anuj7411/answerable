@@ -1,4 +1,4 @@
-import { SchemaValidationError } from '@answerable/core';
+import { SchemaValidationError } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { softwareApplication } from './software-application.js';
 

@@ -1,4 +1,4 @@
-import { SchemaValidationError, parseAbsoluteUrl } from '@answerable/core';
+import { SchemaValidationError, parseAbsoluteUrl } from '@answerable-kit/core';
 import type { Article, BlogPosting, Organization, Person } from 'schema-dts';
 import type { Schema } from './_internal.js';
 

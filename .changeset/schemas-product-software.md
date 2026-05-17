@@ -1,5 +1,5 @@
 ---
-"@answerable/schemas": minor
+"@answerable-kit/schemas": minor
 ---
 
 Add `product()` and `softwareApplication()` generators with shared commerce primitives:

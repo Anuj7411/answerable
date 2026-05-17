@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "turbo run build",
-    "build:packages": "turbo run build --filter=@answerable/* --filter=!@answerable/docs --filter=!@answerable/example-basic-nextjs",
+    "build:packages": "turbo run build --filter=@answerable-kit/* --filter=!@answerable-kit/docs --filter=!@answerable-kit/example-basic-nextjs",
     "test": "turbo run test",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",

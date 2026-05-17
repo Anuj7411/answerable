@@ -1,4 +1,4 @@
-import { defineSeo } from '@answerable/metadata';
+import { defineSeo } from '@answerable-kit/metadata';
 
 export const metadata = defineSeo({
   title: 'Privacy Policy — Basic Next.js Example',

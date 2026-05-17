@@ -1,8 +1,8 @@
 {
-  "name": "@answerable/example-basic-nextjs",
+  "name": "@answerable-kit/example-basic-nextjs",
   "version": "0.0.0",
   "private": true,
-  "description": "Minimal Next.js App Router example demonstrating every @answerable/* package wired together.",
+  "description": "Minimal Next.js App Router example demonstrating every @answerable-kit/* package wired together.",
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -11,10 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@answerable/audit": "workspace:*",
-    "@answerable/metadata": "workspace:*",
-    "@answerable/schemas": "workspace:*",
-    "@answerable/sitemap": "workspace:*",
+    "@answerable-kit/audit": "workspace:*",
+    "@answerable-kit/metadata": "workspace:*",
+    "@answerable-kit/schemas": "workspace:*",
+    "@answerable-kit/sitemap": "workspace:*",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

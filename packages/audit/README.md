@@ -1,4 +1,4 @@
-# @answerable/audit
+# @answerable-kit/audit
 
 The audit engine for the [Answerable](https://github.com/Anuj7411/answerable) SEO toolkit. Fetches a target URL, parses the HTML, runs every registered check in parallel, and returns a structured report with score, severity-grouped findings, evidence, and fix recommendations.
 
@@ -7,13 +7,13 @@ The audit engine for the [Answerable](https://github.com/Anuj7411/answerable) SE
 ## Install
 
 ```bash
-pnpm add @answerable/audit
+pnpm add @answerable-kit/audit
 ```
 
 ## Usage
 
 ```ts
-import { audit, consoleReport } from '@answerable/audit';
+import { audit, consoleReport } from '@answerable-kit/audit';
 
 const report = await audit('https://example.com');
 console.log(consoleReport(report));
@@ -22,9 +22,9 @@ console.log(consoleReport(report));
 Or pass a pre-parsed DOM in if you already have one (handy in tests and CI):
 
 ```ts
-import { runChecks } from '@answerable/audit';
-import { loadHtml } from '@answerable/audit/parser';
-import { parseAbsoluteUrl } from '@answerable/core';
+import { runChecks } from '@answerable-kit/audit';
+import { loadHtml } from '@answerable-kit/audit/parser';
+import { parseAbsoluteUrl } from '@answerable-kit/core';
 
 const html = '<!doctype html><html lang="en"><head><title>...</title></head>...';
 const report = await runChecks({

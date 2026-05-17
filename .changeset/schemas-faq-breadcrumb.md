@@ -1,5 +1,5 @@
 ---
-"@answerable/schemas": minor
+"@answerable-kit/schemas": minor
 ---
 
 Add two more JSON-LD generators and refactor the shared narrowing pattern into an internal helper:

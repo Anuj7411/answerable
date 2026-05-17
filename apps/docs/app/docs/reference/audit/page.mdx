@@ -1,11 +1,11 @@
-# @answerable/audit
+# @answerable-kit/audit
 
 The audit engine. Fetches a target URL, parses HTML, runs every registered check in parallel, and returns a structured report with score, severity-grouped findings, evidence, and fix recommendations.
 
 ## Install
 
 ```bash
-pnpm add @answerable/audit
+pnpm add @answerable-kit/audit
 ```
 
 ## Exports
@@ -32,7 +32,7 @@ Plus 33 individual `Check<AuditDom>` exports (one per registered check: `a1Title
 The convenience wrapper that fetches and runs:
 
 ```ts
-import { audit, consoleReport } from '@answerable/audit';
+import { audit, consoleReport } from '@answerable-kit/audit';
 
 const report = await audit('https://example.com');
 console.log(consoleReport(report));
@@ -41,8 +41,8 @@ console.log(consoleReport(report));
 The pure runner for tests or library integrations:
 
 ```ts
-import { runChecks, loadHtml } from '@answerable/audit';
-import { parseAbsoluteUrl } from '@answerable/core';
+import { runChecks, loadHtml } from '@answerable-kit/audit';
+import { parseAbsoluteUrl } from '@answerable-kit/core';
 
 const html = '<!doctype html><html lang="en"><head><title>...</title></head>...';
 const report = await runChecks({
@@ -55,7 +55,7 @@ const report = await runChecks({
 ## A custom check subset
 
 ```ts
-import { runChecks, a1Title, a3Description, c1JsonLd } from '@answerable/audit';
+import { runChecks, a1Title, a3Description, c1JsonLd } from '@answerable-kit/audit';
 
 const report = await runChecks({
   url, html, dom,

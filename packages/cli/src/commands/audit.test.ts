@@ -1,5 +1,5 @@
-import type { AuditReport, CheckRunResult, ScoreBand } from '@answerable/audit';
-import { parseAbsoluteUrl } from '@answerable/core';
+import type { AuditReport, CheckRunResult, ScoreBand } from '@answerable-kit/audit';
+import { parseAbsoluteUrl } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { runAuditCommand } from './audit.js';
 

@@ -1,4 +1,4 @@
-import { SchemaValidationError } from '@answerable/core';
+import { SchemaValidationError } from '@answerable-kit/core';
 import type { TokenValues } from './types.js';
 
 /**

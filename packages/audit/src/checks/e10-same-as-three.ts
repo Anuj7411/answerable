@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 const MIN_SAME_AS = 3;
@@ -67,7 +67,7 @@ export const e10SameAsThree = defineCheck<AuditDom>({
     if (best.length === 0) {
       return {
         status: 'fail',
-        fixRecommendation: `Add a sameAs array to your Organization JSON-LD with ≥${MIN_SAME_AS} authoritative profile URLs. Use organization({ sameAs: [...] }) from @answerable/schemas.`,
+        fixRecommendation: `Add a sameAs array to your Organization JSON-LD with ≥${MIN_SAME_AS} authoritative profile URLs. Use organization({ sameAs: [...] }) from @answerable-kit/schemas.`,
       };
     }
     if (best.length < MIN_SAME_AS) {

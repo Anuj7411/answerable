@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 export const e11LinkedinLinked = defineCheck<AuditDom>({

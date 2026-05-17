@@ -1,5 +1,5 @@
 /**
- * @answerable/schemas — type-safe JSON-LD generators for the
+ * @answerable-kit/schemas — type-safe JSON-LD generators for the
  * Answerable SEO toolkit. Each helper returns a `WithContext<T>`
  * object from `schema-dts` (narrowed to remove the IRI-reference
  * variant) that's ready to be embedded as

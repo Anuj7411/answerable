@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 interface JsonLdSummary {
@@ -42,7 +42,7 @@ export const c1JsonLd = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Add a JSON-LD block. Start with organization() from @answerable/schemas in your root layout.',
+          'Add a JSON-LD block. Start with organization() from @answerable-kit/schemas in your root layout.',
       };
     }
 

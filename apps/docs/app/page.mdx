@@ -8,13 +8,13 @@ Install a few packages, run one command, and your Next.js site is SEO-ready, AI-
 
 ```bash
 # In an existing Next.js project:
-pnpm add @answerable/schemas @answerable/metadata @answerable/sitemap @answerable/audit
+pnpm add @answerable-kit/schemas @answerable-kit/metadata @answerable-kit/sitemap @answerable-kit/audit
 
 # Scaffold trust pages + sitemap + robots:
-pnpm dlx @answerable/cli init
+pnpm dlx @answerable-kit/cli init
 
 # Audit the result against 33 production-tested checks:
-pnpm dlx @answerable/cli audit http://localhost:3000
+pnpm dlx @answerable-kit/cli audit http://localhost:3000
 ```
 
 A score of 85+ on first audit is the design target. The [`examples/basic-nextjs`](https://github.com/Anuj7411/answerable/tree/main/examples/basic-nextjs) example scores 90+ out of the box.
@@ -27,13 +27,13 @@ A score of 85+ on first audit is the design target. The [`examples/basic-nextjs`
 
 | Package | Purpose |
 | --- | --- |
-| `@answerable/core` | Branded URL types, errors, the `Check<T>` interface |
-| `@answerable/schemas` | Type-safe JSON-LD generators (8 of them) |
-| `@answerable/metadata` | `defineSeo()` — Next.js metadata helpers |
-| `@answerable/sitemap` | `buildSitemap()` with smart path-based defaults |
-| `@answerable/templates` | Five trust-signal page templates |
-| `@answerable/audit` | Cheerio-backed audit engine (33 of 50 checks) |
-| `@answerable/cli` | The `answerable` command |
+| `@answerable-kit/core` | Branded URL types, errors, the `Check<T>` interface |
+| `@answerable-kit/schemas` | Type-safe JSON-LD generators (8 of them) |
+| `@answerable-kit/metadata` | `defineSeo()` — Next.js metadata helpers |
+| `@answerable-kit/sitemap` | `buildSitemap()` with smart path-based defaults |
+| `@answerable-kit/templates` | Five trust-signal page templates |
+| `@answerable-kit/audit` | Cheerio-backed audit engine (33 of 50 checks) |
+| `@answerable-kit/cli` | The `answerable` command |
 
 ## Why Answerable?
 
@@ -65,10 +65,10 @@ Short, problem-shaped solutions:
 
 One page per package, listing every public symbol with examples:
 
-- [`@answerable/core`](/docs/reference/core) — branded URL types, errors, `Check<T>` interface
-- [`@answerable/schemas`](/docs/reference/schemas) — JSON-LD generators (8 of them)
-- [`@answerable/metadata`](/docs/reference/metadata) — `defineSeo()` for Next.js
-- [`@answerable/sitemap`](/docs/reference/sitemap) — smart-default sitemap builder
-- [`@answerable/templates`](/docs/reference/templates) — page-template registry
-- [`@answerable/audit`](/docs/reference/audit) — audit engine + reporter
-- [`@answerable/cli`](/docs/reference/cli) — the `answerable` command
+- [`@answerable-kit/core`](/docs/reference/core) — branded URL types, errors, `Check<T>` interface
+- [`@answerable-kit/schemas`](/docs/reference/schemas) — JSON-LD generators (8 of them)
+- [`@answerable-kit/metadata`](/docs/reference/metadata) — `defineSeo()` for Next.js
+- [`@answerable-kit/sitemap`](/docs/reference/sitemap) — smart-default sitemap builder
+- [`@answerable-kit/templates`](/docs/reference/templates) — page-template registry
+- [`@answerable-kit/audit`](/docs/reference/audit) — audit engine + reporter
+- [`@answerable-kit/cli`](/docs/reference/cli) — the `answerable` command

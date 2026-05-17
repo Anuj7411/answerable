@@ -1,4 +1,4 @@
-# @answerable/docs
+# @answerable-kit/docs
 
 The documentation site for [Answerable](https://github.com/Anuj7411/answerable), built with [Nextra 4](https://nextra.site/) on Next.js 15 App Router.
 
@@ -24,7 +24,7 @@ pnpm dev
 | `/docs/audit-framework` | `app/docs/audit-framework/page.mdx` | What the audit measures, how the score works |
 | `/docs/checks/<ID>` | `app/docs/checks/[id]/page.tsx` | Dynamic — one page per registered audit check |
 
-The dynamic check route reads `DEFAULT_CHECKS` from `@answerable/audit` at build time and resolves every `docsUrl` an audit check references. No "coming soon" stubs — if a check is registered, its docs page works.
+The dynamic check route reads `DEFAULT_CHECKS` from `@answerable-kit/audit` at build time and resolves every `docsUrl` an audit check references. No "coming soon" stubs — if a check is registered, its docs page works.
 
 ## Deploying
 

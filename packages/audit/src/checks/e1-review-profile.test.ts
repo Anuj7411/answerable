@@ -1,4 +1,4 @@
-import { parseAbsoluteUrl } from '@answerable/core';
+import { parseAbsoluteUrl } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { loadHtml } from '../parser.js';
 import { e1ReviewProfile } from './e1-review-profile.js';

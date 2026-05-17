@@ -1,5 +1,5 @@
 {
-  "name": "@answerable/core",
+  "name": "@answerable-kit/core",
   "version": "0.0.0",
   "description": "Shared types, utilities, and error classes for the Answerable SEO toolkit.",
   "license": "MIT",

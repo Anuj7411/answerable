@@ -30,7 +30,7 @@ jobs:
         run: echo "url=https://my-pr-${{ github.event.number }}.preview.acme.com" >> $GITHUB_OUTPUT
 
       - name: Audit the preview
-        run: pnpm dlx @answerable/cli audit ${{ steps.deploy.outputs.url }} --ci --min-score 80
+        run: pnpm dlx @answerable-kit/cli audit ${{ steps.deploy.outputs.url }} --ci --min-score 80
 ```
 
 That single line:
@@ -58,7 +58,7 @@ The CLI also has `--json` for machine consumption — pipe it into a status chec
 ```yaml
 - name: Audit and store result
   run: |
-    pnpm dlx @answerable/cli audit ${{ steps.deploy.outputs.url }} --json > audit.json
+    pnpm dlx @answerable-kit/cli audit ${{ steps.deploy.outputs.url }} --json > audit.json
     cat audit.json | jq -r '.score'
 ```
 

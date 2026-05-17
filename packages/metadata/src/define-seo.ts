@@ -1,4 +1,4 @@
-import { SchemaValidationError, parseAbsoluteUrl } from '@answerable/core';
+import { SchemaValidationError, parseAbsoluteUrl } from '@answerable-kit/core';
 import type { Metadata } from 'next';
 
 /**

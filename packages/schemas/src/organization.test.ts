@@ -1,4 +1,4 @@
-import { InvalidUrlError } from '@answerable/core';
+import { InvalidUrlError } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { organization } from './organization.js';
 

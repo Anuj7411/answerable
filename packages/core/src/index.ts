@@ -1,5 +1,5 @@
 /**
- * @answerable/core — shared types, utilities, and error classes
+ * @answerable-kit/core — shared types, utilities, and error classes
  * used across the Answerable SEO toolkit.
  */
 
