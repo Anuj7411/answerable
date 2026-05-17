@@ -1,4 +1,4 @@
-import { type Template, listTemplates, renderTemplate } from '@answerable/templates';
+import { type Template, listTemplates, renderTemplate } from '@answerable-kit/templates';
 import type { Command } from 'commander';
 import { type Fs, NodeFs } from '../install/fs.js';
 import { detectNextProject } from '../install/project.js';

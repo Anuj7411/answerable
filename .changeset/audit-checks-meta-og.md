@@ -1,5 +1,5 @@
 ---
-"@answerable/audit": minor
+"@answerable-kit/audit": minor
 ---
 
 Add 12 more checks to the audit registry — meta foundations, Organization JSON-LD, OpenGraph, and Twitter cards. Audit grows from 5 to **17 checks** covering **~31 of 100 points**.

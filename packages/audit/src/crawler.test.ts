@@ -1,4 +1,4 @@
-import { InvalidUrlError } from '@answerable/core';
+import { InvalidUrlError } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { CrawlError, DEFAULT_USER_AGENT, fetchAndParse } from './crawler.js';
 

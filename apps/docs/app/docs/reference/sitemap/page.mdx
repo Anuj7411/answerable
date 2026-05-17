@@ -1,11 +1,11 @@
-# @answerable/sitemap
+# @answerable-kit/sitemap
 
 Sitemap builder with smart path-based defaults. Wraps Next.js's `MetadataRoute.Sitemap` type. Plus a `sitemapIndex()` helper for sites that exceed Google's 50k-URL per-file limit.
 
 ## Install
 
 ```bash
-pnpm add @answerable/sitemap
+pnpm add @answerable-kit/sitemap
 ```
 
 Requires `next >= 14` (peer dependency).
@@ -25,7 +25,7 @@ Requires `next >= 14` (peer dependency).
 
 ```ts
 // app/sitemap.ts
-import { buildSitemap } from '@answerable/sitemap';
+import { buildSitemap } from '@answerable-kit/sitemap';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {

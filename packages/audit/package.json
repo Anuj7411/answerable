@@ -1,5 +1,5 @@
 {
-  "name": "@answerable/audit",
+  "name": "@answerable-kit/audit",
   "version": "0.0.0",
   "description": "Audit engine for the Answerable SEO toolkit. Crawls a target URL, runs the 50-check framework, and reports findings with evidence + fix recommendations.",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@answerable/core": "workspace:*",
+    "@answerable-kit/core": "workspace:*",
     "cheerio": "^1.0.0",
     "kleur": "^4.1.5"
   },

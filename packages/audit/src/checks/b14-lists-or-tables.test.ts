@@ -1,4 +1,4 @@
-import { parseAbsoluteUrl } from '@answerable/core';
+import { parseAbsoluteUrl } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { loadHtml } from '../parser.js';
 import { b14ListsOrTables } from './b14-lists-or-tables.js';

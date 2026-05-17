@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 export const d1AboutPageLinked = defineCheck<AuditDom>({
@@ -19,7 +19,7 @@ export const d1AboutPageLinked = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Link to an /about page from this page (nav, footer, or body). Use the `about` template from @answerable/templates to scaffold one.',
+          'Link to an /about page from this page (nav, footer, or body). Use the `about` template from @answerable-kit/templates to scaffold one.',
       };
     }
     return { status: 'pass', evidence: `Found ${links.length} link(s) to /about` };

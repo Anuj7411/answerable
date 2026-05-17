@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 export const d3TermsLinked = defineCheck<AuditDom>({
@@ -19,7 +19,7 @@ export const d3TermsLinked = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Link to a /terms page from this page (typically the footer). Use the `terms` template from @answerable/templates.',
+          'Link to a /terms page from this page (typically the footer). Use the `terms` template from @answerable-kit/templates.',
       };
     }
     return { status: 'pass', evidence: `Found ${links.length} link(s) to /terms` };

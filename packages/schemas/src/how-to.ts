@@ -1,4 +1,4 @@
-import { SchemaValidationError, parseAbsoluteUrl } from '@answerable/core';
+import { SchemaValidationError, parseAbsoluteUrl } from '@answerable-kit/core';
 import type { HowTo, HowToStep, HowToSupply, HowToTool } from 'schema-dts';
 import type { Schema } from './_internal.js';
 

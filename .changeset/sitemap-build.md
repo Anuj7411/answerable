@@ -1,8 +1,8 @@
 ---
-"@answerable/sitemap": minor
+"@answerable-kit/sitemap": minor
 ---
 
-Scaffold the `@answerable/sitemap` package — the fourth workspace package — and ship two exports:
+Scaffold the `@answerable-kit/sitemap` package — the fourth workspace package — and ship two exports:
 
 - **`buildSitemap(routes, { baseUrl })`** — returns a Next.js `MetadataRoute.Sitemap`. Each route is just `{ path }` plus optional `lastModified`, `changeFrequency`, `priority`, and locale `alternates`. URL composition is automatic; explicit `priority`/`changeFrequency` always overrides inferred defaults.
 - **`sitemapIndex(entries)`** — typed builder for sites that exceed Google's 50k-URL per-file limit. Validates URLs and `lastModified` values; returns a typed array the caller serializes.

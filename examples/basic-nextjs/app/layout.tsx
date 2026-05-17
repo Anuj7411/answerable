@@ -1,4 +1,4 @@
-import { defineSeo } from '@answerable/metadata';
+import { defineSeo } from '@answerable-kit/metadata';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ const SITE_NAME = 'Basic Next.js Example';
 export const metadata: Metadata = defineSeo({
   title: { default: SITE_NAME, template: `%s — ${SITE_NAME}` },
   description:
-    'The minimal example of an Answerable-powered Next.js site. Drop in @answerable/* and your site is SEO + AI-answer-engine ready.',
+    'The minimal example of an Answerable-powered Next.js site. Drop in @answerable-kit/* and your site is SEO + AI-answer-engine ready.',
   url: SITE_URL,
   siteName: SITE_NAME,
   locale: 'en_US',

@@ -1,4 +1,4 @@
-# @answerable/core
+# @answerable-kit/core
 
 Shared types, utilities, and error classes for the [Answerable](https://github.com/Anuj7411/answerable) SEO toolkit.
 
@@ -7,7 +7,7 @@ Shared types, utilities, and error classes for the [Answerable](https://github.c
 ## Install
 
 ```bash
-pnpm add @answerable/core
+pnpm add @answerable-kit/core
 ```
 
 ## License

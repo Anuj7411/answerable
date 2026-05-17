@@ -52,8 +52,8 @@ describe('template invariants', () => {
         expect(template.filename.endsWith('/page.tsx')).toBe(true);
       });
 
-      it('imports defineSeo from @answerable/metadata', () => {
-        expect(template.content).toContain("from '@answerable/metadata'");
+      it('imports defineSeo from @answerable-kit/metadata', () => {
+        expect(template.content).toContain("from '@answerable-kit/metadata'");
         expect(template.content).toContain('defineSeo');
       });
 
@@ -88,13 +88,13 @@ describe('renderTemplate', () => {
 
   it('renders faq with the FAQPage JSON-LD generator call wired up', () => {
     const out = renderTemplate('faq', pickRequired(getTemplate('faq'), SAMPLE_VALUES));
-    expect(out).toContain("import { faqPage } from '@answerable/schemas'");
+    expect(out).toContain("import { faqPage } from '@answerable-kit/schemas'");
     expect(out).toContain('What is Acme?');
   });
 
   it('renders about with the Organization JSON-LD generator call wired up', () => {
     const out = renderTemplate('about', pickRequired(getTemplate('about'), SAMPLE_VALUES));
-    expect(out).toContain("import { organization } from '@answerable/schemas'");
+    expect(out).toContain("import { organization } from '@answerable-kit/schemas'");
   });
 });
 

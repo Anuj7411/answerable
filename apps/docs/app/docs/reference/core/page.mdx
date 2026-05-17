@@ -1,11 +1,11 @@
-# @answerable/core
+# @answerable-kit/core
 
 The shared foundation every other Answerable package builds on. Branded URL types, error classes with stable codes, severity / category enums, and the `Check<T>` interface that the audit framework runs against.
 
 ## Install
 
 ```bash
-pnpm add @answerable/core
+pnpm add @answerable-kit/core
 ```
 
 ## Exports
@@ -29,7 +29,7 @@ pnpm add @answerable/core
 ## Usage
 
 ```ts
-import { parseAbsoluteUrl, InvalidUrlError } from '@answerable/core';
+import { parseAbsoluteUrl, InvalidUrlError } from '@answerable-kit/core';
 
 try {
   const url = parseAbsoluteUrl(userInput);
@@ -44,8 +44,8 @@ try {
 Or compose `defineCheck()` to author a custom audit check:
 
 ```ts
-import { defineCheck } from '@answerable/core';
-import type { AuditDom } from '@answerable/audit';
+import { defineCheck } from '@answerable-kit/core';
+import type { AuditDom } from '@answerable-kit/audit';
 
 export const customCheck = defineCheck<AuditDom>({
   id: 'X1',

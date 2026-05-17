@@ -1,4 +1,4 @@
-import { type AuditReport, audit, consoleReport } from '@answerable/audit';
+import { type AuditReport, audit, consoleReport } from '@answerable-kit/audit';
 import type { Command } from 'commander';
 
 export interface AuditCommandOptions {
@@ -16,7 +16,7 @@ export interface AuditCommandResult {
 }
 
 export interface AuditCommandDeps {
-  /** Injection point for tests. Defaults to the live `audit()` from `@answerable/audit`. */
+  /** Injection point for tests. Defaults to the live `audit()` from `@answerable-kit/audit`. */
   readonly auditImpl?: (url: string) => Promise<AuditReport>;
 }
 

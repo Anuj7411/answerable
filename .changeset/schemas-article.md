@@ -1,5 +1,5 @@
 ---
-"@answerable/schemas": minor
+"@answerable-kit/schemas": minor
 ---
 
 Add `article()` and `blogPosting()` generators backed by a shared builder:

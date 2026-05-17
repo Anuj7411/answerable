@@ -1,4 +1,4 @@
-# @answerable/cli
+# @answerable-kit/cli
 
 The `answerable` command. Wraps the [Answerable](https://github.com/Anuj7411/answerable) audit engine for terminal + CI use.
 
@@ -8,10 +8,10 @@ The `answerable` command. Wraps the [Answerable](https://github.com/Anuj7411/ans
 
 ```bash
 # As a one-off:
-npx @answerable/cli audit https://example.com
+npx @answerable-kit/cli audit https://example.com
 
 # Or globally:
-pnpm add -g @answerable/cli
+pnpm add -g @answerable-kit/cli
 answerable audit https://example.com
 ```
 

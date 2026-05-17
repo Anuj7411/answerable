@@ -1,4 +1,4 @@
-import { AnswerableError, parseAbsoluteUrl } from '@answerable/core';
+import { AnswerableError, parseAbsoluteUrl } from '@answerable-kit/core';
 import { type AuditDom, loadHtml } from './parser.js';
 
 export const DEFAULT_USER_AGENT = 'Answerable/0.0.0 (+https://github.com/Anuj7411/answerable)';

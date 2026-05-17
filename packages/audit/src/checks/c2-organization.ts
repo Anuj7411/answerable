@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable/core';
+import { defineCheck } from '@answerable-kit/core';
 import type { AuditDom } from '../parser.js';
 
 function nodeHasType(value: unknown, target: string): boolean {
@@ -42,7 +42,7 @@ export const c2Organization = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Add an Organization JSON-LD block. Use organization() from @answerable/schemas in your root layout.',
+          'Add an Organization JSON-LD block. Use organization() from @answerable-kit/schemas in your root layout.',
       };
     }
     let found = false;
@@ -63,7 +63,7 @@ export const c2Organization = defineCheck<AuditDom>({
     return {
       status: 'fail',
       fixRecommendation:
-        'Add an Organization JSON-LD block. Use organization() from @answerable/schemas.',
+        'Add an Organization JSON-LD block. Use organization() from @answerable-kit/schemas.',
     };
   },
 });

@@ -1,5 +1,5 @@
 {
-  "name": "@answerable/sitemap",
+  "name": "@answerable-kit/sitemap",
   "version": "0.0.0",
   "description": "Sitemap builder with smart path-based defaults for the Answerable SEO toolkit.",
   "license": "MIT",
@@ -33,7 +33,7 @@
     "clean": "rimraf dist .tsbuildinfo"
   },
   "dependencies": {
-    "@answerable/core": "workspace:*"
+    "@answerable-kit/core": "workspace:*"
   },
   "peerDependencies": {
     "next": ">=14.0.0"

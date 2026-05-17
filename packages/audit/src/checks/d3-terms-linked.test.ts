@@ -1,4 +1,4 @@
-import { parseAbsoluteUrl } from '@answerable/core';
+import { parseAbsoluteUrl } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { loadHtml } from '../parser.js';
 import { d3TermsLinked } from './d3-terms-linked.js';

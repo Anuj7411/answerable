@@ -1,5 +1,5 @@
 {
-  "name": "@answerable/docs",
+  "name": "@answerable-kit/docs",
   "version": "0.0.0",
   "private": true,
   "description": "answerable.dev — documentation site for the Answerable SEO toolkit.",
@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@answerable/audit": "workspace:*",
+    "@answerable-kit/audit": "workspace:*",
     "next": "^15.0.0",
     "nextra": "^4.0.0",
     "nextra-theme-docs": "^4.0.0",

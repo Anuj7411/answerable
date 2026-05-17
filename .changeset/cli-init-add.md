@@ -1,8 +1,8 @@
 ---
-"@answerable/cli": minor
+"@answerable-kit/cli": minor
 ---
 
-Add two new CLI commands that wire `@answerable/templates` into the developer flow:
+Add two new CLI commands that wire `@answerable-kit/templates` into the developer flow:
 
 - **`answerable init`** — interactive setup of an existing Next.js project. Detects Next.js + App Router; prompts for three irreducible tokens (project name, domain, contact email); derives the rest; installs all five page templates + `app/sitemap.ts` + `app/robots.ts`. Prompts before overwriting an existing file.
 - **`answerable add <templates>`** — install a specific subset of templates. Accepts space- or comma-separated names: `answerable add about,faq` or `answerable add about faq`. Only prompts for the tokens those templates need.

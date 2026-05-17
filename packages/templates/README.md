@@ -1,13 +1,13 @@
-# @answerable/templates
+# @answerable-kit/templates
 
-Page templates installed into user projects by the [Answerable](https://github.com/Anuj7411/answerable) CLI. Each template is a Next.js App Router page (`.tsx`) wired up with `defineSeo()` from `@answerable/metadata` and the matching JSON-LD generator from `@answerable/schemas` — drop one in and you have a working, audit-ready page.
+Page templates installed into user projects by the [Answerable](https://github.com/Anuj7411/answerable) CLI. Each template is a Next.js App Router page (`.tsx`) wired up with `defineSeo()` from `@answerable-kit/metadata` and the matching JSON-LD generator from `@answerable-kit/schemas` — drop one in and you have a working, audit-ready page.
 
 > **Pre-alpha.** Five templates ship today: About, Privacy, Terms, FAQ, Contact.
 
 ## Public API
 
 ```ts
-import { listTemplates, getTemplate, renderTemplate } from '@answerable/templates';
+import { listTemplates, getTemplate, renderTemplate } from '@answerable-kit/templates';
 
 // Enumerate every available template:
 for (const t of listTemplates()) {

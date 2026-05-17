@@ -1,4 +1,4 @@
-import { InvalidUrlError, SchemaValidationError } from '@answerable/core';
+import { InvalidUrlError, SchemaValidationError } from '@answerable-kit/core';
 import { describe, expect, it } from 'vitest';
 import { defineSeo } from './define-seo.js';
 

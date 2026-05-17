@@ -1,4 +1,4 @@
-import { organization, webSite } from '@answerable/schemas';
+import { organization, webSite } from '@answerable-kit/schemas';
 import Link from 'next/link';
 
 const orgSchema = organization({
@@ -29,15 +29,15 @@ export default function HomePage() {
       />
       <h1>Basic Next.js Example</h1>
       <p>
-        This is the minimal Next.js App Router example showing how every <code>@answerable/*</code>{' '}
-        package wires together. Read each file under <code>app/</code> to see one piece of the
-        toolkit in action.
+        This is the minimal Next.js App Router example showing how every{' '}
+        <code>@answerable-kit/*</code> package wires together. Read each file under{' '}
+        <code>app/</code> to see one piece of the toolkit in action.
       </p>
 
       <h2>Try it</h2>
       <p>Audit this site (or any live URL) with the Answerable CLI:</p>
       <pre>
-        <code>pnpm dlx @answerable/cli audit http://localhost:3000</code>
+        <code>pnpm dlx @answerable-kit/cli audit http://localhost:3000</code>
       </pre>
 
       <h2>Pages</h2>

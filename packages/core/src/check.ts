@@ -7,7 +7,7 @@ import type { AbsoluteUrl } from './url.js';
  *
  * Generic over `TDom` so engines built on different parsers (cheerio,
  * playwright, JSDOM) can supply their own typed handle without forcing
- * `@answerable/core` to depend on a parser.
+ * `@answerable-kit/core` to depend on a parser.
  */
 export interface CheckInput<TDom = unknown> {
   readonly url: AbsoluteUrl;
@@ -64,7 +64,7 @@ export interface Check<TDom = unknown> {
  *
  * @example
  * ```ts
- * import { defineCheck } from '@answerable/core';
+ * import { defineCheck } from '@answerable-kit/core';
  *
  * export const titlePresent = defineCheck({
  *   id: 'A1',

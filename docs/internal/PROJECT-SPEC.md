@@ -14,7 +14,7 @@
 | **One-line pitch** | Install one package. Run one command. Your site is SEO-ready, AI-search-ready, and audited continuously. |
 | **License** | MIT |
 | **GitHub** | `github.com/Anuj7411/answerable` (to be created) |
-| **NPM scope** | `@answerable/*` |
+| **NPM scope** | `@answerable-kit/*` |
 | **Origin** | Born out of doing manual SEO work on Sotto (sottogames.com) and realizing nothing in the ecosystem combines fix + audit + playbook. |
 
 ## 2. Problem Statement
@@ -85,13 +85,13 @@ answerable/
 │   └── playground/                # Live demo site exercising every feature
 │
 ├── packages/
-│   ├── schemas/                   # @answerable/schemas
-│   ├── metadata/                  # @answerable/metadata
-│   ├── sitemap/                   # @answerable/sitemap
-│   ├── templates/                 # @answerable/templates (page scaffolds)
-│   ├── audit/                     # @answerable/audit (the audit engine)
-│   ├── cli/                       # @answerable/cli (unified entrypoint)
-│   └── core/                      # @answerable/core (shared types, utils)
+│   ├── schemas/                   # @answerable-kit/schemas
+│   ├── metadata/                  # @answerable-kit/metadata
+│   ├── sitemap/                   # @answerable-kit/sitemap
+│   ├── templates/                 # @answerable-kit/templates (page scaffolds)
+│   ├── audit/                     # @answerable-kit/audit (the audit engine)
+│   ├── cli/                       # @answerable-kit/cli (unified entrypoint)
+│   └── core/                      # @answerable-kit/core (shared types, utils)
 │
 ├── examples/
 │   ├── sotto/                     # Real-world example using sottogames.com
@@ -108,10 +108,10 @@ answerable/
 
 ### Package Responsibilities
 
-#### `@answerable/core`
+#### `@answerable-kit/core`
 Shared types, utility functions, error classes. Other packages depend on this. No runtime dependencies beyond `zod`.
 
-#### `@answerable/schemas`
+#### `@answerable-kit/schemas`
 Type-safe JSON-LD generators for:
 - `organization()`
 - `softwareApplication()`
@@ -126,7 +126,7 @@ Type-safe JSON-LD generators for:
 
 Every helper returns a typed JSON-LD object. Components also exported for React/Next.js usage.
 
-#### `@answerable/metadata`
+#### `@answerable-kit/metadata`
 Next.js metadata API helpers:
 - `defineSeo()` — composes title, description, OG, Twitter, canonical
 - `defineCanonical()`
@@ -136,12 +136,12 @@ Next.js metadata API helpers:
 
 Framework support: Next.js App Router (Phase 1). Pages Router (Phase 2). Astro, Remix (Phase 2).
 
-#### `@answerable/sitemap`
+#### `@answerable-kit/sitemap`
 - `buildSitemap()` accepts route definitions, returns Next.js-compatible MetadataRoute.Sitemap
 - Smart defaults for priority/changeFrequency based on path patterns
 - `sitemap-index` support for large sites
 
-#### `@answerable/templates`
+#### `@answerable-kit/templates`
 Page templates the CLI installs into a user's project:
 - `about.tsx`
 - `privacy.tsx`
@@ -152,7 +152,7 @@ Page templates the CLI installs into a user's project:
 
 Templates are TypeScript files with placeholder tokens like `{{PROJECT_NAME}}`. The CLI does the substitution at install time.
 
-#### `@answerable/audit`
+#### `@answerable-kit/audit`
 **The killer differentiator.** A check engine that:
 
 1. Crawls a target URL (cheerio for static, Playwright for SPA)
@@ -161,7 +161,7 @@ Templates are TypeScript files with placeholder tokens like `{{PROJECT_NAME}}`. 
 4. Optionally outputs in JSON for CI integration
 5. Optionally auto-fixes (writes patches to local code)
 
-#### `@answerable/cli`
+#### `@answerable-kit/cli`
 Single command-line entrypoint exposing:
 
 ```bash
@@ -214,7 +214,7 @@ interface Check {
 
 ```bash
 cd my-nextjs-project
-pnpm add @answerable/schemas @answerable/metadata @answerable/sitemap
+pnpm add @answerable-kit/schemas @answerable-kit/metadata @answerable-kit/sitemap
 npx answerable init
 # Interactive prompts:
 # - Project name

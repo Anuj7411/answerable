@@ -1,8 +1,8 @@
 ---
-"@answerable/audit": minor
+"@answerable-kit/audit": minor
 ---
 
-Scaffold the `@answerable/audit` package — the sixth workspace package and the project's killer differentiator — with foundations and the first 5 checks.
+Scaffold the `@answerable-kit/audit` package — the sixth workspace package and the project's killer differentiator — with foundations and the first 5 checks.
 
 **Foundations:**
 

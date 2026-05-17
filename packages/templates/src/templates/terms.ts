@@ -1,6 +1,6 @@
 import type { Template } from '../types.js';
 
-const CONTENT = `import { defineSeo } from '@answerable/metadata';
+const CONTENT = `import { defineSeo } from '@answerable-kit/metadata';
 
 export const metadata = defineSeo({
   title: 'Terms of Use — {{PROJECT_NAME}}',

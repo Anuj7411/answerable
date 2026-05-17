@@ -11,13 +11,13 @@ Install a few packages, run one command, and your Next.js site is SEO-ready, AI-
 
 ```bash
 # In an existing Next.js project:
-pnpm add @answerable/schemas @answerable/metadata @answerable/sitemap @answerable/audit
+pnpm add @answerable-kit/schemas @answerable-kit/metadata @answerable-kit/sitemap @answerable-kit/audit
 
 # Scaffold trust pages + sitemap + robots, end-to-end:
-pnpm dlx @answerable/cli init
+pnpm dlx @answerable-kit/cli init
 
 # Audit the result against 33 production-tested checks:
-pnpm dlx @answerable/cli audit http://localhost:3000
+pnpm dlx @answerable-kit/cli audit http://localhost:3000
 ```
 
 A score of 85+ on first audit is the design target. The [`examples/basic-nextjs`](./examples/basic-nextjs) example scores 90+ out of the box.
@@ -42,13 +42,13 @@ Seven packages, each does one thing well, designed to be composable.
 
 | Package | Purpose |
 |---|---|
-| [`@answerable/core`](./packages/core) | Branded URL types, errors, the `Check<T>` interface that every audit check implements |
-| [`@answerable/schemas`](./packages/schemas) | Type-safe JSON-LD generators (Organization, WebSite, FAQPage, Article, BlogPosting, Breadcrumb, Product, SoftwareApplication, HowTo) |
-| [`@answerable/metadata`](./packages/metadata) | `defineSeo()` — composes title, description, canonical, OpenGraph, Twitter, robots into a Next.js `Metadata` object with smart fallbacks |
-| [`@answerable/sitemap`](./packages/sitemap) | `buildSitemap()` with priority and `changeFrequency` inferred from path patterns |
-| [`@answerable/templates`](./packages/templates) | Five trust-signal page templates (About, Privacy, Terms, FAQ, Contact) the CLI installs |
-| [`@answerable/audit`](./packages/audit) | Cheerio-backed audit engine — 33 checks shipping today, 17 more in Phase 2 |
-| [`@answerable/cli`](./packages/cli) | The `answerable` command: `init`, `add`, `audit`, `explain` |
+| [`@answerable-kit/core`](./packages/core) | Branded URL types, errors, the `Check<T>` interface that every audit check implements |
+| [`@answerable-kit/schemas`](./packages/schemas) | Type-safe JSON-LD generators (Organization, WebSite, FAQPage, Article, BlogPosting, Breadcrumb, Product, SoftwareApplication, HowTo) |
+| [`@answerable-kit/metadata`](./packages/metadata) | `defineSeo()` — composes title, description, canonical, OpenGraph, Twitter, robots into a Next.js `Metadata` object with smart fallbacks |
+| [`@answerable-kit/sitemap`](./packages/sitemap) | `buildSitemap()` with priority and `changeFrequency` inferred from path patterns |
+| [`@answerable-kit/templates`](./packages/templates) | Five trust-signal page templates (About, Privacy, Terms, FAQ, Contact) the CLI installs |
+| [`@answerable-kit/audit`](./packages/audit) | Cheerio-backed audit engine — 33 checks shipping today, 17 more in Phase 2 |
+| [`@answerable-kit/cli`](./packages/cli) | The `answerable` command: `init`, `add`, `audit`, `explain` |
 
 ## The audit framework
 
@@ -96,7 +96,7 @@ Score: 72/100 (Average)
 
 ## See it run
 
-The [`examples/basic-nextjs`](./examples/basic-nextjs) directory is a complete, committed Next.js 15 App Router app that consumes every `@answerable/*` package. It's the equivalent of what `answerable init` would write in a fresh project, checked in so you can read each file:
+The [`examples/basic-nextjs`](./examples/basic-nextjs) directory is a complete, committed Next.js 15 App Router app that consumes every `@answerable-kit/*` package. It's the equivalent of what `answerable init` would write in a fresh project, checked in so you can read each file:
 
 ```
 examples/basic-nextjs/app/
@@ -115,18 +115,18 @@ examples/basic-nextjs/app/
 
 ```bash
 # 1. Install the runtime packages you'll actually use:
-pnpm add @answerable/schemas @answerable/metadata @answerable/sitemap
+pnpm add @answerable-kit/schemas @answerable-kit/metadata @answerable-kit/sitemap
 
 # 2. Scaffold trust pages (no install required for one-off use):
-pnpm dlx @answerable/cli init
+pnpm dlx @answerable-kit/cli init
 # Three questions: project name, domain, contact email.
 # Writes 7 files (5 trust pages + sitemap + robots).
 
 # 3. Audit before shipping:
-pnpm dlx @answerable/cli audit http://localhost:3000
+pnpm dlx @answerable-kit/cli audit http://localhost:3000
 
 # 4. Or in CI — exit non-zero if score < 80:
-pnpm dlx @answerable/cli audit ${PREVIEW_URL} --ci --min-score 80
+pnpm dlx @answerable-kit/cli audit ${PREVIEW_URL} --ci --min-score 80
 ```
 
 ## Status
@@ -156,7 +156,7 @@ Phase 1 is feature-complete except for: remaining 17 audit checks, the docs site
 
 Contributions are welcome. The fastest way to get useful:
 
-1. Run an audit on a real production site you know well (`pnpm dlx @answerable/cli audit https://...` — works after the first npm publish, or from a local clone today).
+1. Run an audit on a real production site you know well (`pnpm dlx @answerable-kit/cli audit https://...` — works after the first npm publish, or from a local clone today).
 2. Pick a finding that surprised you.
 3. Open a discussion or an issue with the URL and what surprised you. False positives, false negatives, and missing-but-obvious checks are equally welcome.
 

@@ -12,7 +12,7 @@ body:
     attributes:
       label: Package
       description: Which Answerable package is affected?
-      placeholder: "@answerable/audit"
+      placeholder: "@answerable-kit/audit"
     validations:
       required: true
 
