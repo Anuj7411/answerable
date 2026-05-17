@@ -41,6 +41,23 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Debug — verify npm token auth
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "=== .npmrc contents (token redacted) ==="
+          cat $NPM_CONFIG_USERCONFIG 2>/dev/null | sed 's/_authToken=.*/_authToken=***/' || cat ~/.npmrc 2>/dev/null | sed 's/_authToken=.*/_authToken=***/'
+          echo ""
+          echo "=== npm whoami ==="
+          npm whoami || echo "WHOAMI FAILED — token is invalid"
+          echo ""
+          echo "=== npm access ls-packages (what the token can write) ==="
+          npm access list packages 2>&1 | head -30 || echo "ACCESS LIST FAILED"
+          echo ""
+          echo "=== Token type check (Bearer prefix means granular) ==="
+          token="${NPM_TOKEN}"
+          echo "Token starts with: ${token:0:4}***"
+
       # No explicit build step — the publish action below invokes
       # `pnpm release`, which runs `turbo run build --filter='./packages/*'`
       # under the hood. Docs (`apps/docs`) and examples are excluded
