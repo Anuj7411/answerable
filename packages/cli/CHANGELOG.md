@@ -1,5 +1,12 @@
 # @answerable-kit/cli
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [6ea0355]
+  - @answerable-kit/audit@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
