@@ -40,7 +40,7 @@
 - 4.5+ average rating on ProductHunt
 - Zero P0 bugs reported in first 7 days
 
-**Launch date target:** 14 weeks from PRD lock. Allows 3 weeks polish + 7 weeks build + 4 weeks beta and refinement. Two weeks added vs initial 12-week estimate to ship 3 additional Pro features (F12 scheduled audits, F13 weekly digest, F14 detailed evidence inspector) that materially strengthen the Pro tier value proposition.
+**Launch date target:** 14.5 weeks from PRD lock. Allows 3 weeks polish + 7.5 weeks build + 4 weeks beta and refinement. Two weeks added vs initial 12-week estimate to ship 3 additional Pro features (F9 scheduled audits, F10 weekly digest, F11 detailed evidence inspector) that materially strengthen the Pro tier value proposition. Half a week added for the AI fix queue + email notification system, which protects launch UX when global Gemini quota is exhausted.
 
 ---
 
@@ -151,7 +151,7 @@ Fourteen features ship in v1.0. Every feature listed is mandatory. Every feature
 
 | ID | Feature | Surface | Description |
 |---|---|---|---|
-| F6 | **AI fix generation** | Web | For each failing check, click "Generate fix with AI". Returns a code patch, schema JSON-LD, meta tag, or content rewrite as appropriate. Downloadable as a `.patch` file or copyable as raw code. Limit: 50 fixes per month. |
+| F6 | **AI fix generation** | Web | For each failing check, click "Generate fix with AI". Returns a code patch, schema JSON-LD, meta tag, or content rewrite as appropriate. Downloadable as a `.patch` file or copyable as raw code. Quota: 90 fixes per month (delivered as 3 per day to prevent any single user from draining the shared AI quota). Includes queue + email notification system for rare cases when the global AI quota is exhausted. |
 | F7 | **Audit history (30 days) + trends** | Web | Full audit history retained for 30 days. Trend graphs showing SEO, AEO, GEO score evolution. Findings diffs between audits ("you fixed A4 between Tuesday and Friday"). |
 | F8 | **Multi-site (up to 3)** | Web | Track up to 3 sites under one Pro account. Each site has independent history, badge, and audit cadence. |
 | F9 | **Scheduled daily audits** | Web + Worker | Pro sites are automatically audited every 24 hours by a background worker. Free users must manually trigger every audit. This is the single feature that turns Answerable from a manual tool into passive monitoring. |
@@ -217,7 +217,7 @@ Each of these is a future Phase 2 or Phase 3 feature. Including any of them in v
 | Public score badge | ✅ | ✅ |
 | Web dashboard | ✅ Latest audit only, 1 site | ✅ Up to 3 sites |
 | Re-audit on demand | ✅ 3 per day max | ✅ Unlimited |
-| AI fix generation | ❌ | ✅ 50 per month |
+| AI fix generation | ❌ | ✅ 90 per month (3 per day) |
 | Audit history + trend graphs | ❌ | ✅ 30 days |
 | Scheduled daily audits | ❌ | ✅ Auto, every 24 hours |
 | Weekly email digest | ❌ | ✅ Every Monday |
@@ -476,21 +476,68 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 
 **Specification:**
 - Trigger: button on each failing check ("Generate fix with AI") or bulk action ("Generate fixes for all failing checks")
-- Cost-gated at Pro tier: 50 fixes per month included
-- AI backend: Claude API (Sonnet 4.6 for content rewrites, Haiku 4.5 for schema/meta generation, Opus 4.7 for complex E-E-A-T improvements)
+- Cost-gated at Pro tier: 90 fixes per month included (delivered as 3 per day, per user)
+- AI backend: Gemini 3.5 Flash via Google AI Studio API (free tier at launch). Fallback to paid Gemini 3.5 Flash if we exhaust free quota at scale.
 - Prompt structure: includes the check ID, the evidence from the audit, the page HTML context, and the desired output format (patch, JSON-LD, meta tag, or content)
 - Output formats supported per check type:
   - Meta tags (title, description): plain text + HTML wrapper
   - Schema markup (Organization, FAQ, Product, etc.): JSON-LD code block
   - Content rewrites (B-series checks): markdown diff with old/new
   - Code patches (file-level): unified diff format
-- Each generation shows: token cost (transparent), accept/discard, copy/download buttons
+- Each generation shows: accept/discard, copy/download buttons
 - Generated fixes stored for 30 days in user's account
 
+### Quota strategy: 3 per day, 90 per month
+
+The headline copy on the pricing page is **"90 AI fixes per month"**. The technical implementation is **3 fixes per day per user**. Both are true and feel generous.
+
+**Why 3 per day, not 50 per month:**
+
+The Gemini free tier has a global daily cap (around 500 requests per day across our whole product). If a single Pro user used 50 fixes in one day, they would consume 10 percent of the global daily quota by themselves. This would block other users.
+
+By capping each user at 3 fixes per day:
+- 100 Pro users × 3 max daily fixes = 300 fixes per day maximum across the product
+- Well within 500 RPD free tier limit
+- No new user is ever blocked because another user used too many
+- Per-user counter is simple to display and understand
+
+**Per-user quota UX:**
+
+Pro users see a counter on the dashboard:
+```
+Daily AI fixes: 2 of 3 used today  (resets at midnight UTC)
+```
+
+After their 3rd fix that day, the "Generate fix" button is disabled with this message:
+```
+You have used your 3 daily AI fixes.
+Resets in 4 hours, 23 minutes.
+(Studio tier coming soon will offer unlimited fixes.)
+```
+
+### Global quota fallback: queue with email notification
+
+In rare cases where the global Gemini free quota is exhausted (despite per-user limits, this could happen at higher scale), the system shows a queue instead of failing:
+
+1. User clicks "Generate fix"
+2. Application checks remaining global quota (tracked in our Redis/KV)
+3. If sufficient quota: process immediately (5 second normal response)
+4. If global quota exhausted: queue the request, save to database with status `queued`
+5. User sees: "Our AI is at peak capacity. Your fix is queued and will be ready by [time]. We will email you the moment it is ready."
+6. At midnight UTC when the Gemini quota resets, our background worker processes the queue in FIFO order
+7. Each completed fix sends an email to the user with a link back to view it
+
+**Queue UX during the wait:**
+
+The user can navigate away from the page. The fix shows up in their dashboard with status `queued` until processed. They can cancel the queued request at any time (does not consume their daily quota).
+
 **Cost economics:**
-- Average fix: 2K input tokens + 500 output tokens (with prompt caching, $0.005-0.020 per fix)
-- 50 fixes per Pro user per month: ~$0.50 max API cost per user
-- Pro margin: $29 minus $0.50 ~ $28.50, well within sustainability
+- Gemini 3.5 Flash free tier: $0 per fix
+- Average fix: 2K input tokens + 500 output tokens
+- At 3 daily fixes × 100 Pro users × 30 days = 9,000 fixes per month maximum
+- Free tier covers approximately 15,000 fixes per month (500 RPD × 30 days)
+- Comfortable headroom for first 150 Pro users
+- Above 150 Pro users: switch to paid Gemini (~$10-25 per month total) or implement smarter queueing
 
 ### F7: Audit history (30 days)
 
@@ -654,7 +701,10 @@ Do not launch until ALL of these are green:
 - [ ] Docs site is live and beautiful (Nextra build fixed)
 - [ ] Web dashboard MVP works end to end
 - [ ] Stripe billing works (test mode validated)
-- [ ] AI fix generation works for at least 10 check types
+- [ ] AI fix generation (via Gemini 3.5 Flash) works for at least 10 check types
+- [ ] AI fix queue + email fallback tested under load
+- [ ] Per-user daily quota (3 fixes/day) enforcement tested
+- [ ] Global quota monitoring + alerts configured (alert at 80% of daily limit)
 - [ ] 50 beta users have used the SaaS and given feedback
 - [ ] At least 3 testimonial tweets exist from real users
 - [ ] Launch video is recorded and edited (60 to 90 seconds)
@@ -706,7 +756,7 @@ Do not launch until ALL of these are green:
 
 ## 12. Risk Mitigation
 
-### Top 10 risks ranked by impact x likelihood
+### Top 11 risks ranked by impact x likelihood
 
 | # | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|---|
@@ -718,7 +768,8 @@ Do not launch until ALL of these are green:
 | 6 | Stripe billing webhook fails to update subscriptions | Low | High | Stripe webhooks are well-tested. Use Stripe CLI for local testing. Have manual reconciliation script ready. |
 | 7 | A spam abuser hammers the audit endpoint | High | Medium | Rate limit by IP + user. Cloudflare in front. Use Upstash Redis for rate limit state. |
 | 8 | User confuses Free vs Pro features and complains | High | Low | Clear pricing page, clear in-app tier badges, friendly upgrade prompts. Refund any confused user no questions. |
-| 9 | Scheduled audit worker infrastructure fails or scales poorly | Medium | Medium | Use managed queue (Inngest or Trigger.dev). Jitter audit times across users to spread load. Monitor worker health. Have manual re-trigger fallback. Limit scope to 3 sites per Pro user at v1. |
+| 9 | Scheduled audit worker infrastructure fails or scales poorly | Medium | Medium | Use Cloudflare Workers Cron Triggers (free tier sufficient). Jitter audit times across users to spread load. Monitor worker health. Have manual re-trigger fallback. Limit scope to 3 sites per Pro user at v1. |
+| 11 | Gemini free tier quota exhausted globally during peak usage | Medium | Medium | Per-user daily quota (3 fixes per day per Pro user) prevents single-user drainage. Queue + email notification handles rare global exhaustion. Upgrade to paid Gemini (~\\$15/mo) once free tier no longer comfortable. Cost tracking dashboard alerts at 80% of free tier usage. |
 | 10 | Weekly email digest hits spam folders or has poor deliverability | Medium | Medium | Use Resend with proper SPF, DKIM, DMARC setup. Send from a custom domain. Monitor bounce rate. Provide plain-text fallback. Test across multiple email clients during beta. |
 
 ### What we accept as known risks
