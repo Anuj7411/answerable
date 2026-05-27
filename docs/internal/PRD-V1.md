@@ -40,7 +40,7 @@
 - 4.5+ average rating on ProductHunt
 - Zero P0 bugs reported in first 7 days
 
-**Launch date target:** 12 weeks from PRD lock. Allows 3 weeks polish + 5 weeks build + 4 weeks beta and refinement.
+**Launch date target:** 14 weeks from PRD lock. Allows 3 weeks polish + 7 weeks build + 4 weeks beta and refinement. Two weeks added vs initial 12-week estimate to ship 3 additional Pro features (F12 scheduled audits, F13 weekly digest, F14 detailed evidence inspector) that materially strengthen the Pro tier value proposition.
 
 ---
 
@@ -135,7 +135,7 @@ Tools built for this shift have a 12-18 month head start before SEO suites pivot
 
 ## 5. MVP Scope (What Ships in v1.0)
 
-Eight features ship in v1.0. Every feature listed is mandatory. Every feature not listed is Phase 2 or rejected.
+Fourteen features ship in v1.0. Every feature listed is mandatory. Every feature not listed is Phase 2 or rejected.
 
 ### Free tier (OSS + Free SaaS account)
 
@@ -145,25 +145,30 @@ Eight features ship in v1.0. Every feature listed is mandatory. Every feature no
 | F2 | **CLI commands** | OSS | `pnpm dlx @answerable-kit/cli audit <url>` and `explain <check_id>` and `init` and `add`. Already shipped. |
 | F3 | **GitHub Action** | OSS | A reusable workflow at `answerable/audit-action@v1` that runs on PR and comments score delta. Free for OSS use. |
 | F4 | **Public score badge** | OSS + Web | Markdown-embeddable badge: `![Answerable Score](https://answerable.io/badge/<domain>)`. Generates an SVG with the three scores. Caches 24 hours. Free distribution amplifier. |
-| F5 | **Web dashboard (view only)** | Web | Sign-in with GitHub or Google. View past audits run via CLI (if user is signed in when CLI is invoked). View one site, last 7 audits. Read-only at free tier. |
+| F5 | **Web dashboard (latest audit only)** | Web | Sign-in with GitHub or Google. View only the most recent audit for one site. No historical view. Re-audit rate limited to 3 per day. Sharpens the upgrade path: if you want to see how your site improves over time, you need Pro. |
 
 ### Pro tier ($29/month)
 
 | ID | Feature | Surface | Description |
 |---|---|---|---|
 | F6 | **AI fix generation** | Web | For each failing check, click "Generate fix with AI". Returns a code patch, schema JSON-LD, meta tag, or content rewrite as appropriate. Downloadable as a `.patch` file or copyable as raw code. Limit: 50 fixes per month. |
-| F7 | **Audit history (30 days)** | Web | Full audit history retained for 30 days. Trend graphs showing SEO, AEO, GEO score evolution. Findings diffs between audits ("you fixed A4 between Tuesday and Friday"). |
+| F7 | **Audit history (30 days) + trends** | Web | Full audit history retained for 30 days. Trend graphs showing SEO, AEO, GEO score evolution. Findings diffs between audits ("you fixed A4 between Tuesday and Friday"). |
 | F8 | **Multi-site (up to 3)** | Web | Track up to 3 sites under one Pro account. Each site has independent history, badge, and audit cadence. |
+| F9 | **Scheduled daily audits** | Web + Worker | Pro sites are automatically audited every 24 hours by a background worker. Free users must manually trigger every audit. This is the single feature that turns Answerable from a manual tool into passive monitoring. |
+| F10 | **Weekly email digest** | Email | Every Monday morning, Pro users receive an email summarizing the past week: score changes per site, new findings, suggested fixes, AI fix usage remaining. Powered by Resend. |
+| F11 | **Detailed evidence inspector** | Web | For each finding, Pro users see the full HTML evidence (raw matched markup), severity score breakdown, and fix history (which previous audits had this check passing or failing). Free users see summary description only. Power feature for users who want to understand the why. |
 
-### Cross-cutting (both tiers)
+### Platform foundations (both tiers, infrastructure not sold as features)
+
+These three features serve both tiers. They are not differentiators and do not appear on the pricing page. They exist because the product cannot function without them.
 
 | ID | Feature | Surface | Description |
 |---|---|---|---|
-| F9 | **Authentication** | Web | OAuth via GitHub (primary) and Google (secondary). No email/password in v1. WorkOS AuthKit or Clerk for implementation. |
-| F10 | **Billing** | Web | Stripe Checkout for Pro subscription. Webhook-handled subscription lifecycle. Cancel anytime. Annual option (15% discount). |
-| F11 | **Site verification** | Web | Verify ownership of a site before adding to dashboard. Three methods: DNS TXT record, file upload at `/.well-known/answerable-verify`, or HTML meta tag. |
+| F12 | **Authentication** | Web | OAuth via GitHub (primary) and Google (secondary). No email/password in v1. WorkOS AuthKit or Clerk for implementation. |
+| F13 | **Billing** | Web | Stripe Checkout for Pro subscription. Webhook-handled subscription lifecycle. Cancel anytime. Annual option (15% discount). |
+| F14 | **Site verification** | Web | Verify ownership of a site before adding to dashboard. Three methods: DNS TXT record, file upload at `/.well-known/answerable-verify`, or HTML meta tag. |
 
-**Total feature count: 11 (5 free + 3 paid + 3 cross-cutting). That is all.**
+**Total feature count: 14 (5 free + 6 paid + 3 platform foundations). That is all.**
 
 ---
 
@@ -206,15 +211,25 @@ Each of these is a future Phase 2 or Phase 3 feature. Including any of them in v
 
 | Feature | Free (OSS + signup) | Pro ($29/month) |
 |---|:-:|:-:|
-| Audit engine + three scores | ✅ | ✅ |
+| Audit engine + three scores (SEO + AEO + GEO) | ✅ | ✅ |
 | CLI commands | ✅ | ✅ |
 | GitHub Action | ✅ | ✅ |
 | Public score badge | ✅ | ✅ |
-| Web dashboard (view past audits) | ✅ (7 days, 1 site) | ✅ (30 days, 3 sites) |
-| AI fix generation | ❌ | ✅ (50 per month) |
-| Audit history with trend graphs | ❌ | ✅ |
-| Multi-site management | ❌ (1 site) | ✅ (3 sites) |
+| Web dashboard | ✅ Latest audit only, 1 site | ✅ Up to 3 sites |
+| Re-audit on demand | ✅ 3 per day max | ✅ Unlimited |
+| AI fix generation | ❌ | ✅ 50 per month |
+| Audit history + trend graphs | ❌ | ✅ 30 days |
+| Scheduled daily audits | ❌ | ✅ Auto, every 24 hours |
+| Weekly email digest | ❌ | ✅ Every Monday |
+| Detailed evidence inspector | ❌ | ✅ Full HTML evidence + fix history |
 | Public leaderboard listing | ✅ Standard | ✅ Featured |
+
+**The pricing page narrative is two completely different value propositions, not "Free with a few more things on Pro":**
+
+- **Free is for verification.** You audit once, you see what is broken, you see the badge, you ship the fix yourself.
+- **Pro is for monitoring + fixing.** Your sites are watched every day. You get a weekly digest. You see how scores trend. AI generates the fix code for you. You get full evidence per finding.
+
+Sam looks at this and understands instantly: Free answers "is my site broken?". Pro answers "keep my site good without me thinking about it, and write the fixes for me when it is not".
 
 ### Pricing display strategy
 
@@ -440,17 +455,19 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 - Public landing page at `/site/<domain>` shows: current three scores, last 30 days trend (if any), "Audit your own" CTA, "Run by [user] via Answerable" footer if applicable
 - Domain must be audited at least once before badge resolves (otherwise returns "Not yet audited" badge)
 
-### F5: Web dashboard (view only, free)
+### F5: Web dashboard (latest audit only, free)
 
 **Owner:** SaaS team
 **Status:** To be built
 
 **Specification:**
-- Free users see: their 1 site, last 7 audits, three current scores, findings list (read-only)
-- Pro users see: their up to 3 sites, last 30 days, trend graphs, AI fix interface
+- Free users see: their 1 site, their MOST RECENT audit only, three current scores, findings list (read-only)
+- No history view at free tier. If a user wants to see how scores changed over time, the dashboard shows a teaser: "Upgrade to Pro to see 30-day trends"
+- Pro users see: their up to 3 sites, last 30 days, trend graphs, AI fix interface, detailed evidence per finding (see F11)
 - Layout: bento grid (per BRAND-BRIEF.md), three-score cards as primary tile
 - Empty state for new accounts: prominent "Add your first site" with site verification flow
-- No write actions at free tier except "Re-audit my site" (rate limited to 5 per day)
+- Free tier re-audit: rate limited to 3 per day per site. Each re-audit overwrites the previous "latest" record (no history kept at free tier)
+- Pro tier re-audit: unlimited (plus F9 scheduled daily audits run automatically)
 
 ### F6: AI fix generation
 
@@ -500,7 +517,53 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 - Adding 4th site shows upgrade prompt to Studio (when Studio launches)
 - Sites can be deleted (with confirmation), data immediately purged
 
-### F9: Authentication
+### F9: Scheduled daily audits (Pro)
+
+**Owner:** SaaS team
+**Status:** To be built
+
+**Specification:**
+- Every Pro site is automatically re-audited every 24 hours
+- Audit schedule jitters across the user base (not all run at midnight UTC) to spread infrastructure load
+- User can pause auto-audits per site in settings
+- User can change cadence per site: Daily (default), Twice Daily, or Hourly (the last requires Studio when launched)
+- If a scheduled audit detects a score change of more than 5 points in any of the three engines, dashboard shows a banner: "Your AEO score dropped 8 points overnight. View what changed."
+- Background worker infrastructure: scheduled jobs via Inngest, Trigger.dev, or self-hosted BullMQ (decide in TRD)
+- Idempotency: if a scheduled audit fails (e.g., target site is down), retry once after 1 hour. If still failing, skip and log. Do not block tomorrow's run.
+- Cost containment: each audit costs ~$0.0005 of compute. At 75 Pro users x 3 sites x 30 days = 6,750 audits/month = ~$3.40 in costs. Negligible.
+
+### F10: Weekly email digest (Pro)
+
+**Owner:** SaaS team
+**Status:** To be built
+
+**Specification:**
+- Every Monday at 09:00 in the user's local timezone (fallback UTC)
+- Email contains: summary of each Pro site (current 3 scores + delta vs last week), top 3 new findings, AI fix usage (X of 50 used), one call-to-action (e.g., "Generate fixes for your 2 newest findings")
+- Template: minimal HTML, designed in Aurora color system. Plain text fallback always shipped alongside.
+- Sender domain: `digest@answerable.io` (with proper SPF/DKIM/DMARC)
+- Email service: Resend (primary). Postmark as fallback if Resend fails twice.
+- Unsubscribe: prominent one-click link at the bottom. Unsubscribing only affects this email, not transactional ones.
+- Skip rule: if all sites are unchanged (no audits ran, no findings, no fixes), skip the email that week (no value)
+- Out of scope for v1: HTML email A/B testing, multiple digest cadences, daily digest option
+
+### F11: Detailed evidence inspector (Pro)
+
+**Owner:** SaaS team
+**Status:** To be built
+
+**Specification:**
+- On any audit findings list, Pro users see an "Inspect" button per finding
+- Clicking opens a side panel from the right with:
+  1. Full raw HTML evidence (the markup our checker matched against)
+  2. Severity breakdown explaining why this is critical/high/medium/low (severity weight, point impact)
+  3. Fix history: if this check failed in past audits, when did it pass last? When did it start failing? Mini timeline.
+  4. Links to related checks (e.g., A4 canonical might link to D1 about, F5 og:url)
+- Free users see "Inspect" button but clicking shows: "Detailed evidence is a Pro feature. Upgrade to see exactly what is broken."
+- Layout: glass panel over animated mesh gradient (per BRAND-BRIEF.md)
+- No write actions in the panel except "Generate fix with AI" button (which is F6 Pro feature)
+
+### F12: Authentication (Platform Foundation)
 
 **Owner:** SaaS team
 **Status:** To be built
@@ -512,7 +575,7 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 - Session: HTTP-only cookie, JWT-based, 30 day rolling expiry
 - Implementation: WorkOS AuthKit or Clerk (decide in TRD)
 
-### F10: Billing
+### F13: Billing (Platform Foundation)
 
 **Owner:** SaaS team
 **Status:** To be built
@@ -525,7 +588,7 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 - Failed payment recovery: 3 retry attempts over 7 days, then auto-downgrade with email
 - Stripe Tax for inclusive pricing in EU/India
 
-### F11: Site verification
+### F14: Site verification (Platform Foundation)
 
 **Owner:** SaaS team
 **Status:** To be built
@@ -643,7 +706,7 @@ Do not launch until ALL of these are green:
 
 ## 12. Risk Mitigation
 
-### Top 8 risks ranked by impact x likelihood
+### Top 10 risks ranked by impact x likelihood
 
 | # | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|---|
@@ -655,6 +718,8 @@ Do not launch until ALL of these are green:
 | 6 | Stripe billing webhook fails to update subscriptions | Low | High | Stripe webhooks are well-tested. Use Stripe CLI for local testing. Have manual reconciliation script ready. |
 | 7 | A spam abuser hammers the audit endpoint | High | Medium | Rate limit by IP + user. Cloudflare in front. Use Upstash Redis for rate limit state. |
 | 8 | User confuses Free vs Pro features and complains | High | Low | Clear pricing page, clear in-app tier badges, friendly upgrade prompts. Refund any confused user no questions. |
+| 9 | Scheduled audit worker infrastructure fails or scales poorly | Medium | Medium | Use managed queue (Inngest or Trigger.dev). Jitter audit times across users to spread load. Monitor worker health. Have manual re-trigger fallback. Limit scope to 3 sites per Pro user at v1. |
+| 10 | Weekly email digest hits spam folders or has poor deliverability | Medium | Medium | Use Resend with proper SPF, DKIM, DMARC setup. Send from a custom domain. Monitor bounce rate. Provide plain-text fallback. Test across multiple email clients during beta. |
 
 ### What we accept as known risks
 
@@ -739,7 +804,7 @@ If a feature request would push the product toward any of these, the answer is n
 
 The MVP is "done" when:
 
-- All 11 features (F1-F11) are implemented and tested
+- All 14 features (F1-F14) are implemented and tested
 - All 8 user journeys can be completed end to end without bugs
 - 50 beta users have used the product for at least 7 days
 - At least 3 of those beta users converted to Pro voluntarily
