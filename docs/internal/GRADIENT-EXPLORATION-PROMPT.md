@@ -52,7 +52,10 @@ Description: 75% of canvas is deep midnight #0A0E1A. ONE single color bloom of e
 Colors: #0A0E1A (midnight, 75% coverage) + #00F0FF (cyan, 25% coverage in single bloom)
 Animation: bloom slowly expands and contracts every 12 seconds, like breath
 Texture: heavy film grain across ENTIRE canvas (not just the colored area)
-Inspiration: Shader Gradient Universe preset, but with our cyan and far more black
+Inspiration websites (study these):
+  - https://www.shader-gradient.co/  (Universe preset specifically - go to "Customize" then preset 06 Universe)
+  - https://linear.app/  (their hero has subtle color blooms on near-black backgrounds)
+  - https://www.anthropic.com/  (the dark background with a single warm color bloom in hero)
 
 ────────────────────────────────────────────────────────────────────
 VARIATION 2: COLD STATIC
@@ -62,7 +65,11 @@ Description: Monochrome navy gradient with TV-static texture. Vertical bands lik
 Colors: #1A2540 (navy) and #0A0E1A (midnight) - TWO colors only
 Animation: subtle vertical drift, 1 pixel every 8 seconds (almost imperceptible)
 Texture: very heavy noise, like analog film grain or CRT scan lines
-Inspiration: Linear minimalism + Shader Gradient texture
+Inspiration websites (study these):
+  - https://linear.app/  (minimalist monochrome refinement)
+  - https://railway.app/  (similar dark monochrome aesthetic with grain)
+  - https://www.fey.com/  (sophisticated financial dashboard, dark sophisticated)
+  - https://www.shader-gradient.co/  (Nighty Night preset for the deep blue feel)
 
 ────────────────────────────────────────────────────────────────────
 VARIATION 3: TOPOGRAPHIC DRIFT
@@ -72,7 +79,11 @@ Description: Contour lines like a topographic map. Lines drift slowly horizontal
 Colors: cyan #00F0FF (lines) on midnight #0A0E1A (background)
 Animation: lines drift horizontally at 2 different speeds (front layer faster than back layer - parallax built into the gradient itself)
 Line treatment: lines vary in thickness (0.5px to 2px), opacity (10% to 40%), some slightly broken/dotted
-Inspiration: cartographic design, Vercel typography refinement
+Inspiration websites (study these):
+  - https://www.mapbox.com/  (cartographic line treatment)
+  - https://stamen.com/  (cartographic design firm - terrain styles)
+  - https://vercel.com/  (technical precision and line work)
+  - https://www.openstreetmap.org/  (raw topographic map aesthetic)
 
 ────────────────────────────────────────────────────────────────────
 VARIATION 4: RISOGRAPH CYAN
@@ -82,7 +93,11 @@ Description: Duotone print aesthetic - looks like Risograph or screen printing
 Colors: midnight #0A0E1A and cyan #00F0FF - exactly TWO colors, no blending
 Animation: static OR extremely subtle ink-bleed expansion at edges (almost still)
 Texture: visible halftone dots, slight misregistration between the two color plates
-Inspiration: zine culture, Aesop branding, indie publication design
+Inspiration websites (study these):
+  - https://www.aesop.com/  (duotone print sensibility, editorial sophistication)
+  - https://riso.co.jp/global/  (Risograph official site - the actual printing technique)
+  - https://www.printedmatter.org/  (independent artists publications)
+  - https://www.it-s-nice-that.com/  (independent design publication aesthetic)
 
 ────────────────────────────────────────────────────────────────────
 VARIATION 5: LIME DUST
@@ -92,7 +107,11 @@ Description: Pure black canvas with lime green grain particles scattered like du
 Colors: #000000 (pure black, 90%) + #A3FF12 (lime, 10% as scattered particles)
 Animation: particles drift very slowly, like ash falling in still air
 Texture: particles are the texture - they cluster slightly more in one corner (asymmetric)
-Inspiration: 90s art installations, Massive Attack album covers
+Inspiration websites (study these):
+  - https://teenage.engineering/  (industrial design, black with small color accents)
+  - https://hypebeast.com/  (street culture aesthetic, dark with sharp accents)
+  - https://www.fff.lol/  (experimental digital design with dark + neon)
+  - https://www.designboom.com/  (art installation documentation)
 
 ────────────────────────────────────────────────────────────────────
 VARIATION 6: INK STORM
@@ -103,7 +122,11 @@ Colors: midnight #0A0E1A and deep amber #FFA500 (pick amber for this variation s
 Animation: ink slowly diffuses and swirls almost imperceptibly
 Texture: heavy noise, painterly edges, NO crisp transitions, looks like ink in water
 Asymmetric: amber dominates upper-left, fades to midnight bottom-right
-Inspiration: Japanese sumi-e ink painting
+Inspiration websites (study these):
+  - https://www.metmuseum.org/art/collection/search#!?material=Ink  (Met Museum ink works collection)
+  - https://www.muji.com/  (Japanese minimalism aesthetic)
+  - https://www.hokusai-museum.jp/?lang=en  (Japanese ink and woodblock art)
+  - https://www.shader-gradient.co/  (Interstella preset for the warm amber feel)
 
 ────────────────────────────────────────────────────────────────────
 VARIATION 7: ECLIPSE
@@ -114,7 +137,11 @@ Colors: #00F0FF (cyan, 80%) + #0A0E1A (midnight, 20% as circular void)
 Animation: the dark void slowly drifts horizontally, like a planet moving across a sun
 Texture: heavy grain across BOTH color and void
 Position: void is in upper-center, slightly left of true center
-Inspiration: solar eclipse photography, NASA archive imagery
+Inspiration websites (study these):
+  - https://eclipse.gsfc.nasa.gov/  (NASA eclipse archive - actual photography reference)
+  - https://apod.nasa.gov/apod/astropix.html  (NASA Astronomy Picture of the Day)
+  - https://images.nasa.gov/  (NASA image library, search "eclipse")
+  - https://www.esa.int/ESA_Multimedia/Images  (European Space Agency imagery)
 
 ────────────────────────────────────────────────────────────────────
 VARIATION 8: CHROMATIC CRACK
@@ -124,7 +151,11 @@ Description: TWO color fields meeting at a sharp diagonal (NOT a smooth blend). 
 Colors: midnight #0A0E1A (one side) and electric cyan #00F0FF (other side)
 Animation: extremely subtle - the diagonal rotates 1 degree every 30 seconds (barely perceptible drift)
 Texture: heavy noise across both fields, painterly edge along the diagonal
-Inspiration: Mark Rothko color field paintings
+Inspiration websites (study these):
+  - https://www.nga.gov/collection/art-object-page.69298.html  (Rothko at National Gallery)
+  - https://www.moma.org/artists/5047  (Mark Rothko at MoMA)
+  - https://www.tate.org.uk/art/artists/mark-rothko-1875  (Rothko at Tate)
+  - https://www.rothkochapel.org/  (Rothko Chapel - the immersive color field experience)
 
 ═══════════════════════════════════════════════════════════════════
 PRESENTATION INSTRUCTIONS
