@@ -89,6 +89,11 @@
     const orbitX = opts.orbitX == null ? 0.14 : opts.orbitX;
     const orbitY = opts.orbitY == null ? 0.09 : opts.orbitY;
     const orbitPeriod = opts.orbitPeriod || 26;
+    /* v3.4: second period is now explicitly configurable. If not set,
+       we use orbitPeriod * 1.37 (a non-rational ratio) so X and Y axes
+       use different periods, the lissajous never exactly repeats, and
+       the bloom traces a slowly varying figure-8 indefinitely. */
+    const orbitPeriod2 = opts.orbitPeriod2 || orbitPeriod * 1.37;
 
     const period = opts.period || 22;
     const bAmp = opts.breathAmp == null ? 0.06 : opts.breathAmp;
@@ -116,8 +121,14 @@
     ];
 
     return function (ctx, W, H, t) {
-      // 1) flat slate base
-      ctx.fillStyle = base; ctx.fillRect(0, 0, W, H);
+      // 1) flat slate base (or transparent clear, for layered overlays
+      //    like the Fix Studio panel which paints over a dimmed
+      //    dashboard underneath rather than its own slate canvas).
+      if (base === 'transparent') {
+        ctx.clearRect(0, 0, W, H);
+      } else {
+        ctx.fillStyle = base; ctx.fillRect(0, 0, W, H);
+      }
 
       // 2) slow tonal rotation
       const angle = (t / tonePeriod) * Math.PI * 2;
@@ -132,9 +143,9 @@
       tone.addColorStop(1, toneB);
       ctx.fillStyle = tone; ctx.fillRect(0, 0, W, H);
 
-      // 3) ORBITAL BLOOM POSITION (lissajous over orbitPeriod)
+      // 3) ORBITAL BLOOM POSITION (lissajous with two distinct periods)
       const px = Math.cos((t / orbitPeriod) * Math.PI * 2) * orbitX;
-      const py = Math.sin((t / (orbitPeriod * 1.37)) * Math.PI * 2) * orbitY;
+      const py = Math.sin((t / orbitPeriod2) * Math.PI * 2) * orbitY;
       const cx = W * (fcx + px);
       const cy = H * (fcy + py);
 

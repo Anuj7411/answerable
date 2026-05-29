@@ -2,6 +2,22 @@
    Subtle ember presence: this is a daily-use product surface, not a
    marketing hero. The data is the focus, the bloom is ambient. */
 
+/* Small line icons for the sidebar nav items. */
+function DbIcon(props) {
+  const p = {
+    audits:   'M3 13h3l2 5 4-13 2 8h4',
+    findings: 'M4 5h12M4 10h12M4 15h7',
+    fixes:    'M11 2 4 12h5l-1 8 8-12h-5z',
+    settings: 'M10 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM10 1.5v2M10 16.5v2M18.5 10h-2M3.5 10h-2M15.4 4.6l-1.4 1.4M6 14l-1.4 1.4M15.4 15.4 14 14M6 6 4.6 4.6',
+  }[props.name];
+  return (
+    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+         strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={p} />
+    </svg>
+  );
+}
+
 function Dashboard() {
   return (
     <div className="screen" data-screen-label="Dashboard" style={{ '--ember': '#E87B2C' }}>
@@ -37,10 +53,10 @@ function Dashboard() {
               docs.answerable.io
             </div>
             <div className="group">Navigate</div>
-            <div className="item active">Audits</div>
-            <div className="item">Findings <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11.5, color: 'var(--ink-dim)' }}>3</span></div>
-            <div className="item">AI Fixes <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11.5, color: 'var(--ink-dim)' }}>23/90</span></div>
-            <div className="item">Settings</div>
+            <div className="item active"><DbIcon name="audits" /> Audits</div>
+            <div className="item"><DbIcon name="findings" /> Findings <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11.5, color: 'var(--ink-dim)' }}>3</span></div>
+            <div className="item"><DbIcon name="fixes" /> AI Fixes <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11.5, color: 'var(--ink-dim)' }}>23/90</span></div>
+            <div className="item"><DbIcon name="settings" /> Settings</div>
           </aside>
 
           {/* main */}

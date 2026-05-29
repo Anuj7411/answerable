@@ -5,9 +5,30 @@
 
 function FixStudio() {
   return (
-    <div className="screen" data-screen-label="Fix Studio" style={{ '--ember': '#FFA500' }}>
+    <div className="screen" data-screen-label="Fix Studio" style={{ '--ember': '#FFA500', background: '#D6D2CB' }}>
+      {/* dimmed dashboard backdrop (context only, sits UNDER the bloom paint) */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        opacity: 0.45, pointerEvents: 'none',
+        filter: 'blur(2px) saturate(0.85)',
+      }}>
+        <div className="db-shell">
+          <aside className="db-side"></aside>
+          <main className="db-main">
+            <div className="db-scores">
+              <div className="db-score-card"><div className="label">SEO</div><div className="num">92<small>/100</small></div><div className="bar"><i style={{ width: '92%' }}></i></div></div>
+              <div className="db-score-card"><div className="label">AEO</div><div className="num">87<small>/100</small></div><div className="bar"><i style={{ width: '87%' }}></i></div></div>
+              <div className="db-score-card"><div className="label">GEO</div><div className="num">74<small>/100</small></div><div className="bar"><i style={{ width: '74%' }}></i></div></div>
+              <div className="db-score-card aggregate"><div className="label">Aggregate</div><div className="num">84<small>/100</small></div><div className="bar"><i style={{ width: '84%' }}></i></div></div>
+            </div>
+          </main>
+        </div>
+      </div>
+
+      {/* v3.4: bloom now paints with TRANSPARENT base so it layers over the
+          dashboard backdrop instead of stamping another full slate base on top. */}
       <Bloom opts={{
-        base: '#D6D2CB',
+        base: 'transparent',
         ember: [255, 165, 30],
         core: [255, 175, 60],
         intensity: 0.40,
@@ -16,30 +37,12 @@ function FixStudio() {
         period: 22, breathAmp: 0.06,
         grainMul: 0.13, grainTime: 3.2,
         tonePeriod: 42,
+        toneA: 'rgba(214,210,203,0)', toneB: 'rgba(196,190,182,0)',
         renderScale: 0.82, fps: 30,
         w: 1440, h: 900,
       }} />
 
       <div className="layer">
-        {/* dimmed dashboard underneath for context */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          opacity: 0.45, pointerEvents: 'none',
-          filter: 'blur(2px) saturate(0.85)',
-        }}>
-          <div className="db-shell">
-            <aside className="db-side"></aside>
-            <main className="db-main">
-              <div className="db-scores">
-                <div className="db-score-card"><div className="label">SEO</div><div className="num">92<small>/100</small></div><div className="bar"><i style={{ width: '92%' }}></i></div></div>
-                <div className="db-score-card"><div className="label">AEO</div><div className="num">87<small>/100</small></div><div className="bar"><i style={{ width: '87%' }}></i></div></div>
-                <div className="db-score-card"><div className="label">GEO</div><div className="num">74<small>/100</small></div><div className="bar"><i style={{ width: '74%' }}></i></div></div>
-                <div className="db-score-card aggregate"><div className="label">Aggregate</div><div className="num">84<small>/100</small></div><div className="bar"><i style={{ width: '84%' }}></i></div></div>
-              </div>
-            </main>
-          </div>
-        </div>
-
         {/* the actual Fix Studio panel */}
         <aside className="fs-overlay">
           <div className="fs-head">
