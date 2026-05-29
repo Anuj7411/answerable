@@ -21,7 +21,7 @@ function Pricing() {
         <nav className="nav">
           <div className="brand">
             <span className="mark"><i></i></span>
-            <span className="wm">Answerable</span>
+            <span className="wm">Answerfox</span>
           </div>
           <div className="nav-links">
             <a href="#pricing">Pricing</a>

@@ -1,6 +1,6 @@
 # Gradient Exploration Prompt for Claude Design
 
-**Purpose:** Generate 8 unique gradient variations for Answerable's hero background. Each must reject the standard "AI SaaS rainbow blur" aesthetic. Pick the strongest 1-2 to lock as our brand signature.
+**Purpose:** Generate 8 unique gradient variations for Answerfox's hero background. Each must reject the standard "AI SaaS rainbow blur" aesthetic. Pick the strongest 1-2 to lock as our brand signature.
 
 **Context:** The first Claude Design output used a smooth cyan-violet-magenta gradient that looks like every other AI SaaS in 2026. We need something that genuinely differentiates. References: shader-gradient.co (Interstella, Nighty Night, Viola, Universe presets).
 
@@ -9,7 +9,7 @@
 ## THE PROMPT (paste this into a new Claude Design prototype)
 
 ```
-Design 8 separate gradient hero backgrounds for Answerable, an open-source AI-SEO toolkit. Each gradient is a full-bleed background for a hero section (1920x1080 viewport). Show all 8 side by side as a comparison grid.
+Design 8 separate gradient hero backgrounds for Answerfox, an open-source AI-SEO toolkit. Each gradient is a full-bleed background for a hero section (1920x1080 viewport). Show all 8 side by side as a comparison grid.
 
 ═══════════════════════════════════════════════════════════════════
 DESIGN BRIEF

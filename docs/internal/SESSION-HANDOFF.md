@@ -1,6 +1,6 @@
 # Session Handoff — 2026-05-29
 
-**Purpose:** Read this file fully before doing anything. It is the source of truth for resuming the Answerable project in a new Claude Code session.
+**Purpose:** Read this file fully before doing anything. It is the source of truth for resuming the Answerfox project in a new Claude Code session.
 
 This handoff supersedes the previous one (which was about the v0.1.0 npm publish). All foundation work since then is captured here.
 
@@ -8,7 +8,7 @@ This handoff supersedes the previous one (which was about the v0.1.0 npm publish
 
 ## 60-Second Recap
 
-Anuj has been building **Answerable**, an open-source AI-SEO toolkit launching as a SaaS. The OSS packages are already live on npm at v0.1.2. The SaaS launch foundation has been fully designed and architected through this session.
+Anuj has been building **Answerfox**, an open-source AI-SEO toolkit launching as a SaaS. The OSS packages are already live on npm at v0.1.2. The SaaS launch foundation has been fully designed and architected through this session.
 
 **Current state:** Every foundation document is locked. The prototype landing page works in a browser. The next step is engineering work (scaffolding `apps/web` per the TRD).
 
@@ -78,7 +78,7 @@ Path: `prototype/landing/`
 
 ## The Single Sentence (Locked Positioning)
 
-> **Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.**
+> **Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.**
 
 Three pillars: **OSS first · Lives in your codebase · Ships fixes as code**.
 
@@ -241,7 +241,7 @@ When you start the new Claude Code session, paste this exact message as your fir
 
 > Read `docs/internal/SESSION-HANDOFF.md` fully before doing anything else.
 >
-> We are picking up Answerable, an open-source AI-SEO toolkit launching as a SaaS. All seven foundation documents are locked (STRATEGIC-POSITIONING, BRAND-BRIEF, BRAND-SYSTEM-LOCKED, PRD-V1, CLAUDE-DESIGN-PROMPTS-LOCKED-V33, TRD-V1, SESSION-HANDOFF). The OSS packages are live on npm at v0.1.2. The visual prototype at `prototype/landing/` validates the v3.4 bloom engine and all 5 foundation screens.
+> We are picking up Answerfox, an open-source AI-SEO toolkit launching as a SaaS. All seven foundation documents are locked (STRATEGIC-POSITIONING, BRAND-BRIEF, BRAND-SYSTEM-LOCKED, PRD-V1, CLAUDE-DESIGN-PROMPTS-LOCKED-V33, TRD-V1, SESSION-HANDOFF). The OSS packages are live on npm at v0.1.2. The visual prototype at `prototype/landing/` validates the v3.4 bloom engine and all 5 foundation screens.
 >
 > The active task is Week 1 of the TRD build plan: scaffold `apps/web` with Next.js 15, configure Tailwind with Slate Family tokens, port the v3.4 bloom engine to TypeScript, set up Auth.js v5 with GitHub OAuth, set up Drizzle + Neon Postgres, run initial migrations, wire Sentry + PostHog.
 >

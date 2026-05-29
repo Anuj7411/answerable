@@ -1,14 +1,14 @@
-# Answerable — Strategic Positioning & Uniqueness Doctrine
+# Answerfox — Strategic Positioning & Uniqueness Doctrine
 
 **Status:** Committed direction. Locked 2026-05-20.
 **Owner:** Anuj Ojha
-**Purpose:** Resolve the OSS-vs-SaaS confusion once and for all. Define what Answerable is, who it is for, how it makes money, and what makes it un-copyable. Every product, marketing, and engineering decision flows from this document.
+**Purpose:** Resolve the OSS-vs-SaaS confusion once and for all. Define what Answerfox is, who it is for, how it makes money, and what makes it un-copyable. Every product, marketing, and engineering decision flows from this document.
 
 ---
 
 ## 1. The One Sentence
 
-> **Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.**
+> **Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.**
 
 If this sentence stops being true, we have lost. Every feature, page, tweet, and PR is judged against it.
 
@@ -32,7 +32,7 @@ If this sentence stops being true, we have lost. Every feature, page, tweet, and
 
 ## 3. The Three Pillars
 
-These are the only three things that make Answerable Answerable. Every feature must reinforce at least one pillar.
+These are the only three things that make Answerfox Answerfox. Every feature must reinforce at least one pillar.
 
 ### 🔓 Pillar 1 — Open Source First
 
@@ -70,7 +70,7 @@ These are the only three things that make Answerable Answerable. Every feature m
 
 **What it means:** When the audit finds a problem, the AI doesn't just say "fix your meta description." It writes the actual new meta description, generates the JSON-LD, drafts the FAQ schema — and outputs a downloadable diff, a `git apply` patch, or an auto-opened PR.
 
-**Why it wins:** Every competitor monitors and advises. Nobody fixes. This is the gap. Surfer rewrites content but locks it in their editor. Profound tells you "improve E-E-A-T" with no code. Answerable opens a PR.
+**Why it wins:** Every competitor monitors and advises. Nobody fixes. This is the gap. Surfer rewrites content but locks it in their editor. Profound tells you "improve E-E-A-T" with no code. Answerfox opens a PR.
 
 **What this gives us:**
 - **The ProductHunt magic moment.** "Audit → PR → ranked in 90 seconds" is a 30-second video that goes viral on dev Twitter.
@@ -171,7 +171,7 @@ This is the section you came here for. Read it slowly.
 Some will. About 20%. Those people are:
 - Your QA testers (they find bugs and file PRs)
 - Your evangelists (they recommend you on Twitter and in Discord servers)
-- Your future team leads (they bring Answerable into their company budget next year)
+- Your future team leads (they bring Answerfox into their company budget next year)
 - Your contributors (they write the next 17 audit checks for free)
 
 The 80% who pay $29/month do so because they:
@@ -187,12 +187,12 @@ The 80% who pay $29/month do so because they:
 
 ## 5. The Integration Story — How Features Connect
 
-This is what makes Answerable feel like ONE product instead of a feature checklist.
+This is what makes Answerfox feel like ONE product instead of a feature checklist.
 
 ### The user journey (the magic 90 seconds)
 
 ```
-1. Developer reads a tweet about Answerable.
+1. Developer reads a tweet about Answerfox.
    ↓
 2. Runs `pnpm dlx @answerable-kit/cli audit mysite.com` in terminal.
    ↓
@@ -208,11 +208,11 @@ This is what makes Answerable feel like ONE product instead of a feature checkli
    ↓
 8. Downloads the patches → applies → re-runs audit → score 91/100.
    ↓
-9. Tweets the before/after with Answerable badge → marketing happens.
+9. Tweets the before/after with Answerfox badge → marketing happens.
    ↓
 10. Citation tracker (background, weekly) detects ChatGPT now cites the site.
     ↓
-11. User sees this notification → recommends Answerable to other founders.
+11. User sees this notification → recommends Answerfox to other founders.
 ```
 
 Every step reinforces the three pillars. Every step is something competitors don't do end-to-end.
@@ -241,7 +241,7 @@ Every step reinforces the three pillars. Every step is something competitors don
 
 ## 6. What Makes Us Unique (vs Every Competitor)
 
-| | Profound | Peec AI | Otterly | Surfer | HubSpot AEO | vanshh_ai demo | **Answerable** |
+| | Profound | Peec AI | Otterly | Surfer | HubSpot AEO | vanshh_ai demo | **Answerfox** |
 |---|---|---|---|---|---|---|---|
 | Open source | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅** |
 | CLI / npm install | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅** |
@@ -255,7 +255,7 @@ Every step reinforces the three pillars. Every step is something competitors don
 | **Unified SEO + AEO + GEO scoring** (3 scores, 1 tool) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅** |
 | **Total unique check ✅** | 1 | 1 | 2 | 1 | 2 | 0 | **10** |
 
-**Answerable has 10 differentiators. The next closest competitor has 2.**
+**Answerfox has 10 differentiators. The next closest competitor has 2.**
 
 That is what "stand unique in market" actually looks like when you write it down.
 
@@ -319,7 +319,7 @@ This is the differentiator no competitor has. Read this section twice.
 
 GEO is a subset of AEO. AEO is a subset of SEO. But each has unique tactics. A site can have great SEO and terrible GEO (e.g., excellent backlinks but no `llms.txt`, no schema, no E-E-A-T signals).
 
-### How Answerable's 50-check framework maps
+### How Answerfox's 50-check framework maps
 
 Every check is tagged by which engine type it serves. Most checks serve multiple. The mapping:
 
@@ -391,7 +391,7 @@ After v0.2.0: **38 checks shipped of an expanded 55-check framework** (50 origin
 
 ### The launch artifact
 
-**Title:** *Answerable — Open-source AI-SEO that ships fixes as code*
+**Title:** *Answerfox — Open-source AI-SEO that ships fixes as code*
 
 **Tagline:** *Audit your site for ChatGPT, Perplexity & Google. AI generates the fixes as a GitHub PR. 50+ checks. $29/mo or self-host free.*
 
@@ -407,7 +407,7 @@ After v0.2.0: **38 checks shipped of an expanded 55-check framework** (50 origin
 [0:40] GitHub PR opens in new tab. Files changed: 6.
 [0:50] Cut: re-run audit. Score: 91/100. Excellent.
 [0:55] Caption: "Open source. $29/mo. Or self-host free.
-       Made by one developer. Try it: answerable.io"
+       Made by one developer. Try it: answerfox.dev"
 [1:00] End card with logo.
 ```
 
@@ -454,7 +454,7 @@ The features we don't build are as important as the ones we do. Each rejected fe
 | **Backlink monitoring** | Ahrefs' job. We don't compete there. |
 | **Keyword research** | Different tool category. Partner with one, don't build. |
 | **Built-in marketing CRM** | Not our category. |
-| **AI chat interface ("ask Answerable anything")** | Gimmicky. Our value is structured audits, not chat. |
+| **AI chat interface ("ask Answerfox anything")** | Gimmicky. Our value is structured audits, not chat. |
 | **Browser extension** | Not our customer's workflow. CLI is. |
 
 **Every rejected feature above is a feature competitors will spend engineering on. While they're distracted, we deepen the three pillars.**
@@ -561,7 +561,7 @@ Things that will kill this strategy. Watch for them.
 
 ## 13. The Single Sentence (One More Time)
 
-> **Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.**
+> **Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.**
 
 Pin this on your wall. Make it the top of your Twitter bio. Put it in every README. Say it in every interview.
 

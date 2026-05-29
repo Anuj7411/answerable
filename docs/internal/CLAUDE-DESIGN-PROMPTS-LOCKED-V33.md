@@ -28,14 +28,14 @@ All 4 prompts below carry these fixes in their hard-rules section. Paste them ve
 This block is identical across all 4 screens. Paste it first, then the screen-specific section.
 
 ```
-You are designing a screen for Answerable, an open-source AI-SEO toolkit launching in 2026 targeting indie developers. The user evaluating this design is visually sophisticated and will reject anything that looks like AI-generated template SaaS.
+You are designing a screen for Answerfox, an open-source AI-SEO toolkit launching in 2026 targeting indie developers. The user evaluating this design is visually sophisticated and will reject anything that looks like AI-generated template SaaS.
 
 ═══════════════════════════════════════════════════════════════════
 PRODUCT IDENTITY
 ═══════════════════════════════════════════════════════════════════
 
-Product name: Answerable
-Target domain: answerable.io
+Product name: Answerfox
+Target domain: answerfox.dev
 Positioning: The only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 GitHub: https://github.com/Anuj7411/answerable
@@ -198,7 +198,7 @@ Good copy example:
 "Audit any site for SEO, AEO, and GEO across 55 checks. Then let AI write the fixes."
 
 Bad copy to NEVER produce:
-"Unlock the power of AI-driven SEO with Answerable, the cutting-edge platform that leverages intelligent algorithms..."
+"Unlock the power of AI-driven SEO with Answerfox, the cutting-edge platform that leverages intelligent algorithms..."
 
 Word swaps:
 leverage → use
@@ -235,7 +235,7 @@ LAYOUT
 ═══════════════════════════════════════════════════════════════════
 
 Top nav (height 76px):
-- Left: Answerable wordmark with small marigold ember-dot accent inside a square frame
+- Left: Answerfox wordmark with small marigold ember-dot accent inside a square frame
 - Center-left: links Pricing, Docs, GitHub
 - Right: ghost button "Sign in with GitHub"
 
@@ -314,10 +314,10 @@ LAYOUT
 ═══════════════════════════════════════════════════════════════════
 
 Left sidebar (240px wide, glass surface bg-elevated #E0DCD5):
-- Top: Answerable wordmark with ember dot mark
+- Top: Answerfox wordmark with ember dot mark
 - Section label (mono uppercase 11px): "Site"
-- Active site row: small ember dot, "answerable.io"
-- Inactive site row: small violet dot, "docs.answerable.io"
+- Active site row: small ember dot, "answerfox.dev"
+- Inactive site row: small violet dot, "docs.answerfox.dev"
 - Section label: "Navigate"
 - Active item: "Audits" with 3px ember vertical bar on its left edge
 - Items: "Findings" (with count 3 right-aligned), "AI Fixes" (with 23/90 right-aligned), "Settings"
@@ -367,7 +367,7 @@ RIGHT COLUMN (narrower):
 REAL DATA
 ═══════════════════════════════════════════════════════════════════
 
-Use the exact site name "answerable.io" and the exact scores above. The findings (A4, G1, C3) are real check IDs from our audit framework. Daily AI fix counter: "2 of 3 used."
+Use the exact site name "answerfox.dev" and the exact scores above. The findings (A4, G1, C3) are real check IDs from our audit framework. Daily AI fix counter: "2 of 3 used."
 
 Bloom: ember #F89444, 35 percent intensity, subtle ambient warmth in the upper-right of the content area, slow drift. The slate should clearly dominate the page. The bloom should be felt, not seen. Heavy paper grain. NO white pinpoint.
 ```
@@ -419,7 +419,7 @@ Panel body (padded 20 26, scrollable):
    - Background: slate-recessed with hairline border, 12px radius
    - Mono 13px / line-height 1.65
    - Syntax-highlighted real meta tag:
-     `<link rel="canonical" href="https://answerable.io/pricing" />`
+     `<link rel="canonical" href="https://answerfox.dev/pricing" />`
    - "link" tag in ember-shaded color
    - "rel" / "href" attributes in violet
    - String values in slightly deeper ember
@@ -447,7 +447,7 @@ REAL DATA
 ═══════════════════════════════════════════════════════════════════
 
 Check ID: A4 Canonical
-Generated meta tag exactly: <link rel="canonical" href="https://answerable.io/pricing" />
+Generated meta tag exactly: <link rel="canonical" href="https://answerfox.dev/pricing" />
 Explanation copy verbatim from above. Impact estimate "+3 SEO, +1 GEO".
 
 Bloom: amber #FFA500, 40 percent intensity, subtle halo behind the streaming text area inside the panel (not the full canvas). Slow drift. Heavy grain across the panel surface. NO white pinpoint.
@@ -481,7 +481,7 @@ Asymmetric two-column split (1fr 1fr):
 
 LEFT SIDE (bloom dominates here):
 - 56px padding all around
-- Top: Answerable wordmark with terracotta ember-dot mark inside the square frame
+- Top: Answerfox wordmark with terracotta ember-dot mark inside the square frame
 - Middle (large area): editorial quote in display weight 500, 30px size:
   "SEO that lives in your codebase. Audit, fix, and ship in one tool."
   Where "ship" is emphasized in terracotta color and weight 600.
@@ -498,7 +498,7 @@ RIGHT SIDE (glass card centered):
 - 1px border in terracotta-tinted color
 
 Card content (vertical stack with 18px gaps):
-- Small wordmark "Answerable" in display 14px text-muted
+- Small wordmark "Answerfox" in display 14px text-muted
 - Big heading "Welcome." (display 28px weight 600)
 - Sub: "Audit your site for SEO, AEO, and GEO. Then let AI write the fixes as code." (14.5px text-muted)
 - Actions stack (10px gaps):

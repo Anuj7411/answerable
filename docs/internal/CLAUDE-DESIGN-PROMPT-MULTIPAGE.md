@@ -13,14 +13,14 @@
 ## THE PROMPT (paste this in full into Claude Design)
 
 ```
-You are designing the foundational 5 screens for Answerable, an open-source AI-SEO toolkit launching in 2026 targeting indie developers. The user evaluating this design is visually sophisticated and will reject anything that looks like AI-generated template SaaS.
+You are designing the foundational 5 screens for Answerfox, an open-source AI-SEO toolkit launching in 2026 targeting indie developers. The user evaluating this design is visually sophisticated and will reject anything that looks like AI-generated template SaaS.
 
 ═══════════════════════════════════════════════════════════════════
 PRODUCT IDENTITY
 ═══════════════════════════════════════════════════════════════════
 
-Product name: Answerable
-Target domain: answerable.io
+Product name: Answerfox
+Target domain: answerfox.dev
 Tagline: The only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 GitHub repo: https://github.com/Anuj7411/answerable
@@ -36,7 +36,7 @@ npm packages:
 
 Install command shown in demos: pnpm dlx @answerable-kit/cli audit yoursite.com
 
-What Answerable does: audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 55-check framework, then generates the actual code fixes using AI. Three scores side by side. Open source MIT license. Lives in CLI, GitHub Action, and a hosted web app.
+What Answerfox does: audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 55-check framework, then generates the actual code fixes using AI. Three scores side by side. Open source MIT license. Lives in CLI, GitHub Action, and a hosted web app.
 
 Pricing:
 - Free OSS forever (CLI, GitHub Action, audit engine, public score badge)
@@ -168,10 +168,10 @@ COPY VOICE
 Tone: friendly + educational. Sharp, not warm. Confident, not cocky.
 
 Good example copy:
-"Answerable audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool."
+"Answerfox audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool."
 
 Bad copy to never produce (AI tells):
-"Unlock the power of AI-driven SEO with Answerable, the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape."
+"Unlock the power of AI-driven SEO with Answerfox, the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape."
 
 Word swaps (always):
 "leverage" → "use"
@@ -202,10 +202,10 @@ SCREEN 1: Landing page hero (above the fold + immediately below)
 ────────────────────────────────────────────────────────────────────
 
 Fidelity: HIGH FIDELITY
-Purpose: A solo developer arrives from a tweet linking to answerable.io. Within 8 seconds they must understand what Answerable does, see proof it works, and want to click. This is the most important moment of the entire product.
+Purpose: A solo developer arrives from a tweet linking to answerfox.dev. Within 8 seconds they must understand what Answerfox does, see proof it works, and want to click. This is the most important moment of the entire product.
 
 Key elements:
-- Top nav: Answerable logo (left), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerable), "Sign in with GitHub" button (right)
+- Top nav: Answerfox logo (left), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerable), "Sign in with GitHub" button (right)
 - Animated aurora gradient mesh background (shader-gradient.co style, low opacity over #0A0E1A)
 - Eyebrow text above headline: "Open-source AI-SEO toolkit"
 - Hero headline (72px, tight tracking, weight 600): "The only AI-SEO toolkit that lives in your codebase and ships fixes as code."
@@ -274,7 +274,7 @@ Fidelity: HIGH FIDELITY
 Purpose: This is the screen the user opens daily to see how their sites are doing. Must communicate scores and changes at a glance, and pull them into action without overwhelm. This is the ProductHunt demo screen.
 
 Key elements:
-- Top nav (glass, sticky): Answerable logo + site switcher dropdown (current: "answerable.io") + AI fix counter ("Daily AI fixes: 2 of 3") + user avatar
+- Top nav (glass, sticky): Answerfox logo + site switcher dropdown (current: "answerfox.dev") + AI fix counter ("Daily AI fixes: 2 of 3") + user avatar
 - Left side nav (collapsible, glass): icons + labels for Audits, Findings, AI Fixes, Settings. Active state uses aurora gradient as left border (3px width).
 - Main content area: bento grid (12-col, irregular tiles)
 - TOP ROW: three large score cards side by side + one smaller aggregate card
@@ -294,7 +294,7 @@ Key elements:
 - Each tile is a glass card with hairline border
 
 Real data:
-- Site: answerable.io
+- Site: answerfox.dev
 - Scores: SEO 92, AEO 87, GEO 74, Aggregate 84
 - Findings exactly as listed above with severity colors
 - AI fixes counter: "2 of 3 used today (resets at midnight UTC)"
@@ -314,7 +314,7 @@ Key elements:
 - Sub-header: "Missing canonical link on /pricing page" (the finding description)
 - Streaming text area: shows AI thinking + writing the fix, with a subtle cursor blink and lime accent on newly appearing characters that fade to text-primary over 200ms
 - Code block (Geist Mono, with syntax highlighting) showing the generated fix:
-  <link rel="canonical" href="https://answerable.io/pricing" />
+  <link rel="canonical" href="https://answerfox.dev/pricing" />
 - Below code block: explanation text from AI (1-2 sentences, no AI tells, friendly tone): "This tells search engines and AI crawlers that /pricing is the authoritative version of this page, preventing duplicate content issues."
 - Three action buttons at bottom:
   - "Copy code" (ghost button)
@@ -325,8 +325,8 @@ Key elements:
 
 Real data:
 - Check ID: A4 Canonical
-- Site: answerable.io
-- Generated meta tag exactly: <link rel="canonical" href="https://answerable.io/pricing" />
+- Site: answerfox.dev
+- Generated meta tag exactly: <link rel="canonical" href="https://answerfox.dev/pricing" />
 - The explanation copy verbatim
 
 ────────────────────────────────────────────────────────────────────
@@ -339,8 +339,8 @@ Purpose: New user arrived from CLI footer link or marketing page. Must convert s
 Key elements:
 - Asymmetric layout: left side has animated aurora mesh gradient (full height), right side is a centered glass card on the deep midnight background
 - Glass card content (the actual sign-in):
-  - Small Answerable wordmark at top
-  - Heading (36px): "Welcome to Answerable"
+  - Small Answerfox wordmark at top
+  - Heading (36px): "Welcome to Answerfox"
   - Sub-text (text-muted): "Audit your site for SEO, AEO, and GEO. Generate AI fixes as code."
   - Primary button: "Continue with GitHub" (aurora gradient outline + GitHub icon)
   - Secondary button: "Continue with Google" (ghost + Google icon)
@@ -406,7 +406,7 @@ Once these are locked, every other screen (audit details, settings, billing, err
 ## Real URLs embedded for Claude Design context
 
 **Product (5 URLs):**
-- answerable.io (target domain)
+- answerfox.dev (target domain)
 - https://github.com/Anuj7411/answerable
 - 7 npm package URLs under @answerable-kit (audit, cli, core, schemas, metadata, sitemap, templates)
 

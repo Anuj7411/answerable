@@ -5,7 +5,7 @@
 
 ---
 
-I'm starting a new project called **Answerable** — an open-source, drop-in SEO toolkit + auto-auditor + playbook for indie developers and SaaS founders. The goal is for any developer to install it, run a few commands, and have production-grade SEO + AI-search-engine readiness without thinking about it.
+I'm starting a new project called **Answerfox** — an open-source, drop-in SEO toolkit + auto-auditor + playbook for indie developers and SaaS founders. The goal is for any developer to install it, run a few commands, and have production-grade SEO + AI-search-engine readiness without thinking about it.
 
 ## What's already decided (do not re-litigate)
 

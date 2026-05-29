@@ -22,14 +22,14 @@
 ## THE PROMPT (paste this in full into Claude Design)
 
 ```
-Design 5 foundational screens for Answerable, an open-source AI-SEO toolkit launching in 2026. Show all 5 screens side by side in this session, sharing the same design system. The user evaluating these designs is visually sophisticated and will reject any output that looks like AI-generated template SaaS.
+Design 5 foundational screens for Answerfox, an open-source AI-SEO toolkit launching in 2026. Show all 5 screens side by side in this session, sharing the same design system. The user evaluating these designs is visually sophisticated and will reject any output that looks like AI-generated template SaaS.
 
 ═══════════════════════════════════════════════════════════════════
 PRODUCT IDENTITY
 ═══════════════════════════════════════════════════════════════════
 
-Product name: Answerable
-Target domain: answerable.io
+Product name: Answerfox
+Target domain: answerfox.dev
 Tagline: The only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 GitHub repo: https://github.com/Anuj7411/answerable
@@ -45,7 +45,7 @@ npm packages:
 
 Install command shown in demos: pnpm dlx @answerable-kit/cli audit yoursite.com
 
-What Answerable does: audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 55-check framework, then generates the actual code fixes using AI. Three scores side by side. Open source MIT license. Lives in CLI, GitHub Action, and a hosted web app.
+What Answerfox does: audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 55-check framework, then generates the actual code fixes using AI. Three scores side by side. Open source MIT license. Lives in CLI, GitHub Action, and a hosted web app.
 
 Pricing:
 - Free OSS forever (CLI, GitHub Action, audit engine, public score badge)
@@ -201,10 +201,10 @@ COPY VOICE
 Tone: friendly + educational. Sharp, not warm. Confident, not cocky.
 
 Good example:
-"Answerable audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool."
+"Answerfox audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool."
 
 Bad copy to NEVER produce (AI tells):
-"Unlock the power of AI-driven SEO with Answerable, the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape."
+"Unlock the power of AI-driven SEO with Answerfox, the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape."
 
 Word swaps (always):
 "leverage" → "use"
@@ -226,14 +226,14 @@ SCREEN 1: LANDING PAGE HERO (Slate Ember at 80% intensity)
 ────────────────────────────────────────────────────────────────────
 
 Fidelity: HIGH FIDELITY
-Purpose: A solo developer arrives from a tweet linking to answerable.io. Within 8 seconds they must understand what Answerable does, see proof it works, and want to click. The most important moment of the entire product.
+Purpose: A solo developer arrives from a tweet linking to answerfox.dev. Within 8 seconds they must understand what Answerfox does, see proof it works, and want to click. The most important moment of the entire product.
 
 Page ember: Slate Ember #E87B2C
 Bloom intensity: 80% (strongest of all screens)
 Bloom position: upper-right corner
 
 Key elements:
-- Top nav: Answerable logo (left, lockup with ember dot accent), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerable), "Sign in with GitHub" button (right, ghost style with dark ink)
+- Top nav: Answerfox logo (left, lockup with ember dot accent), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerable), "Sign in with GitHub" button (right, ghost style with dark ink)
 - Animated ember bloom in upper-right area with heavy grain across full canvas
 - Eyebrow text above headline: "Open-source AI-SEO toolkit" (caption size, text-muted)
 - Hero headline (72px, tight tracking, weight 600, dark ink #1A1814): "The only AI-SEO toolkit that lives in your codebase and ships fixes as code."
@@ -310,7 +310,7 @@ Bloom intensity: 35% (much more subtle than landing hero, ambient brand presence
 Bloom position: subtle haze in upper-right of main content area
 
 Key elements:
-- Top nav (lighter slate glass surface, sticky): Answerable logo + site switcher dropdown (current: "answerable.io") + AI fix counter ("Daily AI fixes: 2 of 3") + user avatar
+- Top nav (lighter slate glass surface, sticky): Answerfox logo + site switcher dropdown (current: "answerfox.dev") + AI fix counter ("Daily AI fixes: 2 of 3") + user avatar
 - Left side nav (collapsible, lighter slate glass): icons + labels for Audits, Findings, AI Fixes, Settings. Active state uses Slate Ember as left border (3px width).
 - Main content area: bento grid (12-col, irregular tiles)
 - TOP ROW: three large score cards side by side + one smaller aggregate card
@@ -330,7 +330,7 @@ Key elements:
 - Each tile is a lighter slate card #D4D1CB with hairline border
 
 Real data:
-- Site: answerable.io
+- Site: answerfox.dev
 - Scores: SEO 92, AEO 87, GEO 74, Aggregate 84
 - Findings exactly as listed above
 - AI fixes counter: "2 of 3 used today (resets at midnight UTC)"
@@ -354,7 +354,7 @@ Key elements:
 - Sub-header: "Missing canonical link on /pricing page" (the finding description in text-muted)
 - Streaming text area: shows AI thinking and writing the fix, with a subtle cursor blink in Slate Amber and lime accent on newly appearing characters that fade to dark ink over 200ms
 - Code block (Geist Mono, with syntax highlighting on lighter slate surface) showing the generated fix:
-    <link rel="canonical" href="https://answerable.io/pricing" />
+    <link rel="canonical" href="https://answerfox.dev/pricing" />
 - Below code block: explanation text from AI (1-2 sentences, dark ink, friendly tone): "This tells search engines and AI crawlers that /pricing is the authoritative version of this page, preventing duplicate content issues."
 - Three action buttons at bottom:
   - "Copy code" (ghost button, hairline border)
@@ -365,8 +365,8 @@ Key elements:
 
 Real data:
 - Check ID: A4 Canonical
-- Site: answerable.io
-- Generated meta tag exactly: <link rel="canonical" href="https://answerable.io/pricing" />
+- Site: answerfox.dev
+- Generated meta tag exactly: <link rel="canonical" href="https://answerfox.dev/pricing" />
 - The explanation copy verbatim
 
 ────────────────────────────────────────────────────────────────────
@@ -383,8 +383,8 @@ Bloom position: full left half of viewport, dominant
 Key elements:
 - Asymmetric layout: left side has terracotta ember bloom dominating (60% intensity, full height of viewport), right side is a centered glass card on slate
 - Glass card content (the actual sign-in, lighter slate #D4D1CB):
-  - Small Answerable wordmark at top (dark ink)
-  - Heading (36px dark ink): "Welcome to Answerable"
+  - Small Answerfox wordmark at top (dark ink)
+  - Heading (36px dark ink): "Welcome to Answerfox"
   - Sub-text (text-muted): "Audit your site for SEO, AEO, and GEO. Generate AI fixes as code."
   - Primary button: "Continue with GitHub" (solid Slate Terracotta fill, inverse text, GitHub icon)
   - Secondary button: "Continue with Google" (ghost, hairline border, Google icon)
@@ -405,7 +405,7 @@ THE SINGLE RULE
 
 If a design choice could appear on any other generic AI-SaaS landing page in 2026, do not ship it.
 
-The Slate Family is uncommon enough in this category that it instantly differentiates Answerable from Profound, Peec AI, Otterly, and every Tailwind-template AI SaaS. Warm orange embers on calm slate backgrounds are the visual signature that other tools cannot copy without disappointing their investors. We hold this line.
+The Slate Family is uncommon enough in this category that it instantly differentiates Answerfox from Profound, Peec AI, Otterly, and every Tailwind-template AI SaaS. Warm orange embers on calm slate backgrounds are the visual signature that other tools cannot copy without disappointing their investors. We hold this line.
 
 Now generate all 5 screens with consistent slate base, page-specific ember accents, heavy grain texture, and asymmetric compositions.
 ```
@@ -447,6 +447,6 @@ If a design feels too dark/aurora-y/cyan-purple: it has drifted to the old palet
 
 ## The single sentence (memorize)
 
-> Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
+> Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 Every screen in this generation must reinforce this positioning.

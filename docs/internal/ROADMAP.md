@@ -2,7 +2,7 @@
 
 ## Phase 1 — MVP (Target: 4-6 weeks from kickoff)
 
-**Goal:** Indie devs can install Answerable, scaffold trust-signal pages, run an audit, and ship with confidence.
+**Goal:** Indie devs can install Answerfox, scaffold trust-signal pages, run an audit, and ship with confidence.
 
 ### In scope
 

@@ -1,4 +1,4 @@
-# Answerable TRD v1.0 — Technical Architecture for the MVP Launch
+# Answerfox TRD v1.0 — Technical Architecture for the MVP Launch
 
 **Version:** 1.0
 **Status:** Locked 2026-05-29
@@ -126,7 +126,7 @@ Every box is either a Cloudflare service or a free-tier-friendly third party. Th
 | Object store | **Cloudflare R2** | 10 GB free, zero egress fees. Stores raw HTML, AI raw responses, generated fix patches, audit report exports. |
 | KV / fast cache | **Cloudflare KV** | Rate limit counters, audit-result cache, the daily AI quota counters per user. |
 | Background jobs | **Cloudflare Cron Triggers** + a `jobs` table in Postgres for queue state | No Inngest, no Trigger.dev — we have a small job set and Cloudflare's free cron + a postgres-backed queue is enough. |
-| Email | **Resend** | 3,000 emails/month free covers ~750 Pro users at one weekly digest each. Backed by `resend.com` domain we send from `digest@answerable.io` and `notify@answerable.io`. |
+| Email | **Resend** | 3,000 emails/month free covers ~750 Pro users at one weekly digest each. Backed by `resend.com` domain we send from `digest@answerfox.dev` and `notify@answerfox.dev`. |
 
 ### Identity / billing
 
@@ -288,7 +288,7 @@ CREATE INDEX idx_sessions_user ON sessions(user_id);
 CREATE TABLE sites (
   id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id         UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  domain          TEXT NOT NULL,                  -- e.g. 'answerable.io'
+  domain          TEXT NOT NULL,                  -- e.g. 'answerfox.dev'
   url             TEXT NOT NULL,                  -- full URL with protocol
   verified_at     TIMESTAMPTZ,
   verification_method TEXT
@@ -521,7 +521,7 @@ Published at `answerable/audit-action@v1` (separate public repo). Composite acti
 
 ```yaml
 # action.yml
-name: 'Answerable Audit'
+name: 'Answerfox Audit'
 inputs:
   url:        { required: true }
   min-score:  { required: false, default: '' }
@@ -586,7 +586,7 @@ function svgResponse(svg: string): Response {
 
 Styles: `full` (default, 3 scores), `compact` (aggregate only), `square` (Twitter-card optimized 600x315).
 
-**Click-through:** the SVG embeds an `<a xlink:href="https://answerable.io/site/${domain}">` so clicking the badge anywhere it is embedded lands on a public per-domain page.
+**Click-through:** the SVG embeds an `<a xlink:href="https://answerfox.dev/site/${domain}">` so clicking the badge anywhere it is embedded lands on a public per-domain page.
 
 ---
 
@@ -662,7 +662,7 @@ export default {
         );
         // notify the user
         await resend.send({
-          from: 'notify@answerable.io',
+          from: 'notify@answerfox.dev',
           to: fix.user_email,
           subject: `Your AI fix for ${fix.check_id} is ready`,
           html: renderFixReadyEmail(fix, result),
@@ -681,7 +681,7 @@ A single shared prompt template lives at `apps/workers/ai-worker/src/prompts/`. 
 
 ```
 SYSTEM:
-You are Answerable's AI fix generator. You output ONLY the code or text
+You are Answerfox's AI fix generator. You output ONLY the code or text
 that goes directly into the user's site. No prose explanations unless
 asked. Adhere strictly to the requested format. Do not include
 markdown fences in the output. No em-dashes anywhere.
@@ -835,7 +835,7 @@ export default {
       }
       const html = renderDigestEmail(data);
       const res = await resend.send({
-        from: 'digest@answerable.io',
+        from: 'digest@answerfox.dev',
         to: user.email,
         subject: data.subject,
         html,
@@ -857,7 +857,7 @@ Skip rules:
 - If `audits` for any of the user's sites all have unchanged scores week-over-week AND zero new findings AND zero AI fixes used: skip (no value).
 - If user has no sites: skip.
 
-Email service: **Resend**. SPF/DKIM/DMARC configured on `digest.answerable.io` and `notify.answerable.io` subdomains.
+Email service: **Resend**. SPF/DKIM/DMARC configured on `digest.answerfox.dev` and `notify.answerfox.dev` subdomains.
 
 ---
 
@@ -1178,10 +1178,10 @@ Workers deploy via `wrangler deploy` per worker, gated on the same workflow.
 
 ### Domain setup
 
-- `answerable.io` → Cloudflare Pages (web app)
-- `api.answerable.io` → Workers (REST + badge)
-- `digest.answerable.io` → DNS only (email sending domain)
-- `notify.answerable.io` → DNS only (transactional email)
+- `answerfox.dev` → Cloudflare Pages (web app)
+- `api.answerfox.dev` → Workers (REST + badge)
+- `digest.answerfox.dev` → DNS only (email sending domain)
+- `notify.answerfox.dev` → DNS only (transactional email)
 
 ### Secrets
 
@@ -1240,7 +1240,7 @@ export async function GET() {
 
 ### Status page
 
-`status.answerable.io` → hosted on Cloudflare Pages, fed by UptimeRobot. Free, public.
+`status.answerfox.dev` → hosted on Cloudflare Pages, fed by UptimeRobot. Free, public.
 
 ---
 
@@ -1456,7 +1456,7 @@ The MVP is ready when:
 
 ## 27. The Single Sentence (One More Time)
 
-> Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
+> Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 Every architectural decision in this document serves that sentence.
 

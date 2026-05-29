@@ -64,7 +64,7 @@ function FixStudio() {
               Generated in 2.1s
             </div>
 
-            <div className="fs-code">{`<`}<span className="tag">link</span>{` `}<span className="attr">rel</span>=<span className="str">"canonical"</span>{` `}<span className="attr">href</span>=<span className="str">"https://answerable.io/pricing"</span>{` />`}</div>
+            <div className="fs-code">{`<`}<span className="tag">link</span>{` `}<span className="attr">rel</span>=<span className="str">"canonical"</span>{` `}<span className="attr">href</span>=<span className="str">"https://answerfox.dev/pricing"</span>{` />`}</div>
 
             <p className="fs-explain">
               <b>Why this matters.</b> This tells search engines and AI crawlers that <code style={{ fontFamily: 'var(--font-mono)', fontSize: 12 }}>/pricing</code> is the authoritative version of this page, preventing duplicate content issues across query parameters and tracking variants. Both SEO and GEO scores will lift on the next audit.

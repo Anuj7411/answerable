@@ -1,4 +1,4 @@
-# Answerable Brand Brief
+# Answerfox Brand Brief
 
 **Purpose:** Single source of truth for visual identity, voice, and copy guidelines. Paste relevant sections into Claude Design when starting any new prototype. Reference this when writing any product copy.
 
@@ -9,7 +9,7 @@
 
 ## 1. Project Context (paste this into Claude Design as your first prompt)
 
-> Answerable is an open-source AI-SEO toolkit for indie developers building SaaS products. It audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 50-check framework, then uses AI to generate the actual code fixes (meta tags, schema markup, content rewrites) which users can download as patches or auto-merge as GitHub PRs.
+> Answerfox is an open-source AI-SEO toolkit for indie developers building SaaS products. It audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 50-check framework, then uses AI to generate the actual code fixes (meta tags, schema markup, content rewrites) which users can download as patches or auto-merge as GitHub PRs.
 >
 > The product has two access modes: a free open-source CLI (`pnpm dlx @answerable-kit/cli`) and a paid hosted SaaS ($29/mo) that adds AI fix generation, citation tracking across ChatGPT/Perplexity/Gemini, and audit history.
 >
@@ -22,7 +22,7 @@
 ## 2. Brand Positioning
 
 **The single sentence:**
-> Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
+> Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 **Three pillars:**
 - **Open source first** (audit engine is MIT-licensed, anyone can verify our claims)
@@ -178,10 +178,10 @@ Light mode exists but is not the default. Indie devs prefer dark. Build dark fir
 ### Voice examples
 
 **Bad (AI-generated tells):**
-> Unlock the power of AI-driven SEO with Answerable—the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape.
+> Unlock the power of AI-driven SEO with Answerfox—the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape.
 
 **Good:**
-> Answerable audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool.
+> Answerfox audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool.
 
 **Bad:**
 > Our intelligent agents work tirelessly to ensure your site is optimized!
@@ -289,7 +289,7 @@ Before publishing any page, screen, or copy, audit against this list:
 
 When opening a new prototype in Claude Design, paste this as the starting prompt:
 
-> Create a [WIREFRAME / HIGH FIDELITY] design for [SCREEN NAME] of Answerable, an open-source AI-SEO toolkit.
+> Create a [WIREFRAME / HIGH FIDELITY] design for [SCREEN NAME] of Answerfox, an open-source AI-SEO toolkit.
 >
 > Brand: futuristic, distinctive, award-show worthy. Reference: Shader Gradient, Skiper UI, 21st.dev. NOT template-feel.
 >

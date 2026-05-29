@@ -1,4 +1,4 @@
-# Answerable — Project Specification
+# Answerfox — Project Specification
 
 > The complete architectural decision record. This document is the single source of truth.
 > Last updated: May 12, 2026.
@@ -31,7 +31,7 @@
 2. Continuously audits the deployed site (`audit`)
 3. Teaches the developer *why* each piece matters (`teach`)
 
-Answerable is that tool.
+Answerfox is that tool.
 
 ## 3. Target User
 
@@ -322,7 +322,7 @@ The MIT package stays free forever. Future revenue possibilities (NOT a priority
 
 ## 13. Non-Goals
 
-To stay focused, Answerable explicitly does NOT do:
+To stay focused, Answerfox explicitly does NOT do:
 
 - ❌ Backlink building / outreach
 - ❌ Keyword research (use Ahrefs/Semrush for that)
