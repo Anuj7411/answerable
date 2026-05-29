@@ -41,16 +41,16 @@ function Dashboard() {
           <aside className="db-side">
             <div className="brand">
               <span className="mark" style={{ display: 'inline-flex', verticalAlign: 'middle' }}><i></i></span>
-              <span className="wm" style={{ marginLeft: 10, fontFamily: 'var(--font-display)', fontWeight: 600 }}>Answerable</span>
+              <span className="wm" style={{ marginLeft: 10, fontFamily: 'var(--font-display)', fontWeight: 600 }}>Answerfox</span>
             </div>
             <div className="group">Site</div>
             <div className="item active">
               <span className="swatch dot" style={{ background: 'var(--ember)' }}></span>
-              answerable.io
+              answerfox.dev
             </div>
             <div className="item">
               <span className="swatch dot" style={{ background: 'var(--violet)' }}></span>
-              docs.answerable.io
+              docs.answerfox.dev
             </div>
             <div className="group">Navigate</div>
             <div className="item active"><DbIcon name="audits" /> Audits</div>
@@ -64,7 +64,7 @@ function Dashboard() {
             <div className="db-topbar">
               <div className="db-site">
                 <span className="swatch"></span>
-                <span>answerable.io</span>
+                <span>answerfox.dev</span>
                 <span style={{ color: 'var(--ink-dim)', marginLeft: 4 }}>▾</span>
               </div>
               <div className="db-meta">

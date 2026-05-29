@@ -1,4 +1,4 @@
-# Answerable PRD v1.0 — MVP Launch Specification
+# Answerfox PRD v1.0 — MVP Launch Specification
 
 **Version:** 1.0
 **Status:** Locked 2026-05-20
@@ -10,7 +10,7 @@
 - `docs/internal/TRD-V1.md` (to be written next — the how)
 - `packages/audit/AUDIT-FRAMEWORK.md` (the 55-check spec, OSS-scoped)
 
-**Purpose:** Define exactly what ships in the v1.0 launch of Answerable SaaS. Every feature, every user journey, every success metric, every risk. Anything not in this document is out of scope for v1.0 by default.
+**Purpose:** Define exactly what ships in the v1.0 launch of Answerfox SaaS. Every feature, every user journey, every success metric, every risk. Anything not in this document is out of scope for v1.0 by default.
 
 ---
 
@@ -47,7 +47,7 @@
 ## 2. Product Vision (from Strategic Positioning)
 
 **The single sentence (memorize this):**
-> Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
+> Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 **The three pillars (every feature reinforces at least one):**
 1. **Open source first.** Audit engine is MIT-licensed. Every claim verifiable. Free distribution + community trust.
@@ -144,7 +144,7 @@ Fourteen features ship in v1.0. Every feature listed is mandatory. Every feature
 | F1 | **Audit engine with three scores** | OSS package + Web | The 55-check framework. Returns SEO score, AEO score, GEO score, and Aggregate. Already shipped in OSS as v0.2.0. Web surface shows the same data visually. |
 | F2 | **CLI commands** | OSS | `pnpm dlx @answerable-kit/cli audit <url>` and `explain <check_id>` and `init` and `add`. Already shipped. |
 | F3 | **GitHub Action** | OSS | A reusable workflow at `answerable/audit-action@v1` that runs on PR and comments score delta. Free for OSS use. |
-| F4 | **Public score badge** | OSS + Web | Markdown-embeddable badge: `![Answerable Score](https://answerable.io/badge/<domain>)`. Generates an SVG with the three scores. Caches 24 hours. Free distribution amplifier. |
+| F4 | **Public score badge** | OSS + Web | Markdown-embeddable badge: `![Answerfox Score](https://answerfox.dev/badge/<domain>)`. Generates an SVG with the three scores. Caches 24 hours. Free distribution amplifier. |
 | F5 | **Web dashboard (latest audit only)** | Web | Sign-in with GitHub or Google. View only the most recent audit for one site. No historical view. Re-audit rate limited to 3 per day. Sharpens the upgrade path: if you want to see how your site improves over time, you need Pro. |
 
 ### Pro tier ($29/month)
@@ -154,7 +154,7 @@ Fourteen features ship in v1.0. Every feature listed is mandatory. Every feature
 | F6 | **AI fix generation** | Web | For each failing check, click "Generate fix with AI". Returns a code patch, schema JSON-LD, meta tag, or content rewrite as appropriate. Downloadable as a `.patch` file or copyable as raw code. Quota: 90 fixes per month (delivered as 3 per day to prevent any single user from draining the shared AI quota). Includes queue + email notification system for rare cases when the global AI quota is exhausted. |
 | F7 | **Audit history (30 days) + trends** | Web | Full audit history retained for 30 days. Trend graphs showing SEO, AEO, GEO score evolution. Findings diffs between audits ("you fixed A4 between Tuesday and Friday"). |
 | F8 | **Multi-site (up to 3)** | Web | Track up to 3 sites under one Pro account. Each site has independent history, badge, and audit cadence. |
-| F9 | **Scheduled daily audits** | Web + Worker | Pro sites are automatically audited every 24 hours by a background worker. Free users must manually trigger every audit. This is the single feature that turns Answerable from a manual tool into passive monitoring. |
+| F9 | **Scheduled daily audits** | Web + Worker | Pro sites are automatically audited every 24 hours by a background worker. Free users must manually trigger every audit. This is the single feature that turns Answerfox from a manual tool into passive monitoring. |
 | F10 | **Weekly email digest** | Email | Every Monday morning, Pro users receive an email summarizing the past week: score changes per site, new findings, suggested fixes, AI fix usage remaining. Powered by Resend. |
 | F11 | **Detailed evidence inspector** | Web | For each finding, Pro users see the full HTML evidence (raw matched markup), severity score breakdown, and fix history (which previous audits had this check passing or failing). Free users see summary description only. Power feature for users who want to understand the why. |
 
@@ -199,7 +199,7 @@ Each of these is a future Phase 2 or Phase 3 feature. Including any of them in v
 | Backlink monitoring | Ahrefs' job, do not compete |
 | Keyword research | Different tool category, partner do not build |
 | Built-in CRM or marketing automation | Not our category |
-| AI chat interface ("ask Answerable anything") | Gimmicky, hurts focus |
+| AI chat interface ("ask Answerfox anything") | Gimmicky, hurts focus |
 | Browser extension | Not our customer's workflow |
 | Mobile app | Audits are not a mobile use case |
 
@@ -261,10 +261,10 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 
 ### Journey 1: Anonymous user runs CLI for first time
 
-**Trigger:** Saw a tweet about Answerable. Curious.
+**Trigger:** Saw a tweet about Answerfox. Curious.
 1. Runs `pnpm dlx @answerable-kit/cli audit https://mysite.com` in terminal
-2. CLI fetches site, runs 55 checks, outputs three scores + findings + footer with `answerable.io` link
-3. Terminal output mentions: "Sign up free at answerable.io to get AI-generated fixes for your failing checks"
+2. CLI fetches site, runs 55 checks, outputs three scores + findings + footer with `answerfox.dev` link
+3. Terminal output mentions: "Sign up free at answerfox.dev to get AI-generated fixes for your failing checks"
 4. User clicks link, lands on web dashboard
 
 **Success criteria:**
@@ -276,7 +276,7 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 ### Journey 2: First-time sign-up (free)
 
 **Trigger:** Came from CLI footer link or direct from marketing site.
-1. Lands on `answerable.io` homepage
+1. Lands on `answerfox.dev` homepage
 2. Clicks "Sign in with GitHub" in top right or "Audit your site" in hero
 3. OAuth flow completes in 2 clicks
 4. Lands on onboarding: "Add your first site"
@@ -335,7 +335,7 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 4. User copies markdown
 5. Pastes in their site footer or README
 6. Badge renders on their site, shows current scores
-7. Anyone clicking badge lands on Answerable's public page for that domain
+7. Anyone clicking badge lands on Answerfox's public page for that domain
 8. Public page shows current scores + "Audit your own site" CTA
 
 **Success criteria:**
@@ -345,10 +345,10 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 
 ### Journey 6: GitHub Action flagged a PR
 
-**Trigger:** User added Answerable GitHub Action to their CI.
+**Trigger:** User added Answerfox GitHub Action to their CI.
 1. Opens a PR that changes site HTML
 2. Action runs, audits the preview deployment URL
-3. Comments on the PR with: "Answerable: SEO 91 (+0) | AEO 84 (-3) | GEO 71 (+5)"
+3. Comments on the PR with: "Answerfox: SEO 91 (+0) | AEO 84 (-3) | GEO 71 (+5)"
 4. If any score drops more than 5 points, leaves a warning comment with details
 5. Optional: blocks merge until reviewed (configurable in workflow YAML)
 
@@ -448,11 +448,11 @@ Each journey below is a fully-specified flow with success criteria. UX details (
 **Status:** To be built
 
 **Specification:**
-- URL: `https://answerable.io/badge/<domain>` returns SVG
+- URL: `https://answerfox.dev/badge/<domain>` returns SVG
 - Three style variants via query param: `?style=full` (default, three scores), `?style=compact` (single aggregate), `?style=square` (Twitter card optimized)
 - Cache: 24 hours via CDN headers
-- Click-through behavior: SVG `xlink:href` wraps the badge so click goes to `https://answerable.io/site/<domain>`
-- Public landing page at `/site/<domain>` shows: current three scores, last 30 days trend (if any), "Audit your own" CTA, "Run by [user] via Answerable" footer if applicable
+- Click-through behavior: SVG `xlink:href` wraps the badge so click goes to `https://answerfox.dev/site/<domain>`
+- Public landing page at `/site/<domain>` shows: current three scores, last 30 days trend (if any), "Audit your own" CTA, "Run by [user] via Answerfox" footer if applicable
 - Domain must be audited at least once before badge resolves (otherwise returns "Not yet audited" badge)
 
 ### F5: Web dashboard (latest audit only, free)
@@ -588,7 +588,7 @@ The user can navigate away from the page. The fix shows up in their dashboard wi
 - Every Monday at 09:00 in the user's local timezone (fallback UTC)
 - Email contains: summary of each Pro site (current 3 scores + delta vs last week), top 3 new findings, AI fix usage (X of 50 used), one call-to-action (e.g., "Generate fixes for your 2 newest findings")
 - Template: minimal HTML, designed in Aurora color system. Plain text fallback always shipped alongside.
-- Sender domain: `digest@answerable.io` (with proper SPF/DKIM/DMARC)
+- Sender domain: `digest@answerfox.dev` (with proper SPF/DKIM/DMARC)
 - Email service: Resend (primary). Postmark as fallback if Resend fails twice.
 - Unsubscribe: prominent one-click link at the bottom. Unsubscribing only affects this email, not transactional ones.
 - Skip rule: if all sites are unchanged (no audits ran, no findings, no fixes), skip the email that week (no value)
@@ -711,7 +711,7 @@ Do not launch until ALL of these are green:
 - [ ] Launch tweet thread is written
 - [ ] PH hunter is identified and aligned
 - [ ] First-day FAQ responses are pre-drafted
-- [ ] Status page is live (`status.answerable.io`)
+- [ ] Status page is live (`status.answerfox.dev`)
 - [ ] Support email or Discord is staffed for launch day
 
 ### Soft pre-launch activities (4 weeks before official launch)
@@ -839,13 +839,13 @@ These are decisions deferred to the TRD or beta testing phase.
 
 Important reminders for when scope creep tries to slip in:
 
-- **Answerable is not a generalist SEO tool.** It does not do keyword research, backlink analysis, or competitor backlink mining.
-- **Answerable is not an AI assistant.** It does not have a chat interface or ask-anything functionality.
-- **Answerable is not a writing tool.** It generates fixes for SEO findings, not blog posts or marketing copy.
-- **Answerable is not a CRM.** It does not manage leads, contacts, or customer relationships.
-- **Answerable is not an analytics tool.** It does not track page views, conversions, or user behavior.
-- **Answerable is not a hosting platform.** It does not deploy or host sites.
-- **Answerable is not a code editor.** It does not let you edit code in the dashboard.
+- **Answerfox is not a generalist SEO tool.** It does not do keyword research, backlink analysis, or competitor backlink mining.
+- **Answerfox is not an AI assistant.** It does not have a chat interface or ask-anything functionality.
+- **Answerfox is not a writing tool.** It generates fixes for SEO findings, not blog posts or marketing copy.
+- **Answerfox is not a CRM.** It does not manage leads, contacts, or customer relationships.
+- **Answerfox is not an analytics tool.** It does not track page views, conversions, or user behavior.
+- **Answerfox is not a hosting platform.** It does not deploy or host sites.
+- **Answerfox is not a code editor.** It does not let you edit code in the dashboard.
 
 If a feature request would push the product toward any of these, the answer is no.
 
@@ -867,7 +867,7 @@ The MVP is "done" when:
 
 ## 17. The Single Sentence (One More Time)
 
-> Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
+> Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 Every feature in this PRD reinforces at least one of the three pillars. Every metric measures progress against this sentence. If you find yourself building something that does not, stop and ask why.
 

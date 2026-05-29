@@ -1,4 +1,4 @@
-# Master Claude Design Prompt for Answerable
+# Master Claude Design Prompt for Answerfox
 
 **Use this prompt every time you start a new design in Claude Design (claude.ai/design).**
 
@@ -31,13 +31,13 @@ Paste the prompt below. Fill in the bracketed values. Iterate. Reject anything t
 ## THE MASTER PROMPT (paste this)
 
 ```
-You are designing a screen for Answerable, an open-source AI-SEO toolkit. This is a v1 launch product targeting indie developers in 2026. The visual ambition is awwwards-level, not template SaaS. The user is going to evaluate this design against shader-gradient.co, skiper-ui.com, 21st.dev, and Aceternity UI references.
+You are designing a screen for Answerfox, an open-source AI-SEO toolkit. This is a v1 launch product targeting indie developers in 2026. The visual ambition is awwwards-level, not template SaaS. The user is going to evaluate this design against shader-gradient.co, skiper-ui.com, 21st.dev, and Aceternity UI references.
 
 PRODUCT CONTEXT (one paragraph)
-Answerable audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization), then generates the actual code fixes using AI. The differentiator is three scores side by side (SEO + AEO + GEO unified) and the only open-source AI-SEO toolkit. Target users are solo founders building Next.js, Astro, and Remix products who hate marketing fluff and respect tools that respect their intelligence.
+Answerfox audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization), then generates the actual code fixes using AI. The differentiator is three scores side by side (SEO + AEO + GEO unified) and the only open-source AI-SEO toolkit. Target users are solo founders building Next.js, Astro, and Remix products who hate marketing fluff and respect tools that respect their intelligence.
 
 POSITIONING SENTENCE
-Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
+Answerfox is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
 ═══════════════════════════════════════════════════════════════════
 DESIGN SYSTEM (NON NEGOTIABLE, USE EXACTLY THESE VALUES)
@@ -156,10 +156,10 @@ Word swaps (always):
 "game-changer" → delete it
 
 Good copy example:
-"Answerable audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool."
+"Answerfox audits any website across 55 checks and writes the fixes for you. Open source. Three scores: SEO, AEO, GEO. One tool."
 
 Bad copy example (AI-generated tells, do not produce this):
-"Unlock the power of AI-driven SEO with Answerable, the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape."
+"Unlock the power of AI-driven SEO with Answerfox, the cutting-edge platform that leverages intelligent algorithms to deliver comprehensive optimization across the modern web's evolving landscape."
 
 ═══════════════════════════════════════════════════════════════════
 REQUIRED VISUAL ELEMENTS (must appear in EVERY screen if relevant)
@@ -209,7 +209,7 @@ Do not generate generic SaaS. Do not generate AI-template aesthetics. Reject you
 ```
 Screen: Landing page hero (above the fold)
 Fidelity: HIGH FIDELITY
-Purpose: A solo developer arrives from a tweet. Within 8 seconds they must understand what Answerable does, see proof it works, and want to click. The hero is the single most important moment of the entire product. Treat it as such.
+Purpose: A solo developer arrives from a tweet. Within 8 seconds they must understand what Answerfox does, see proof it works, and want to click. The hero is the single most important moment of the entire product. Treat it as such.
 Key elements:
   - The single sentence claim displayed in display typography (72px, tight tracking)
   - An animated aurora gradient mesh background (shader-gradient style)
@@ -244,7 +244,7 @@ Key elements:
   - Side nav (collapsible): Audits, Findings, AI Fixes, Settings
   - One primary action available from this screen: "Re-audit my site" button
 Real data to use:
-  - Site name: a real demo site name like "answerable.io" or invent one believable
+  - Site name: a real demo site name like "answerfox.dev" or invent one believable
   - SEO 92, AEO 87, GEO 74, Aggregate 84 (Strong band)
   - Trend: 7 days of three lines (SEO, AEO, GEO) with the lime accent for upward, magenta for downward
   - Findings list: 3 real-looking findings like "A4 canonical missing", "G1 llms.txt absent", "C3 WebSite schema incomplete"

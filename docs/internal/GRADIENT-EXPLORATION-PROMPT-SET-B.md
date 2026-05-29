@@ -2,7 +2,7 @@
 
 **Purpose:** Generate 8 NEW gradient variations that expand the color palette beyond cyan/blue and use lighter backgrounds suitable for text-heavy contexts.
 
-**Context:** Set A (Void Bloom, Cold Static, etc.) was strong but mostly black + cyan. Answerable will have substantial text content (audit findings, fix explanations, documentation). Pure black backgrounds cause eye strain over long reading. Set B keeps the same anti-template visual ambition but adds color variety and softer dark backgrounds (charcoal, slate, stone, cream).
+**Context:** Set A (Void Bloom, Cold Static, etc.) was strong but mostly black + cyan. Answerfox will have substantial text content (audit findings, fix explanations, documentation). Pure black backgrounds cause eye strain over long reading. Set B keeps the same anti-template visual ambition but adds color variety and softer dark backgrounds (charcoal, slate, stone, cream).
 
 **Keep Set A as separate option pool. Set B is parallel, not replacement.**
 
@@ -11,7 +11,7 @@
 ## THE PROMPT (paste this into a new Claude Design prototype)
 
 ```
-Design 8 NEW gradient hero backgrounds for Answerable, an open-source AI-SEO toolkit. Each is full-bleed 1920x1080. Show all 8 side by side as a comparison grid.
+Design 8 NEW gradient hero backgrounds for Answerfox, an open-source AI-SEO toolkit. Each is full-bleed 1920x1080. Show all 8 side by side as a comparison grid.
 
 ═══════════════════════════════════════════════════════════════════
 CONTEXT
@@ -183,7 +183,7 @@ Present all 8 gradients side by side in a 4x2 or 2x4 grid. Each clearly labeled 
 EVALUATION GOAL
 ═══════════════════════════════════════════════════════════════════
 
-We will compare Set B (these 8) against Set A (the previous 8 with Void Bloom, Cold Static, etc.) and pick the strongest 1 to 2 across both sets to lock as the Answerable brand signature. The chosen gradient must:
+We will compare Set B (these 8) against Set A (the previous 8 with Void Bloom, Cold Static, etc.) and pick the strongest 1 to 2 across both sets to lock as the Answerfox brand signature. The chosen gradient must:
 
 1. Look distinctly NOT-AI-template
 2. Work behind hero text without competing
@@ -219,7 +219,7 @@ If any output looks like a smooth CSS linear gradient with 3+ rainbow colors, re
 
 Once you generate Set B, look at all 16 side by side and ask:
 
-1. **Which gradient SCREAMS Answerable as a brand?** (your gut)
+1. **Which gradient SCREAMS Answerfox as a brand?** (your gut)
 2. **Which feels most distinctive vs Profound, Peec, Otterly?**
 3. **Which works best with our text-heavy product surface?**
 4. **Which can become the brand signature that scales across hero, favicon, loading states, social cards?**
@@ -228,7 +228,7 @@ Shortlist 2 to 3 favorites across both sets, then we apply them to the actual la
 
 ## On text readability (your concern, properly addressed)
 
-The smart pattern for Answerable:
+The smart pattern for Answerfox:
 
 | Surface | Background | Gradient role |
 |---|---|---|

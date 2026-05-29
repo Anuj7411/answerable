@@ -1,4 +1,4 @@
-/* Shared bits for all Answerable screens: bloom canvas + icons. */
+/* Shared bits for all Answerfox screens: bloom canvas + icons. */
 
 function Bloom(props) {
   const ref = React.useRef(null);

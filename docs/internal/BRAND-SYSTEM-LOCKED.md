@@ -1,4 +1,4 @@
-# Answerable Brand System — LOCKED
+# Answerfox Brand System — LOCKED
 
 **Status:** Locked 2026-05-28. Source of truth for every visual decision from this point forward.
 **Supersedes:** Aurora gradient references in `BRAND-BRIEF.md` (which now serves as exploration history).
@@ -8,7 +8,7 @@
 
 ## 1. The Brand Mark
 
-The signature visual element of Answerable is **the ember bloom** — a single warm orange dot blooming softly over a calm slate background.
+The signature visual element of Answerfox is **the ember bloom** — a single warm orange dot blooming softly over a calm slate background.
 
 ```
    . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -310,7 +310,7 @@ body[data-page="settings"]  { --ember-active: var(--ember-ochre); --ember-intens
 When designing any new screen in Claude Design, paste this at the start instead of the old Aurora prompt:
 
 ```
-Design a [SCREEN] for Answerable, an open-source AI-SEO toolkit.
+Design a [SCREEN] for Answerfox, an open-source AI-SEO toolkit.
 
 LOCKED BRAND SYSTEM (do not deviate)
 

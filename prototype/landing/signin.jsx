@@ -25,7 +25,7 @@ function SignIn() {
           <div className="si-left">
             <div className="brand">
               <span className="mark"><i></i></span>
-              <span className="wm" style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600 }}>Answerable</span>
+              <span className="wm" style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600 }}>Answerfox</span>
             </div>
             <div className="quote">
               SEO that lives in your codebase. Audit, fix, and <em>ship</em> in one tool.
@@ -42,7 +42,7 @@ function SignIn() {
           {/* right glass card with sign-in */}
           <div className="si-right">
             <div className="si-card">
-              <div className="wm">Answerable</div>
+              <div className="wm">Answerfox</div>
               <h2>Welcome.</h2>
               <p className="sub">Audit your site for SEO, AEO, and GEO. Then let AI write the fixes as code.</p>
 
