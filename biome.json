@@ -15,7 +15,8 @@
       "**/coverage",
       "**/.tsbuildinfo",
       "**/*.tsbuildinfo",
-      ".changeset"
+      ".changeset",
+      "prototype/**"
     ]
   },
   "formatter": {
