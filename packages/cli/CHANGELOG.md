@@ -1,5 +1,18 @@
 # @answerfox/cli
 
+## 0.2.0
+
+### Minor Changes
+
+- d164034: Rebrand to Answerfox. The toolkit is now published under the `@answerfox/*` scope, the CLI command is `answerfox`, the base error class is `AnswerfoxError`, and documentation links point to `answerfox.dev`. This is the first unified `0.2.0` release across all seven packages under the new brand. Users on `@answerable-kit/*` should migrate to `@answerfox/*`.
+
+### Patch Changes
+
+- Updated dependencies [d164034]
+  - @answerfox/audit@0.2.0
+  - @answerfox/core@0.2.0
+  - @answerfox/templates@0.2.0
+
 ## 0.1.2
 
 ### Patch Changes

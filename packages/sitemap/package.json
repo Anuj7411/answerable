@@ -1,6 +1,6 @@
 {
   "name": "@answerfox/sitemap",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Sitemap builder with smart path-based defaults for the Answerfox SEO toolkit.",
   "license": "MIT",
   "author": "Anuj Ojha",
@@ -20,7 +20,10 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
