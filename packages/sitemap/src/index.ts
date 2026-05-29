@@ -1,6 +1,6 @@
 /**
- * @answerable-kit/sitemap — sitemap builder with smart path-based defaults
- * for the Answerable SEO toolkit. Wraps Next.js's `MetadataRoute.Sitemap`
+ * @answerfox/sitemap — sitemap builder with smart path-based defaults
+ * for the Answerfox SEO toolkit. Wraps Next.js's `MetadataRoute.Sitemap`
  * type with priority/changeFrequency inference, URL composition,
  * duplicate-path detection, and a sitemap-index helper for large sites.
  */

@@ -1,6 +1,6 @@
-# @answerable-kit/cli
+# @answerfox/cli
 
-The `answerable` command. Wraps the [Answerable](https://github.com/Anuj7411/answerable) audit engine for terminal + CI use.
+The `answerable` command. Wraps the [Answerfox](https://github.com/Anuj7411/answerfox) audit engine for terminal + CI use.
 
 > **v0.1.0.** `audit`, `explain`, `init`, and `add` ship today. `verify` lands in a subsequent release.
 
@@ -8,10 +8,10 @@ The `answerable` command. Wraps the [Answerable](https://github.com/Anuj7411/ans
 
 ```bash
 # As a one-off:
-npx @answerable-kit/cli audit https://example.com
+npx @answerfox/cli audit https://example.com
 
 # Or globally:
-pnpm add -g @answerable-kit/cli
+pnpm add -g @answerfox/cli
 answerable audit https://example.com
 ```
 

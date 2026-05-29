@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable-kit/core';
+import { defineCheck } from '@answerfox/core';
 import type { AuditDom } from '../parser.js';
 
 export const d4ContactAccessible = defineCheck<AuditDom>({
@@ -20,7 +20,7 @@ export const d4ContactAccessible = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Provide a way to reach you — either a /contact page or a mailto: link in the footer. Use the `contact` template from @answerable-kit/templates.',
+          'Provide a way to reach you — either a /contact page or a mailto: link in the footer. Use the `contact` template from @answerfox/templates.',
       };
     }
     const evidence: string[] = [];

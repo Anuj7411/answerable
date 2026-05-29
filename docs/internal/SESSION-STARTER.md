@@ -11,7 +11,7 @@ I'm starting a new project called **Answerfox** — an open-source, drop-in SEO 
 
 - **Project name:** `answerable`
 - **License:** MIT
-- **Repo location:** new GitHub repo at `Anuj7411/answerable` (to be created during this session)
+- **Repo location:** new GitHub repo at `Anuj7411/answerfox` (to be created during this session)
 - **Tech stack:** TypeScript strict, Turborepo + pnpm monorepo, Vitest, Nextra for docs, MIT licensed
 - **Scope of MVP:** Schemas + Metadata + Sitemap + Templates + Audit CLI (full scope in `ROADMAP.md`)
 - **Timeline:** No urgency. Patience and great architecture over speed. Step by step.

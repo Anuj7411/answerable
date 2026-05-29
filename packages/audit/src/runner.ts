@@ -1,5 +1,5 @@
-import type { AbsoluteUrl, Check, CheckResult } from '@answerable-kit/core';
-import { parseAbsoluteUrl } from '@answerable-kit/core';
+import type { AbsoluteUrl, Check, CheckResult } from '@answerfox/core';
+import { parseAbsoluteUrl } from '@answerfox/core';
 import { DEFAULT_CHECKS } from './checks/registry.js';
 import { type FetchAndParseOptions, fetchAndParse } from './crawler.js';
 import { type AuditDom, loadHtml } from './parser.js';

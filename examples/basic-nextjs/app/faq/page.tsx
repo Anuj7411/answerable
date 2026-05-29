@@ -1,5 +1,5 @@
-import { defineSeo } from '@answerable-kit/metadata';
-import { faqPage } from '@answerable-kit/schemas';
+import { defineSeo } from '@answerfox/metadata';
+import { faqPage } from '@answerfox/schemas';
 
 export const metadata = defineSeo({
   title: 'FAQ — Basic Next.js Example',
@@ -11,7 +11,7 @@ const faqSchema = faqPage({
   questions: [
     {
       question: 'What is Basic Next.js Example?',
-      answer: 'The minimal example of an Answerable-powered Next.js site.',
+      answer: 'The minimal example of an Answerfox-powered Next.js site.',
     },
     {
       question: 'How do I get started?',
@@ -41,7 +41,7 @@ export default function FaqPage() {
       <h1>Frequently asked questions</h1>
 
       <h2>What is Basic Next.js Example?</h2>
-      <p>The minimal example of an Answerable-powered Next.js site.</p>
+      <p>The minimal example of an Answerfox-powered Next.js site.</p>
 
       <h2>How do I get started?</h2>
       <p>

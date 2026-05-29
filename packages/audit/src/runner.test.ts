@@ -1,4 +1,4 @@
-import { defineCheck, parseAbsoluteUrl } from '@answerable-kit/core';
+import { defineCheck, parseAbsoluteUrl } from '@answerfox/core';
 import { describe, expect, it } from 'vitest';
 import type { AuditDom } from './parser.js';
 import { loadHtml } from './parser.js';

@@ -1,8 +1,8 @@
 {
-  "name": "@answerable-kit/docs",
+  "name": "@answerfox/docs",
   "version": "0.0.3",
   "private": true,
-  "description": "answerable.dev — documentation site for the Answerable SEO toolkit.",
+  "description": "answerable.dev — documentation site for the Answerfox SEO toolkit.",
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@answerable-kit/audit": "workspace:*",
+    "@answerfox/audit": "workspace:*",
     "next": "^15.0.0",
     "nextra": "^4.0.0",
     "nextra-theme-docs": "^4.0.0",

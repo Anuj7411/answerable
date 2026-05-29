@@ -9,7 +9,7 @@ export const URLStringSchema = z.string().url().brand<'URLString'>();
 export type URLString = z.infer<typeof URLStringSchema>;
 
 /**
- * An absolute http(s) URL — the strictest form, used wherever Answerable
+ * An absolute http(s) URL — the strictest form, used wherever Answerfox
  * fetches or audits a target site.
  */
 export const AbsoluteUrlSchema = z

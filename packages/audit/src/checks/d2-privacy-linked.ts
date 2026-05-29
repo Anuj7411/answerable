@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable-kit/core';
+import { defineCheck } from '@answerfox/core';
 import type { AuditDom } from '../parser.js';
 
 export const d2PrivacyLinked = defineCheck<AuditDom>({
@@ -19,7 +19,7 @@ export const d2PrivacyLinked = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Link to a /privacy page from this page (typically the footer). Use the `privacy` template from @answerable-kit/templates.',
+          'Link to a /privacy page from this page (typically the footer). Use the `privacy` template from @answerfox/templates.',
       };
     }
     return { status: 'pass', evidence: `Found ${links.length} link(s) to /privacy` };

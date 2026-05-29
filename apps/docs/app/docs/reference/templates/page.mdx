@@ -1,13 +1,13 @@
-# @answerable-kit/templates
+# @answerfox/templates
 
-Page templates the Answerable CLI installs into a user's Next.js project. Each template is a complete `.tsx` page wired up with `defineSeo()` + the matching JSON-LD generator — drop one in and you have a working, audit-ready page.
+Page templates the Answerfox CLI installs into a user's Next.js project. Each template is a complete `.tsx` page wired up with `defineSeo()` + the matching JSON-LD generator — drop one in and you have a working, audit-ready page.
 
 You usually don't import this package directly; the CLI does. It's exposed so custom installers or alternate workflows can reuse the same registry.
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/templates
+pnpm add @answerfox/templates
 ```
 
 ## Exports
@@ -46,7 +46,7 @@ Token names match `{{[A-Z][A-Z0-9_]*}}` — uppercase, digits, underscores. JSX-
 ## Usage
 
 ```ts
-import { renderTemplate } from '@answerable-kit/templates';
+import { renderTemplate } from '@answerfox/templates';
 
 const source = renderTemplate('about', {
   PROJECT_NAME: 'Acme',
@@ -60,4 +60,4 @@ const source = renderTemplate('about', {
 
 ## Source
 
-[packages/templates](https://github.com/Anuj7411/answerable/tree/main/packages/templates)
+[packages/templates](https://github.com/Anuj7411/answerfox/tree/main/packages/templates)

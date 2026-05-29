@@ -44,7 +44,7 @@ function Landing() {
           <div className="nav-links">
             <a href="#pricing">Pricing</a>
             <a href="#docs">Docs</a>
-            <a href="https://github.com/Anuj7411/answerable">GitHub</a>
+            <a href="https://github.com/Anuj7411/answerfox">GitHub</a>
           </div>
           <div className="nav-right">
             <button className="btn btn-quiet"><GitHubIcon /> Sign in with GitHub</button>
@@ -75,7 +75,7 @@ function Landing() {
               <span className="tname">answerable — zsh</span>
             </div>
             <div className="term-body">
-              <div><span className="prompt">$</span> <span className="cmd">pnpm dlx @answerable-kit/cli audit vercel.com</span></div>
+              <div><span className="prompt">$</span> <span className="cmd">pnpm dlx @answerfox/cli audit vercel.com</span></div>
               <div className="muted">Audit running… done in 2.4s</div>
               <div className="ok">Score: <b style={{ fontWeight: 600 }}>92</b>/100 <span className="muted">(Excellent)</span></div>
               <div className="term-scores">

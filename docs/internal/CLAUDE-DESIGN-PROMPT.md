@@ -219,7 +219,7 @@ Key elements:
   - Above the headline: a tiny eyebrow line stating the category ("Open source AI-SEO toolkit")
 Real data to use:
   - The single sentence verbatim: "The only open-source AI-SEO toolkit that lives in your codebase and ships fixes as code."
-  - Terminal mock should show: pnpm dlx @answerable-kit/cli audit vercel.com  followed by three scores: SEO 92, AEO 87, GEO 74
+  - Terminal mock should show: pnpm dlx @answerfox/cli audit vercel.com  followed by three scores: SEO 92, AEO 87, GEO 74
   - CTA copy: "Audit my site" (NOT "Get Started")
 
 Composition guidance:

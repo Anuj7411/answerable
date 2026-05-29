@@ -1,11 +1,11 @@
-import { SchemaValidationError } from '@answerable-kit/core';
+import { SchemaValidationError } from '@answerfox/core';
 import { describe, expect, it } from 'vitest';
 import { faqPage } from './faq-page.js';
 
 describe('faqPage', () => {
   it('emits a well-formed FAQPage with a single question', () => {
     const out = faqPage({
-      questions: [{ question: 'What is Answerable?', answer: 'An SEO toolkit.' }],
+      questions: [{ question: 'What is Answerfox?', answer: 'An SEO toolkit.' }],
     });
     expect(out).toEqual({
       '@context': 'https://schema.org',
@@ -13,7 +13,7 @@ describe('faqPage', () => {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What is Answerable?',
+          name: 'What is Answerfox?',
           acceptedAnswer: { '@type': 'Answer', text: 'An SEO toolkit.' },
         },
       ],

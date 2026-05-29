@@ -4,7 +4,7 @@ import { type CheerioAPI, load } from 'cheerio';
  * Parser handle for every check. Re-exporting cheerio's `CheerioAPI`
  * type means consumers of this package can write their own checks
  * without depending on cheerio directly (they pick up the type from
- * `@answerable-kit/audit`).
+ * `@answerfox/audit`).
  */
 export type AuditDom = CheerioAPI;
 

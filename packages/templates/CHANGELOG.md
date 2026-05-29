@@ -1,4 +1,4 @@
-# @answerable-kit/templates
+# @answerfox/templates
 
 ## 0.1.1
 
@@ -6,19 +6,19 @@
 
 - 07e0c2f: Refresh package README headers: replace stale "Pre-alpha" notices with accurate v0.1.0 release context. No code or API changes — documentation only.
 - Updated dependencies [07e0c2f]
-  - @answerable-kit/core@0.1.1
+  - @answerfox/core@0.1.1
 
 ## 0.1.0
 
 ### Minor Changes
 
-- d7c2eba: Scaffold the `@answerable-kit/templates` package — the fifth workspace package — and ship its first five page templates plus the token-substitution engine:
+- d7c2eba: Scaffold the `@answerfox/templates` package — the fifth workspace package — and ship its first five page templates plus the token-substitution engine:
 
   - **`renderContent(content, values)`** — strict in both directions: every `{{TOKEN}}` referenced in `content` must have a value, and every key in `values` must correspond to a referenced token. Missing-token and unknown-token issues batch into one `SchemaValidationError` so the CLI can re-prompt with the full list.
   - **`extractTokens(content)`** — returns the distinct token names referenced by a template, sorted. Used by the registry to derive `requiredTokens` and by `renderContent` for validation.
   - **`getTemplate(name)`**, **`listTemplates()`**, **`renderTemplate(name, values)`** — the public registry API. Five templates ship: `about`, `privacy`, `terms`, `faq`, `contact`.
 
-  Each template is a complete Next.js App Router page that imports `defineSeo()` from `@answerable-kit/metadata` and (where appropriate) a JSON-LD generator from `@answerable-kit/schemas`. Drop the rendered file into `app/<name>/page.tsx` and you have a working, audit-ready page.
+  Each template is a complete Next.js App Router page that imports `defineSeo()` from `@answerfox/metadata` and (where appropriate) a JSON-LD generator from `@answerfox/schemas`. Drop the rendered file into `app/<name>/page.tsx` and you have a working, audit-ready page.
 
   Audit framework coverage from this PR:
 
@@ -33,4 +33,4 @@
 ### Patch Changes
 
 - Updated dependencies [eeb3966]
-  - @answerable-kit/core@0.1.0
+  - @answerfox/core@0.1.0

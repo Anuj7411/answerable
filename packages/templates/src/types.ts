@@ -1,5 +1,5 @@
 /**
- * Catalog of templates Answerable's CLI can install. Stable string
+ * Catalog of templates Answerfox's CLI can install. Stable string
  * literals — these become the values users pass to
  * `answerable add <name>`.
  */

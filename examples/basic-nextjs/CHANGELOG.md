@@ -1,21 +1,21 @@
-# @answerable-kit/example-basic-nextjs
+# @answerfox/example-basic-nextjs
 
 ## 0.0.3
 
 ### Patch Changes
 
 - Updated dependencies [6ea0355]
-  - @answerable-kit/audit@0.1.2
+  - @answerfox/audit@0.1.2
 
 ## 0.0.2
 
 ### Patch Changes
 
 - Updated dependencies [07e0c2f]
-  - @answerable-kit/audit@0.1.1
-  - @answerable-kit/metadata@0.1.1
-  - @answerable-kit/schemas@0.1.1
-  - @answerable-kit/sitemap@0.1.1
+  - @answerfox/audit@0.1.1
+  - @answerfox/metadata@0.1.1
+  - @answerfox/schemas@0.1.1
+  - @answerfox/sitemap@0.1.1
 
 ## 0.0.1
 
@@ -31,7 +31,7 @@
 - Updated dependencies [daa10bf]
 - Updated dependencies [e4fd1d6]
 - Updated dependencies [89f1298]
-  - @answerable-kit/audit@0.1.0
-  - @answerable-kit/metadata@0.1.0
-  - @answerable-kit/schemas@0.1.0
-  - @answerable-kit/sitemap@0.1.0
+  - @answerfox/audit@0.1.0
+  - @answerfox/metadata@0.1.0
+  - @answerfox/schemas@0.1.0
+  - @answerfox/sitemap@0.1.0

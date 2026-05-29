@@ -1,5 +1,5 @@
 /**
- * @answerable-kit/cli — the `answerable` command. Wraps the audit engine
+ * @answerfox/cli — the `answerable` command. Wraps the audit engine
  * for terminal and CI use.
  *
  * The default export is `createProgram()`, which returns a configured

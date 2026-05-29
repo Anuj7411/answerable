@@ -1,16 +1,16 @@
 {
-  "name": "@answerable-kit/core",
+  "name": "@answerfox/core",
   "version": "0.1.1",
-  "description": "Shared types, utilities, and error classes for the Answerable SEO toolkit.",
+  "description": "Shared types, utilities, and error classes for the Answerfox SEO toolkit.",
   "license": "MIT",
   "author": "Anuj Ojha",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anuj7411/answerable.git",
+    "url": "https://github.com/Anuj7411/answerfox.git",
     "directory": "packages/core"
   },
-  "homepage": "https://github.com/Anuj7411/answerable/tree/main/packages/core#readme",
-  "bugs": "https://github.com/Anuj7411/answerable/issues",
+  "homepage": "https://github.com/Anuj7411/answerfox/tree/main/packages/core#readme",
+  "bugs": "https://github.com/Anuj7411/answerfox/issues",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

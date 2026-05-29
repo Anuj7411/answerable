@@ -1,4 +1,4 @@
-import { InvalidUrlError, SchemaValidationError } from '@answerable-kit/core';
+import { InvalidUrlError, SchemaValidationError } from '@answerfox/core';
 import { describe, expect, it } from 'vitest';
 import { howTo } from './how-to.js';
 

@@ -1,13 +1,13 @@
-# @answerable-kit/sitemap
+# @answerfox/sitemap
 
-Sitemap builder for the [Answerable](https://github.com/Anuj7411/answerable) SEO toolkit. Takes a list of paths, applies smart defaults inferred from path patterns, and returns a Next.js-compatible `MetadataRoute.Sitemap`.
+Sitemap builder for the [Answerfox](https://github.com/Anuj7411/answerfox) SEO toolkit. Takes a list of paths, applies smart defaults inferred from path patterns, and returns a Next.js-compatible `MetadataRoute.Sitemap`.
 
 > **v0.1.0.** `buildSitemap()` and `sitemapIndex()` ship today with smart path-based defaults for priority and change frequency.
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/sitemap
+pnpm add @answerfox/sitemap
 # requires next >= 14
 ```
 
@@ -15,7 +15,7 @@ pnpm add @answerable-kit/sitemap
 
 ```ts
 // app/sitemap.ts
-import { buildSitemap } from '@answerable-kit/sitemap';
+import { buildSitemap } from '@answerfox/sitemap';
 
 export default function sitemap() {
   return buildSitemap(
@@ -49,7 +49,7 @@ Explicit `priority` or `changeFrequency` on a route always wins over inferred de
 ## Large sites (>50k URLs)
 
 ```ts
-import { sitemapIndex } from '@answerable-kit/sitemap';
+import { sitemapIndex } from '@answerfox/sitemap';
 
 const index = sitemapIndex([
   { url: 'https://acme.com/sitemap-1.xml' },

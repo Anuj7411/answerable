@@ -1,6 +1,6 @@
 /**
- * @answerable-kit/metadata — Next.js App Router metadata helpers for the
- * Answerable SEO toolkit. Compose `title`, `description`, canonical
+ * @answerfox/metadata — Next.js App Router metadata helpers for the
+ * Answerfox SEO toolkit. Compose `title`, `description`, canonical
  * URL, OpenGraph, Twitter cards, and robots directives from a single
  * typed input, with smart fallbacks across the social-card chain.
  */

@@ -1,4 +1,4 @@
-import { parseAbsoluteUrl } from '@answerable-kit/core';
+import { parseAbsoluteUrl } from '@answerfox/core';
 import { describe, expect, it } from 'vitest';
 import { loadHtml } from '../parser.js';
 import { runChecks } from '../runner.js';
@@ -101,6 +101,6 @@ describe('consoleReport', () => {
     const report = await runChecks({ url: URL, html: PERFECT_HTML, dom: loadHtml(PERFECT_HTML) });
     const out = consoleReport(report, { color: false });
     expect(out).toMatch(/\d+ of 50 audit checks active/);
-    expect(out).toContain('github.com/Anuj7411/answerable');
+    expect(out).toContain('github.com/Anuj7411/answerfox');
   });
 });

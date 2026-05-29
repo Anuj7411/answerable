@@ -1,11 +1,11 @@
-# @answerable-kit/cli
+# @answerfox/cli
 
 ## 0.1.2
 
 ### Patch Changes
 
 - Updated dependencies [6ea0355]
-  - @answerable-kit/audit@0.1.2
+  - @answerfox/audit@0.1.2
 
 ## 0.1.1
 
@@ -13,15 +13,15 @@
 
 - 07e0c2f: Refresh package README headers: replace stale "Pre-alpha" notices with accurate v0.1.0 release context. No code or API changes — documentation only.
 - Updated dependencies [07e0c2f]
-  - @answerable-kit/audit@0.1.1
-  - @answerable-kit/core@0.1.1
-  - @answerable-kit/templates@0.1.1
+  - @answerfox/audit@0.1.1
+  - @answerfox/core@0.1.1
+  - @answerfox/templates@0.1.1
 
 ## 0.1.0
 
 ### Minor Changes
 
-- 7e0026d: Scaffold `@answerable-kit/cli` — the seventh and final library package — exposing the `answerable` command. Wraps the audit engine for terminal and CI use.
+- 7e0026d: Scaffold `@answerfox/cli` — the seventh and final library package — exposing the `answerable` command. Wraps the audit engine for terminal and CI use.
 
   **Commands shipping today:**
 
@@ -41,7 +41,7 @@
 
   **Deferred to Step 12:** `init`, `add`, and `verify` commands (need more design — interactive prompts, file-writing patterns, JSON-LD walking).
 
-- 66dc148: Add two new CLI commands that wire `@answerable-kit/templates` into the developer flow:
+- 66dc148: Add two new CLI commands that wire `@answerfox/templates` into the developer flow:
 
   - **`answerable init`** — interactive setup of an existing Next.js project. Detects Next.js + App Router; prompts for three irreducible tokens (project name, domain, contact email); derives the rest; installs all five page templates + `app/sitemap.ts` + `app/robots.ts`. Prompts before overwriting an existing file.
   - **`answerable add <templates>`** — install a specific subset of templates. Accepts space- or comma-separated names: `answerable add about,faq` or `answerable add about faq`. Only prompts for the tokens those templates need.
@@ -69,6 +69,6 @@
 - Updated dependencies [ab812b8]
 - Updated dependencies [eeb3966]
 - Updated dependencies [d7c2eba]
-  - @answerable-kit/audit@0.1.0
-  - @answerable-kit/core@0.1.0
-  - @answerable-kit/templates@0.1.0
+  - @answerfox/audit@0.1.0
+  - @answerfox/core@0.1.0
+  - @answerfox/templates@0.1.0

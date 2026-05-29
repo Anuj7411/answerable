@@ -1,4 +1,4 @@
-import { type TemplateName, getTemplate, renderTemplate } from '@answerable-kit/templates';
+import { type TemplateName, getTemplate, renderTemplate } from '@answerfox/templates';
 import type { Command } from 'commander';
 import { type Fs, NodeFs } from '../install/fs.js';
 import { detectNextProject } from '../install/project.js';
@@ -80,7 +80,7 @@ export async function runAddCommand(
     return {
       stdout: '',
       exitCode: 2,
-      error: 'No app/ directory found. Answerable supports the Next.js App Router only.',
+      error: 'No app/ directory found. Answerfox supports the Next.js App Router only.',
       written: [],
       skipped: [],
     };

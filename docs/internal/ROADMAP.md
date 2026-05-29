@@ -7,13 +7,13 @@
 ### In scope
 
 - [ ] Monorepo scaffold (Turborepo + pnpm)
-- [ ] `@answerable-kit/core` — shared types and utilities
-- [ ] `@answerable-kit/schemas` — 8 schema generators (Organization, SoftwareApp, FAQPage, Article, Breadcrumb, Product, HowTo, WebSite)
-- [ ] `@answerable-kit/metadata` — Next.js App Router metadata helpers
-- [ ] `@answerable-kit/sitemap` — Sitemap builder with smart defaults
-- [ ] `@answerable-kit/templates` — 5 page templates (About, Privacy, Terms, FAQ, Contact)
-- [ ] `@answerable-kit/audit` — 50-check audit engine for Next.js sites
-- [ ] `@answerable-kit/cli` — Unified `answerable` command
+- [ ] `@answerfox/core` — shared types and utilities
+- [ ] `@answerfox/schemas` — 8 schema generators (Organization, SoftwareApp, FAQPage, Article, Breadcrumb, Product, HowTo, WebSite)
+- [ ] `@answerfox/metadata` — Next.js App Router metadata helpers
+- [ ] `@answerfox/sitemap` — Sitemap builder with smart defaults
+- [ ] `@answerfox/templates` — 5 page templates (About, Privacy, Terms, FAQ, Contact)
+- [ ] `@answerfox/audit` — 50-check audit engine for Next.js sites
+- [ ] `@answerfox/cli` — Unified `answerable` command
 - [ ] CI on GitHub Actions (test, lint, typecheck, audit-self)
 - [ ] Changesets-based publishing to npm
 - [ ] Nextra docs site at `answerable.dev` (or fallback domain)
@@ -80,7 +80,7 @@
 
 A solo dev shipping a SaaS landing page can:
 
-1. Run `pnpm add @answerable-kit/cli` (5 sec)
+1. Run `pnpm add @answerfox/cli` (5 sec)
 2. Run `npx answerable init` (2 min — interactive prompts)
 3. Get: complete metadata setup, 5 trust pages, sitemap, robots, JSON-LD on every page
 4. Run `npx answerable audit https://my-site.com` (30 sec)

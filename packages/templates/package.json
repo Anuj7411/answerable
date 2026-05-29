@@ -1,16 +1,16 @@
 {
-  "name": "@answerable-kit/templates",
+  "name": "@answerfox/templates",
   "version": "0.1.1",
-  "description": "Page templates (About, Privacy, Terms, FAQ, Contact) for the Answerable SEO toolkit. Installed into user projects by the CLI.",
+  "description": "Page templates (About, Privacy, Terms, FAQ, Contact) for the Answerfox SEO toolkit. Installed into user projects by the CLI.",
   "license": "MIT",
   "author": "Anuj Ojha",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anuj7411/answerable.git",
+    "url": "https://github.com/Anuj7411/answerfox.git",
     "directory": "packages/templates"
   },
-  "homepage": "https://github.com/Anuj7411/answerable/tree/main/packages/templates#readme",
-  "bugs": "https://github.com/Anuj7411/answerable/issues",
+  "homepage": "https://github.com/Anuj7411/answerfox/tree/main/packages/templates#readme",
+  "bugs": "https://github.com/Anuj7411/answerfox/issues",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -33,7 +33,7 @@
     "clean": "rimraf dist .tsbuildinfo"
   },
   "dependencies": {
-    "@answerable-kit/core": "workspace:*"
+    "@answerfox/core": "workspace:*"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",

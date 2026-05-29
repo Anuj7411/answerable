@@ -1,4 +1,4 @@
-import { SchemaValidationError } from '@answerable-kit/core';
+import { SchemaValidationError } from '@answerfox/core';
 import { describe, expect, it } from 'vitest';
 import { extractTokens, renderContent } from './render.js';
 
@@ -28,9 +28,9 @@ describe('renderContent', () => {
   it('substitutes every token with its provided value', () => {
     const out = renderContent('Hello {{NAME}}, welcome to {{SITE}}.', {
       NAME: 'Anuj',
-      SITE: 'Answerable',
+      SITE: 'Answerfox',
     });
-    expect(out).toBe('Hello Anuj, welcome to Answerable.');
+    expect(out).toBe('Hello Anuj, welcome to Answerfox.');
   });
 
   it('substitutes repeated occurrences of the same token', () => {

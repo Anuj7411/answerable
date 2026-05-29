@@ -1,4 +1,4 @@
-import { SchemaValidationError, parseAbsoluteUrl } from '@answerable-kit/core';
+import { SchemaValidationError, parseAbsoluteUrl } from '@answerfox/core';
 import { validateAndCoerceLastModified } from './build-sitemap.js';
 
 export interface SitemapIndexEntry {

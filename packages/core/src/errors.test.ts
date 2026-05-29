@@ -1,18 +1,18 @@
 import { describe, expect, it } from 'vitest';
-import { AnswerableError, InvalidUrlError, SchemaValidationError } from './errors.js';
+import { AnswerfoxError, InvalidUrlError, SchemaValidationError } from './errors.js';
 
-describe('AnswerableError', () => {
+describe('AnswerfoxError', () => {
   it('carries a code and message', () => {
-    const err = new AnswerableError('TEST_CODE', 'something broke');
+    const err = new AnswerfoxError('TEST_CODE', 'something broke');
     expect(err.code).toBe('TEST_CODE');
     expect(err.message).toBe('something broke');
     expect(err).toBeInstanceOf(Error);
-    expect(err.name).toBe('AnswerableError');
+    expect(err.name).toBe('AnswerfoxError');
   });
 
   it('preserves cause through ErrorOptions', () => {
     const cause = new Error('underlying');
-    const err = new AnswerableError('X', 'wrap', { cause });
+    const err = new AnswerfoxError('X', 'wrap', { cause });
     expect(err.cause).toBe(cause);
   });
 });
@@ -23,7 +23,7 @@ describe('InvalidUrlError', () => {
     expect(err.input).toBe('not-a-url');
     expect(err.code).toBe('ANSWERABLE_INVALID_URL');
     expect(err.message).toContain('not-a-url');
-    expect(err).toBeInstanceOf(AnswerableError);
+    expect(err).toBeInstanceOf(AnswerfoxError);
   });
 
   it('appends the reason when supplied', () => {

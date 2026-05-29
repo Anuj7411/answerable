@@ -1,11 +1,11 @@
-# @answerable-kit/sitemap
+# @answerfox/sitemap
 
 Sitemap builder with smart path-based defaults. Wraps Next.js's `MetadataRoute.Sitemap` type. Plus a `sitemapIndex()` helper for sites that exceed Google's 50k-URL per-file limit.
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/sitemap
+pnpm add @answerfox/sitemap
 ```
 
 Requires `next >= 14` (peer dependency).
@@ -25,7 +25,7 @@ Requires `next >= 14` (peer dependency).
 
 ```ts
 // app/sitemap.ts
-import { buildSitemap } from '@answerable-kit/sitemap';
+import { buildSitemap } from '@answerfox/sitemap';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -69,4 +69,4 @@ All errors batch into one `SchemaValidationError`.
 
 ## Source
 
-[packages/sitemap](https://github.com/Anuj7411/answerable/tree/main/packages/sitemap)
+[packages/sitemap](https://github.com/Anuj7411/answerfox/tree/main/packages/sitemap)

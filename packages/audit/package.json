@@ -1,16 +1,16 @@
 {
-  "name": "@answerable-kit/audit",
+  "name": "@answerfox/audit",
   "version": "0.1.2",
-  "description": "Audit engine for the Answerable SEO toolkit. Crawls a target URL, runs the 50-check framework, and reports findings with evidence + fix recommendations.",
+  "description": "Audit engine for the Answerfox SEO toolkit. Crawls a target URL, runs the 50-check framework, and reports findings with evidence + fix recommendations.",
   "license": "MIT",
   "author": "Anuj Ojha",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anuj7411/answerable.git",
+    "url": "https://github.com/Anuj7411/answerfox.git",
     "directory": "packages/audit"
   },
-  "homepage": "https://github.com/Anuj7411/answerable/tree/main/packages/audit#readme",
-  "bugs": "https://github.com/Anuj7411/answerable/issues",
+  "homepage": "https://github.com/Anuj7411/answerfox/tree/main/packages/audit#readme",
+  "bugs": "https://github.com/Anuj7411/answerfox/issues",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -36,7 +36,7 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@answerable-kit/core": "workspace:*",
+    "@answerfox/core": "workspace:*",
     "cheerio": "^1.0.0",
     "kleur": "^4.1.5"
   },

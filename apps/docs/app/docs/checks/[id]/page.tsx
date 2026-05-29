@@ -1,4 +1,4 @@
-import { DEFAULT_CHECKS } from '@answerable-kit/audit';
+import { DEFAULT_CHECKS } from '@answerfox/audit';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -79,11 +79,11 @@ export default async function CheckPage({ params }: PageProps) {
       <h2>Try it</h2>
       <p>Run an audit and look for this check in the report:</p>
       <pre>
-        <code>{'pnpm dlx @answerable-kit/cli audit https://your-site.com'}</code>
+        <code>{'pnpm dlx @answerfox/cli audit https://your-site.com'}</code>
       </pre>
       <p>Or print this check's full doc from the terminal without leaving your shell:</p>
       <pre>
-        <code>{`pnpm dlx @answerable-kit/cli explain ${check.id}`}</code>
+        <code>{`pnpm dlx @answerfox/cli explain ${check.id}`}</code>
       </pre>
 
       <hr style={{ margin: '2rem 0' }} />

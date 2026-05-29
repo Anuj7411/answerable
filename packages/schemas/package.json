@@ -1,16 +1,16 @@
 {
-  "name": "@answerable-kit/schemas",
+  "name": "@answerfox/schemas",
   "version": "0.1.1",
-  "description": "Type-safe JSON-LD generators for the Answerable SEO toolkit (Organization, FAQPage, Article, ...).",
+  "description": "Type-safe JSON-LD generators for the Answerfox SEO toolkit (Organization, FAQPage, Article, ...).",
   "license": "MIT",
   "author": "Anuj Ojha",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anuj7411/answerable.git",
+    "url": "https://github.com/Anuj7411/answerfox.git",
     "directory": "packages/schemas"
   },
-  "homepage": "https://github.com/Anuj7411/answerable/tree/main/packages/schemas#readme",
-  "bugs": "https://github.com/Anuj7411/answerable/issues",
+  "homepage": "https://github.com/Anuj7411/answerfox/tree/main/packages/schemas#readme",
+  "bugs": "https://github.com/Anuj7411/answerfox/issues",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -33,7 +33,7 @@
     "clean": "rimraf dist .tsbuildinfo"
   },
   "dependencies": {
-    "@answerable-kit/core": "workspace:*",
+    "@answerfox/core": "workspace:*",
     "schema-dts": "^1.1.5"
   },
   "devDependencies": {

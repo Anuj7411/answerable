@@ -1,4 +1,4 @@
-import type { Check } from '@answerable-kit/core';
+import type { Check } from '@answerfox/core';
 import type { AuditDom } from '../parser.js';
 import { a1Title } from './a1-title.js';
 import { a3Description } from './a3-description.js';

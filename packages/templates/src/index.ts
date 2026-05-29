@@ -1,8 +1,8 @@
 /**
- * @answerable-kit/templates — page templates installed by the Answerable
+ * @answerfox/templates — page templates installed by the Answerfox
  * CLI into a user's Next.js project. Each template is a single .tsx
- * file wired up with `defineSeo()` from `@answerable-kit/metadata` and
- * the matching JSON-LD generator from `@answerable-kit/schemas` — drop
+ * file wired up with `defineSeo()` from `@answerfox/metadata` and
+ * the matching JSON-LD generator from `@answerfox/schemas` — drop
  * one in and you have a working, audit-ready page.
  */
 

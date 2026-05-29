@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable-kit/core';
+import { defineCheck } from '@answerfox/core';
 import type { AuditDom } from '../parser.js';
 
 export const a4Canonical = defineCheck<AuditDom>({
@@ -16,7 +16,7 @@ export const a4Canonical = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Add <link rel="canonical" href="https://example.com/page"> inside <head>. Use defineSeo() from @answerable-kit/metadata to emit this automatically.',
+          'Add <link rel="canonical" href="https://example.com/page"> inside <head>. Use defineSeo() from @answerfox/metadata to emit this automatically.',
       };
     }
     const isAbsolute = /^https?:\/\//i.test(href);

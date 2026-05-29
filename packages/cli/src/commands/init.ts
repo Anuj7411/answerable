@@ -1,4 +1,4 @@
-import { type Template, listTemplates, renderTemplate } from '@answerable-kit/templates';
+import { type Template, listTemplates, renderTemplate } from '@answerfox/templates';
 import type { Command } from 'commander';
 import { type Fs, NodeFs } from '../install/fs.js';
 import { detectNextProject } from '../install/project.js';
@@ -55,13 +55,13 @@ export async function runInitCommand(
     return {
       stdout: '',
       exitCode: 2,
-      error: 'No app/ directory found. Answerable supports the Next.js App Router only.',
+      error: 'No app/ directory found. Answerfox supports the Next.js App Router only.',
       written: [],
       skipped: [],
     };
   }
 
-  deps.prompter.intro('Answerable · setting up SEO');
+  deps.prompter.intro('Answerfox · setting up SEO');
 
   // Compute the union of tokens needed by every page template + routing files.
   const allRequired = new Set<string>(['URL']); // routing files use URL

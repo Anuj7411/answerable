@@ -1,4 +1,4 @@
-import { DEFAULT_CHECKS } from '@answerable-kit/audit';
+import { DEFAULT_CHECKS } from '@answerfox/audit';
 import type { Command } from 'commander';
 import kleur from 'kleur';
 
