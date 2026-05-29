@@ -1,384 +1,286 @@
-# Session Handoff — 2026-05-17
+# Session Handoff — 2026-05-29
 
-> **You're picking up an ongoing project.** This document is the full state of the world after 19 merged PRs. Read it top to bottom before doing anything. After reading, you should be able to continue where the previous session ended without asking the user a single context question.
->
-> **The user is `Anuj Ojha` (GitHub: `Anuj7411`).** They have a strong preference: **recommend, don't ask** — propose a concrete option with reasoning when surfacing tradeoffs, rather than offering neutral menus. See `memory/feedback_decision_style.md`. They make the final call but appreciate a confident recommendation upfront.
+**Purpose:** Read this file fully before doing anything. It is the source of truth for resuming the Answerable project in a new Claude Code session.
 
-## How to use this file at the start of a new session
-
-The user will paste something like *"Read `docs/internal/SESSION-HANDOFF.md` fully and pick up where we left off."* Don't ask clarifying questions until you've read this entire document.
-
-After reading, your **first message** should:
-1. Acknowledge the active task (the npm scope rename — see [Active task](#active-task))
-2. Tell the user the exact next action they need to take
-3. Tell them what you'll do in parallel
-4. Not waste tokens re-explaining what's in this file
+This handoff supersedes the previous one (which was about the v0.1.0 npm publish). All foundation work since then is captured here.
 
 ---
 
-## The 60-second context
+## 60-Second Recap
 
-**Answerable** is an MIT-licensed, drop-in SEO toolkit for indie Next.js developers. Seven workspace packages (`core`, `schemas`, `metadata`, `sitemap`, `templates`, `audit`, `cli`) plus a docs site and a minimal example. The wedge: combine *drop-in fix* + *automated audit* + *plain-English explanation* in one package — nobody else does all three.
+Anuj has been building **Answerable**, an open-source AI-SEO toolkit launching as a SaaS. The OSS packages are already live on npm at v0.1.2. The SaaS launch foundation has been fully designed and architected through this session.
 
-After 19 merged PRs we have:
+**Current state:** Every foundation document is locked. The prototype landing page works in a browser. The next step is engineering work (scaffolding `apps/web` per the TRD).
 
-- **All 7 library packages built and tested** — 441 passing tests workspace-wide
-- **Audit framework: 33 of 50 checks, ~63 of 100 points covered**
-- **examples/basic-nextjs/** — minimal Next.js consumer demonstrating the full toolkit
-- **apps/docs/** — Nextra docs site (built but does NOT compile to static — see [Known issues](#known-issues))
-- **Production README** with quickstart + status table
-- **Changesets-driven release workflow** wired to GitHub Actions
-- **PR #20** open with v0.1.0 version bumps, ready to publish — **blocked on npm scope rename and NPM_TOKEN setup**
+**User's strategic frame:** Solo lifestyle business, indie developer customer, $5-20K MRR target in 18-24 months. OSS first + paid SaaS for hosted convenience. Per `STRATEGIC-POSITIONING.md`.
 
-Phase 1 of [ROADMAP.md](./ROADMAP.md) is ~90% complete. Remaining: rename packages → publish v0.1.0 → file docs build fix → ship more audit checks → Sotto example.
+**User's working style:** "Recommend, don't ask." Decisive options preferred over neutral menus. See `~/.claude/projects/C--Projects-answerable/memory/MEMORY.md`.
 
 ---
 
-## Active task
+## What Is Locked (Every Foundation Document)
 
-Rename from `@answerable/` to `@answerable-kit/`, then publish v0.1.0. This is what we were in the middle of when the previous session's token budget ran out. **Resume here.**
+All seven documents live under `docs/internal/`. Read in this order if catching up:
 
-### Why the rename
+| # | File | Status | Purpose |
+|---|---|---|---|
+| 1 | `STRATEGIC-POSITIONING.md` | ✅ Locked | The why. Positioning sentence, three pillars, OSS+SaaS doctrine, 10 differentiators vs Profound/Peec/Otterly/Searchable, future bets, ProductHunt strategy. |
+| 2 | `BRAND-BRIEF.md` | ✅ Locked (historical) | Original Aurora-era brand exploration. Voice rules, anti-AI checklist still apply. Gradient direction superseded. |
+| 3 | `BRAND-SYSTEM-LOCKED.md` | ✅ Source of truth | Slate Family system: 6 ember cousins on `#D6D2CB` slate base. Per-page color mapping. Intensity scale (80/60/35/40/60). Three-tier system (primary + Dawn Strip secondary + Ink Drop tertiary). CSS tokens. |
+| 4 | `PRD-V1.md` | ✅ Locked | 14 features (5 free + 6 paid + 3 platform foundations). 8 user journeys. Pricing: Free + Pro $29 + Studio $99 Phase 2. Launch checklist. 11 risks. |
+| 5 | `CLAUDE-DESIGN-PROMPTS-LOCKED-V33.md` | ✅ Ready | Per-screen Claude Design prompts incorporating v3.3 bloom learnings. For when the user wants to regenerate any screen in Claude Design. |
+| 6 | `TRD-V1.md` | ✅ Locked | Technical architecture. Full Postgres schema. Every PRD feature mapped to services. Tech stack: Cloudflare everywhere + Neon + Auth.js + Resend + Gemini 3.5 Flash + Stripe. Cost model. 14-week build plan. |
+| 7 | `SESSION-HANDOFF.md` | This file | Continuity bridge between sessions. |
 
-Our packages are coded as `@answerable/core`, `@answerable/schemas`, etc. The user tried to claim the `@answerable` org on npm but **it's taken by someone else**. They then mistakenly created `@answerable.dev` (with the dot), realized that was brittle (couples npm-scope to a domain they don't yet own), and as of session end were creating **`@answerable-kit`** instead.
-
-### What's confirmed
-
-- ✅ User created GitHub repo `Anuj7411/answerable`
-- ✅ User has owner access on npmjs.com
-- ✅ User has Workflow permissions toggle on in repo Settings (Allow GH Actions to create + approve PRs)
-- ✅ User created `@answerable.dev` npm org (mistakenly — should delete)
-- ✅ User created `@answerable-kit` npm org (owner: `anujojha18`) — confirmed live with the default `Developers` team in place
-- ❌ User has NOT yet generated NPM_TOKEN
-- ❌ User has NOT yet added NPM_TOKEN to repo secrets
-- ❌ The renaming PR has NOT yet been written
-
-### Exact next steps the new session should drive
-
-**Step 1 — Org already exists.** `@answerable-kit` was created at end of previous session (owner `anujojha18`). No need to re-ask — go straight to Step 2.
-
-**Step 2 — Open the renaming PR.** Once confirmed, do the find-replace yourself. Every `@answerable/<pkg>` becomes `@answerable-kit/<pkg>`. Touches roughly:
-
-- 7 `package.json` files in `packages/*`
-- All workspace dep references (`"@answerable/core": "workspace:*"` → `"@answerable-kit/core": "workspace:*"`) in dependent packages
-- All `import { ... } from '@answerable/*'` statements in `packages/*/src/**/*.ts` and `packages/*/src/**/*.test.ts`
-- The `examples/basic-nextjs/` app (package.json deps + imports + README + page content showing the scope)
-- The `apps/docs/` site (package.json dep + import in `app/docs/checks/[id]/page.tsx` + every recipe and reference MDX file mentioning the scope)
-- Root README package table + quickstart commands
-- CLI fix-recommendation strings in checks (e.g. `'Add an Organization JSON-LD block. Use organization() from @answerable/schemas.'`)
-- The audit check `docsUrl` values **STAY AS-IS** — they point at `https://answerable.dev/docs/checks/<ID>` which is the docs DOMAIN, not the npm scope.
-
-**You will need to write a script or use careful manual edits.** Recommended: use the `Grep` tool with pattern `@answerable/` (with trailing slash) to find every occurrence, then `Edit` (with `replace_all: true`) on each file. Don't `replace_all` for `@answerable` alone — that breaks `@answerable.dev` URLs and the `Answerable` brand mentions in prose.
-
-After find/replace:
-- `pnpm install` (lockfile changes — workspace dep names shifted)
-- `pnpm check` (typecheck + lint + tests) — must pass
-- Add a single changeset describing the rename (all 7 packages, minor bump)
-- Open PR titled `chore: rename packages from @answerable/* to @answerable-kit/*`
-- Wait for CI green, squash-merge
-
-**Step 3 — Supersede PR #20.** The current PR #20 ("chore(release): version packages") was generated against the OLD names. After the rename merges, it will conflict. Best path: close PR #20 manually before the rename, then the workflow opens a fresh Version PR after rename merges.
-
-**Step 4 — User generates NPM_TOKEN.** Walk them through:
-
-1. npmjs.com → avatar → **Access Tokens**
-2. **Generate New Token** → choose Classic → type **Automation**
-3. Copy the `npm_…` string
-4. Go to `https://github.com/Anuj7411/answerable/settings/secrets/actions`
-5. **New repository secret** → name `NPM_TOKEN` → paste → Add
-
-**Step 5 — User merges the (new) Version PR.** Triggers release workflow. Publishes packages.
-
-**Step 6 — Verify.** Check `https://www.npmjs.com/package/@answerable-kit/cli` resolves. Run `pnpm dlx @answerable-kit/cli audit https://example.com` to confirm install-from-npm works.
-
-**Step 7 — Small README tweak.** Replace the line *"First npm publish lands when the audit framework reaches 50/50 checks"* with a real install instruction reflecting that v0.1.0 is now live.
-
-### Don't forget
-
-- The `@answerable.dev` org the user created by mistake should be deleted (npmjs.com → answerable.dev → Settings → Delete organization). Not blocking, just cleanup.
-- The audit check `docsUrl` values keep pointing at `answerable.dev` — that's the planned **domain** for the docs site, not the npm scope. Don't change those.
-- The PROJECT-SPEC and README references to the brand name "Answerable" don't change — only the `@scope/` prefix on package names.
+**Also relevant:** the older docs `CLAUDE-DESIGN-PROMPT.md`, `CLAUDE-DESIGN-PROMPT-MULTIPAGE.md`, `GRADIENT-EXPLORATION-PROMPT.md`, `GRADIENT-EXPLORATION-PROMPT-SET-B.md` are historical exploration artifacts from earlier in this session. The current source of truth for design prompts is `CLAUDE-DESIGN-PROMPTS-LOCKED-V33.md`.
 
 ---
 
-## The 19 merged PRs in chronological order
+## What Is Built
 
-Stable commits on `main` as of session end:
+### OSS packages (live on npm)
 
-| # | PR | What |
+| Package | Version | Status |
 |---|---|---|
-| 1 | scaffold | Turborepo + pnpm workspaces, tsconfig.base, biome, vitest, changesets, GitHub Actions CI, issue templates, CONTRIBUTING |
-| 1.5 | ci fix | Removed pnpm version conflict in CI (read from packageManager field) |
-| 2 | `@answerable/core` | Branded URLs (`AbsoluteUrl`, `URLString`) + zod schemas, `parseAbsoluteUrl`, errors with stable codes (`InvalidUrlError`, `SchemaValidationError`), Severity / Category enums, `Check<TDom>` interface + `defineCheck()` |
-| 3 | schemas: organization + webSite | First 2 JSON-LD generators, schema-dts wrappers, narrowing pattern (`Exclude<X, string>`), SearchAction with `query-input` cast |
-| 4 | schemas: faqPage + breadcrumb | Extracted `_internal.ts` `Schema<T>` helper |
-| 5 | schemas: article + blogPosting | Discriminated `AuthorInput`, ISO 8601 date validation with calendar-rollover guard |
-| 6 | schemas: product + softwareApplication | `_offers.ts` with shared `OffersInput` / `AggregateRatingInput`, ISO 4217 currency validation, rating-range guards |
-| 6.5 | schemas: howTo | Eighth generator, ISO 8601 duration validation |
-| 7 | `@answerable/metadata` | `defineSeo()` with smart fallback chain (OG → Twitter), robots conflict guard, narrowed `Extract<NonNullable<Metadata['robots']>, { index?: unknown }>` |
-| 8 | `@answerable/sitemap` | `buildSitemap()` with path-pattern defaults (home → 1.0/daily, blog → 0.7/weekly, etc), `sitemapIndex()` for >50k URLs, duplicate-path detection, same ISO date rigor |
-| 9 | `@answerable/templates` | Token-substitution engine, drift-prevention test (declared `requiredTokens` vs `extractTokens(content)` must match), 5 templates: about / privacy / terms / faq / contact |
-| 10 | audit foundations | Cheerio crawler with polite UA, `runChecks` (pure) + `audit` (fetch wrapper), `bandFromScore`, `consoleReport`, first 5 checks (A1, A3, A4, A5, C1). Needs `lib: [ES2022, DOM]` in tsconfig for fetch types |
-| 11 | audit: 12 meta + OG + Twitter checks | A6-A10, C2, F1-F7. A8 passes on absent robots meta by design. F7 has OG fallback chain. C2 walks @graph form |
-| 12 | `@answerable/cli` audit + explain | Commander wired to pure runners with `auditImpl` injection; consoleReport for human / `--json` for CI; `bin.ts` with shebang preserved through tsc |
-| 13 | examples/basic-nextjs/ | Minimal Next.js 15 App Router app consuming every workspace package; serves as a real integration test via the typecheck task |
-| 13b | audit: 16 content + E-E-A-T + off-site checks | B1, B3, B4, B8, B11, B14, D1-D6, E1, E7, E10, E11. B4 short-circuits to pass on short pages. D6 distinguishes "no footer" / "0 of 3 links" / "1-2 of 3" |
-| 14 | release workflow + README | `release.yml` using `changesets/action@v1` with provenance enabled; production-ready README with badges, comparison table, status |
-| 15 | docs scaffold (Nextra 4 + dynamic check page) | Static routes + `app/docs/checks/[id]/page.tsx` reading `DEFAULT_CHECKS`. Builds locally but **fails on Vercel-style prerender** — see [Known issues](#known-issues) |
-| 16 | docs content (7 reference + 3 recipes) | One reference page per package, three recipes (add-faq, fix-canonical, ci-integration). Pure MDX, no test changes |
-| 17 (PR #19) | release decoupled from docs build | Filter `pnpm release` to packages-only. Unblocked the release workflow which had been failing for ~24h on every push to main |
-| 18 (PR #20) | **OPEN — Version Packages** | Auto-opened by me (gh CLI) because GH Actions PR permission wasn't toggled at the time. Bumps all 7 packages to 0.1.0. **Will need to be closed and re-created after the rename** |
+| `@answerable-kit/audit` | 0.1.2 | Live. 33 of 50 checks shipped. Three-score (SEO/AEO/GEO) coverage footer added. |
+| `@answerable-kit/cli` | 0.1.2 | Live. `audit`, `explain`, `init`, `add` commands. |
+| `@answerable-kit/core` | 0.1.2 | Live. Branded types, errors, `Check<T>` interface. |
+| `@answerable-kit/schemas` | 0.1.2 | Live. 8 JSON-LD generators. |
+| `@answerable-kit/metadata` | 0.1.2 | Live. `defineSeo()` for Next.js. |
+| `@answerable-kit/sitemap` | 0.1.2 | Live. `buildSitemap()` + `sitemapIndex()`. |
+| `@answerable-kit/templates` | 0.1.2 | Live. 5 trust-page templates. |
 
-Current `main` HEAD:
+**Publishing pipeline:** Trusted Publishing via OIDC (no token). Workflow at `.github/workflows/release.yml`. Runs on push to main.
 
-```
-eb430e0 fix(release): decouple npm publish from docs build (#19)
-77d5357 docs(content): add 7 API reference pages + 3 recipe pages (#18)
-1a9af54 docs(site): scaffold apps/docs with Nextra 4 + dynamic per-check pages (#17)
-c70432b docs(release): production README + Changesets-driven npm publish workflow (#16)
-a9e17cb feat(audit): 16 content/E-E-A-T/off-site checks (#15)
-… (full history in `git log`)
-```
+### Prototype (visual proof, browser-runnable)
 
----
+Path: `prototype/landing/`
 
-## Workspace state
-
-```
-packages/
-├── core/          @answerable/core         29 tests   ✅
-├── schemas/       @answerable/schemas      81 tests   ✅  (8 generators)
-├── metadata/      @answerable/metadata     29 tests   ✅
-├── sitemap/       @answerable/sitemap      33 tests   ✅
-├── templates/     @answerable/templates    49 tests   ✅  (5 templates)
-├── audit/         @answerable/audit       162 tests   ✅  (33 of 50 checks)
-└── cli/           @answerable/cli          58 tests   ✅  (init, add, audit, explain)
-
-apps/
-└── docs/          @answerable/docs         private    🟡 typecheck passes, `next build` fails
-
-examples/
-└── basic-nextjs/  @answerable/example-basic-nextjs   private    ✅
-
-Total: 441 tests, all passing
-```
-
-### Audit framework coverage (per category)
-
-| Category | Checks shipped / total | Points shipped / total |
+| Screen | File | Status |
 |---|---|---|
-| A — Meta & technical foundations | 9 / 10 | 17 / 20 |
-| B — Content structure & chunking | 6 / 11 | 11 / 20 |
-| C — Structured data | 2 / 10 | 5 / 18 |
-| D — E-E-A-T & entity authority | 6 / 12 | 14 / 22 |
-| E — Off-site / citation surface | 4 / 8 | 7 / 12 |
-| F — Open Graph & social | 6 / 7 | 7 / 8 |
-| **Total** | **33 / 50** | **~63 / 100** |
+| 01 Landing | `landing.jsx` | ✅ Approved (slate ember at 80%) |
+| 02 Pricing | `pricing.jsx` | ✅ Built (slate marigold at 60%) |
+| 03 Dashboard | `dashboard.jsx` | ✅ Built (slate ember at 35%, with SVG sidebar icons) |
+| 04 Fix Studio | `fix-studio.jsx` | ✅ Built (slate amber at 40%, transparent base overlay) |
+| 05 Sign-in | `signin.jsx` | ✅ Built (slate terracotta at 60%) |
 
-The 17 unshipped checks need NLP, page-type heuristics, or multi-page crawling — deferred to Phase 2.
+**Engine:** `bloom-engine.js` v3.4 — 5-pass bloom (atmospheric haze + body + soft-light halo + multiply core + NO white pinpoint), grain crossfade (3.2s tile cycle), lissajous orbit with two distinct periods, slow tonal rotation, 30 FPS render.
 
----
+**To open:** `cd prototype/landing && npx serve .` then http://localhost:5500. Tab bar at top switches between 5 screens.
 
-## Architectural conventions we've established
+### Documentation site (`apps/docs`)
 
-Every PR has reinforced these. Future PRs should follow them:
-
-1. **Pure runners + thin I/O wrappers.** `runChecks` is pure (no network); `audit` wraps with fetch. `runAuditCommand` is pure (returns `{ stdout, exitCode }`); the commander action wires it to `process.exit`. Tests never hit network and never call `process.exit`.
-
-2. **Eager URL validation, throw immediately.** Every URL input runs through `parseAbsoluteUrl` from `@answerable/core`. First bad URL throws `InvalidUrlError`. No silent shipping of broken JSON-LD.
-
-3. **Batched validation errors.** Non-URL issues (empty fields, bad ISO dates, bad currency codes, missing/unknown tokens) accumulate into one `SchemaValidationError` with `issues: readonly string[]`. Callers see everything wrong in one error, not fix-rerun-find-next.
-
-4. **Stable IDs as public API.** Audit check IDs (`A1`, `B11`, etc.) match `AUDIT-FRAMEWORK.md` and never renumber. Schema generator names, template names, error codes — all stable contracts.
-
-5. **Workspace deps via `workspace:*`.** Changesets rewrites to actual versions at publish time. `examples/basic-nextjs/` and `apps/docs/` use this to consume the workspace packages.
-
-6. **`Exclude<X, string>` narrowing for schema-dts.** schema-dts models every type as `XLeaf | … | string` (the string is the JSON-LD `@id` reference form). Narrow via `Schema<T> = WithContext<Exclude<T, string>>` from `_internal.ts`.
-
-7. **ISO 8601 round-trip date validation.** Regex + `Date.parse` catches loose formats but silently rolls over impossible dates (`"2026-02-30"` → March 2). The fix is reconstructing the date via `Date.UTC` and rejecting if any component shifted. Used in `article()` and `buildSitemap()`. Duplicated, not yet extracted (rule of three not yet hit).
-
-8. **Drift-prevention via registry tests.** Templates declare `requiredTokens` explicitly; a test asserts `[...declared].sort() === [...extractTokens(content)].sort()`. Same idea for audit `DEFAULT_CHECKS` order assertion in the runner test.
-
-9. **`exactOptionalPropertyTypes: true`** in tsconfig.base. Optional fields require explicit `field?: T | undefined` if you want to allow assigning `undefined`. Pattern: conditionally include with spread (`...(value !== undefined && { field: value })`).
-
-10. **Forward-slash path normalization** in `InMemoryFs`. All paths normalized internally so Windows and POSIX produce identical test layouts.
-
-11. **No `instanceof` for error type narrowing in user-facing checks.** Use the stable `code` field on `AnswerableError` subclasses. Survives realm boundaries (edge runtimes, bundler dedup).
-
-12. **Per-package READMEs are short**, with install + usage + license. Heavy docs live in `apps/docs/` reference pages.
+| Status | Detail |
+|---|---|
+| ⚠ Nextra build broken | Nextra 4 + Next 15 prerender issue. Decoupled from release pipeline (PR #19). Not blocking anything. Fix is future work. |
 
 ---
 
-## Working conventions (how we collaborate)
+## The Single Sentence (Locked Positioning)
 
-These emerged across the 19 PRs and should continue:
+> **Answerable is the only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.**
 
-- **Small, focused PRs.** One feature or one fix per PR. Don't bundle unrelated changes.
-- **Every user-facing change has a changeset.** Run `pnpm changeset` (or hand-author the `.md` file under `.changeset/`).
-- **Branch from main, feature branch named `feat/<thing>` or `fix/<thing>`.**
-- **CI must pass before merging.** Branch protection on `main` enforces this. The `typecheck · lint · test` check is required.
-- **Squash and merge.** Linear history is enforced. Branch protection also requires this.
-- **Delete branch on merge.**
-- **PR descriptions include:** Summary, design notes worth flagging, "what this PR does NOT do" if scope was cut, test plan checkboxes, changeset mention.
-- **The bot signature** at the end of commits: `Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>`.
-- **The user's working principles** (from PROJECT-SPEC and observed behavior):
-  - *Patience over urgency. Architecture and quality first.*
-  - *Step by step. Agree on each phase before executing.*
-  - *No silent assumptions.*
-  - *They make final call on scope changes, design tradeoffs, branding.*
+Three pillars: **OSS first · Lives in your codebase · Ships fixes as code**.
+
+Differentiator: **Unified SEO + AEO + GEO three-score system**, ships in audit engine v0.2.0+ (next OSS release).
 
 ---
 
-## Known issues
+## Active Task: Begin Week 1 of the TRD Build Plan
 
-1. **Nextra 4.6.1 + Next 15.5.18 docs build fails.** Every page errors with the same opaque `Server Components render` digest during static export. Local `pnpm build` fails on `apps/docs:build`; CI release pipeline works around this by filtering to packages-only. Likely fix paths: (a) downgrade Nextra to a compatible version, (b) replace Nextra with plain Next + MDX, (c) wait for Nextra to publish a fix. **Don't deploy `apps/docs/` to Vercel until this is fixed.**
+Per `TRD-V1.md` section 25:
 
-2. **17 audit checks not yet shipped** (A2, B2, B5, B6, B7, B10, C3-C8, C9, C10, D7-D12, E2-E9 excluding shipped). Most need NLP, page-type heuristics, or multi-page crawling. These are Phase 2 work, not blocking v0.1.0.
+**Week 1-2 — Foundations:**
+- Scaffold `apps/web` with Next.js 15 App Router
+- Configure Tailwind 4 with Slate Family tokens from `BRAND-SYSTEM-LOCKED.md`
+- Port `prototype/landing/bloom-engine.js` v3.4 to a TypeScript ESM module at `apps/web/src/components/bloom/engine.ts`
+- Create the `<Bloom />` React component wrapper at `apps/web/src/components/bloom/Bloom.tsx`
+- Set up Auth.js v5 with GitHub OAuth (primary) and Google OAuth (secondary)
+- Set up Drizzle + Neon Postgres
+- Run the initial migrations for `users`, `sessions`, `sites`, `audits`, `findings` (DDL in TRD section 5)
+- Wire Sentry + PostHog
+- Deploy the Landing screen to Cloudflare Pages staging
 
-3. **CLI `verify` command** not shipped. Was on the Step 17 menu the user passed on. Would walk `app/**/*.tsx`, extract JSON-LD blocks, validate. Useful for pre-commit hooks.
-
-4. **`examples/sotto/`** never written. PROJECT-SPEC §5 has it as the first real-world example. Out of scope for v0.1.0; ship later when Sotto product exists in stable form.
-
-5. **TypeDoc-generated API reference** not set up. Hand-authored reference pages under `apps/docs/app/docs/reference/` cover the same surface for now. Premature to wire up TypeDoc until API stabilizes post-1.0.
-
-6. **Vercel deployment** of `apps/docs/` not set up. Blocked by issue #1 above.
-
-7. **`_meta.tsx` sidebar ordering** in Nextra not customized. Defaults work but sidebar order isn't optimal.
-
-8. **`audit-self.yml` workflow** mentioned in PROJECT-SPEC §5 is NOT yet wired up. Was planned to audit the docs site on every push. Blocked on Nextra docs build issue.
-
----
-
-## User preferences (memory)
-
-Per `memory/feedback_decision_style.md`:
-
-> **Decision style: recommend, don't ask.** Lead with a specific recommendation and reasoning rather than offering neutral menus. The user accepted both of my recommended resolutions early in the project ("Playwright over Puppeteer", "keep audit-check IDs sparse") by saying *"for both I will go with your recommendation."*
->
-> They are product owner / final decision-maker and explicitly cast me as *"implementation lead — propose the cleanest path, then execute on my approval."*
->
-> **How to apply:** When flagging ambiguity, always say *"I recommend X because Y. Confirm?"* rather than *"should we do X or Y?"* Reserve open questions for decisions that genuinely depend on their priorities (scope, branding, timeline), not technical tradeoffs.
-
-Observed style notes:
-
-- They want **clarity and confidence**, not hedging. A recommendation followed by "tell me if you'd rather X" is fine; a menu of 4 equal options is not.
-- They appreciate detail when something complex happens (architecture explanations, design tradeoffs), but expect terse answers to direct questions.
-- They're new to some operational flows (npm publishing, npm orgs, GH Actions secrets) so **step-by-step tutorials with verification at each step** work well when the task is hands-on.
-- They make the strategic calls (which path to take), I make the tactical calls (how to execute).
-- They sometimes pivot mid-task (e.g. went from `@answerable.dev` to `@answerable-kit` for clean architectural reasons). Adjust without complaining about lost work.
+**Before any code is written, the next session should:**
+1. Read this handoff fully
+2. Confirm the prototype runs (open localhost:5500 with the dev server)
+3. Confirm the OSS packages are live (`npm view @answerable-kit/audit version` returns 0.1.2)
+4. Ask the user: "Ready to scaffold `apps/web`?" before touching the filesystem
 
 ---
 
-## Accumulated gotchas (tooling quirks)
+## Decision History (The Big Choices, So Nothing Gets Re-Litigated)
 
-- **A PreToolUse security hook scans Write payloads** and blocks files containing certain trigger substrings — specifically the React HTML-injection prop name used for JSON-LD scripts, and the literal characters of the regex execution method (false positives on benign uses). Workarounds: (1) write blocked files one at a time rather than in parallel batches; (2) use the `Edit` tool which has different hook treatment; (3) for the regex one, prefer `String.match(re)` over the alternative. The trigger strings themselves still need to appear in actual source code (e.g. template literal content for the templates package, or the dynamic check page in docs) — handle those via serial Write or Edit-into-empty-file. **This document deliberately uses indirect descriptions to avoid tripping the hook recursively when documenting itself.**
-- **The Read tool dedupes previously-observed files** to line 1 to save tokens. To get the full content, use `Read` with explicit `offset` + `limit` *and* re-read in a fresh chunk. The hook will say *"file is registered as read, Edit works"* — and Edit DOES work even when Read shows only line 1.
-- **Biome will auto-fix long lines** when running `pnpm lint:fix`. Some fixes are flagged "unsafe" (e.g. template literal → string literal). Apply unsafe fixes manually one-by-one rather than `--unsafe`.
-- **Biome wants short JSON arrays inlined** but long lines wrapped. The threshold seems to be around 100 chars; just let `lint:fix` do its thing.
-- **`schema-dts` removed `query-input` from `SearchAction`** after Google deprecated the sitelinks search box. We keep emitting it via an `as unknown as` cast in `webSite()` — many other engines still consume it.
-- **`schema-dts` types are unions including a `string` (IRI reference form).** Always narrow with `Exclude<T, string>` before assigning fields.
-- **Next 15's `params` is `Promise<{ id: string }>`** (async). Await it. Same for `searchParams`.
-- **`getPageMap()` from Nextra** is the suspected root cause of the docs build error. When investigating, the prerender error has a generic redacted digest `2150316170` — production builds strip the actual message.
-- **Tests need fixture HTML that includes EVERY check's signal** if asserting `score === 100`. `PERFECT_HTML` in `runner.test.ts` and `reporters/console.test.ts` are the canonical fixtures. Update them whenever a new check is added.
-- **`expect(report.summary.pass).toBe(N)` is brittle** when adding checks. Prefer `toBeGreaterThanOrEqual` where possible; otherwise update N in both fixtures.
+| Decision | Locked answer | Reference |
+|---|---|---|
+| Success goal | Solo lifestyle business, $5-20K MRR | STRATEGIC-POSITIONING.md §2 |
+| Primary customer | Indie developers / solo founders on Next.js, Astro, Remix | STRATEGIC-POSITIONING.md §2 |
+| Business model | Free OSS + Pro $29/mo + Studio $99/mo (Phase 2) | PRD-V1.md §7 |
+| License | MIT, with AGPL on cloud-critical parts when/if needed | STRATEGIC-POSITIONING.md §2 |
+| AI fix is MVP must-have | Yes | PRD-V1.md F6 |
+| Unified SEO + AEO + GEO scoring | Ships in v0.2.0 of OSS audit engine | STRATEGIC-POSITIONING.md §7.5 |
+| AI vendor | Gemini 3.5 Flash on free tier, paid fallback | TRD-V1.md §3, §9 |
+| AI fix quota | 90/month (3/day) per Pro user | PRD-V1.md F6 |
+| Auth | Auth.js v5 (NextAuth), free OSS | TRD-V1.md §24 |
+| Hosting | Cloudflare Pages + Workers (no Vercel Pro, no AWS) | TRD-V1.md §24 |
+| Free tier dashboard | Latest audit only, no history | PRD-V1.md §5 (revised) |
+| Default theme | Light slate only at launch | BRAND-SYSTEM-LOCKED.md, TRD-V1.md §24 |
+| Annual billing | Yes at launch, 15% discount | TRD-V1.md §24 |
+| Brand signature gradient | Slate Family (6 ember cousins) | BRAND-SYSTEM-LOCKED.md |
+| Slate base color | `#D6D2CB` (was `#C9C5BE`, lifted to prevent brown multiply) | BRAND-SYSTEM-LOCKED.md, prototype v3.3 fix |
+| Landing ember | `#F89444` orange at 80% intensity | prototype, BRAND-SYSTEM-LOCKED.md |
+| White pinpoint at bloom center | REMOVED PERMANENTLY (it looked like a sun) | prototype v3.2 fix, all design prompts forbid it |
+| Bloom motion | Slow lissajous with two periods, 22-26s breath | prototype v3.4, user explicitly approved |
+| Grain | Smooth crossfade between tiles every 3.2s, not strobe | prototype v3.2 fix |
+| Launch timeline | 14.5 weeks from PRD lock (early-to-mid Sept 2026) | PRD-V1.md §1 |
 
 ---
 
-## Quick command reference
+## What We Will NOT Build (Discipline Through Subtraction)
+
+Anti-goals from PRD-V1.md §15 and STRATEGIC-POSITIONING.md §9. Anything from this list that comes up in conversation should be politely deferred:
+
+- White-label agency reports (wrong customer)
+- Enterprise SSO/SAML (wrong customer)
+- Multi-user team accounts (v1; Studio in Phase 2 only)
+- Real-time anything (batched is fine and cheaper)
+- AI chat interface (gimmicky, kills focus)
+- Custom dashboards/widgets (opinionated > flexible)
+- Browser extension (not our customer's workflow)
+- Mobile app (audits are not a mobile use case)
+- Backlink monitoring (Ahrefs' job)
+- Keyword research (different category)
+- Multi-language SEO at launch (English first)
+- Local SEO (different category)
+- AI Citation Tracking at launch (Phase 2, separate launch event)
+
+---
+
+## User Preferences and Working Style
+
+These are confirmed through many sessions of work. The new agent should internalize them.
+
+| Preference | Detail |
+|---|---|
+| Decision style | "Recommend, don't ask." Give a concrete recommendation with reasoning. Use `AskUserQuestion` only when truly needed for non-trivial branching. Never give neutral menus. |
+| Voice in product copy | Friendly + educational. Sharp not warm. **Zero em-dashes anywhere.** Use commas, periods, or restructure. AI-tells to avoid: delve, leverage, harness, unlock the potential, seamless, in today's fast-paced world. |
+| Voice in our internal chats | Same. The user reads carefully and notices em-dashes and AI-isms. |
+| Decisiveness | The user wants forward progress. After enough exploration, they want a lock. When they say "we can proceed," lock and move. |
+| Iteration on feel | User has strong design instincts. When they say "too brown" or "too still" or "too fast," they are right. Don't argue, iterate. |
+| Money pressure | User is bootstrapping with no revenue yet. Free tiers preferred until forced off. Per TRD-V1.md §22. |
+| OSS commitment | The OSS engine is a strategic moat. Stay MIT. The AGPL option is reserved for SaaS-critical components if needed. |
+
+---
+
+## Known Issues
+
+| Issue | Severity | Plan |
+|---|---|---|
+| Nextra docs site does not build (Next 15 + Nextra 4 prerender) | Low | Decoupled from release pipeline. Fix in dedicated PR when there's time. Does not block launch. |
+| 17 audit checks still unshipped (33 of 50) | Medium | Add incrementally. v0.2.0 ships the 5 GEO checks (G1-G5) per STRATEGIC-POSITIONING.md §7.5. |
+| OSS `apps/docs` references old `@answerable/*` scope in a few corners | Low | Already renamed to `@answerable-kit/*` per PR #22. If any lingering references, fix in passing. |
+| No marketing site yet (only the prototype) | Expected | This is the Week 1-2 build per TRD-V1.md §25. |
+
+---
+
+## Important Files To Be Aware Of
+
+| Path | What it is |
+|---|---|
+| `package.json` (root) | Turborepo + pnpm workspaces config. `release` script runs `build:packages && changeset publish`. |
+| `.github/workflows/release.yml` | OSS publish via Trusted Publishing (OIDC, no token) |
+| `packages/audit/AUDIT-FRAMEWORK.md` | The 55-check spec (50 original + 5 GEO planned for v0.2.0) |
+| `packages/audit/src/checks/registry.ts` | Where new checks get registered |
+| `prototype/landing/bloom-engine.js` | The v3.4 bloom renderer. Ports to TypeScript at apps/web/src/components/bloom/engine.ts in Week 1. |
+| `prototype/landing/index.html` | Entry point for browser preview |
+| `~/.claude/projects/C--Projects-answerable/memory/MEMORY.md` | User auto-memory, persists across sessions |
+
+---
+
+## Working Conventions (Established)
+
+| Convention | Detail |
+|---|---|
+| Small PRs | One concept per PR. Multi-PR sequences are normal. |
+| Changesets | Every package-affecting PR adds a changeset under `.changeset/`. |
+| Branch protection on main | Requires PR + CI green + linear history. No direct push. |
+| Commit messages | Conventional commits (feat:, fix:, docs:, chore:, prototype:). Include `Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>` at the end. |
+| File creation policy | Do NOT create documentation (`*.md`, READMEs) unless explicitly asked. Currently the foundation docs are all the user wants. |
+| Em-dashes | Forbidden in product copy and the user's preference is to avoid them in chats too. |
+| Marketing claims | Real numbers only. No fake testimonials, no fake counters, no "trusted by Y companies" without real logos. |
+
+---
+
+## Quick Command Reference
 
 ```bash
-# Workspace-level
-pnpm install              # install all deps (frozen-lockfile in CI)
-pnpm check                # typecheck + lint + test — must pass before commit
-pnpm build                # build everything (DOCS FAILS — don't rely on this)
-pnpm build:packages       # build only publishable packages (works)
-pnpm release              # build packages + publish to npm (needs NPM_TOKEN)
+# Open the visual prototype
+cd prototype/landing && npx serve .
+# Then open http://localhost:5500
 
-# Per-task
-pnpm typecheck            # turbo run typecheck across workspace
-pnpm lint                 # biome check . (does NOT fix)
-pnpm lint:fix             # biome check --write . (applies safe fixes)
-pnpm test                 # turbo run test across packages
-pnpm format               # biome format --write .
+# Verify all OSS packages are live at v0.1.2
+for pkg in audit cli core schemas metadata sitemap templates; do
+  echo "@answerable-kit/$pkg -> $(curl -s https://registry.npmjs.org/@answerable-kit/$pkg/latest | python -c "import sys,json; print(json.load(sys.stdin).get('version','MISSING'))" 2>/dev/null)"
+done
 
-# Changesets
-pnpm changeset            # interactive: pick packages, severity, message
-pnpm version-packages     # changeset version (bumps + changelogs; usually CI does this)
-
-# Releasing
-pnpm release              # build + publish (CI does this on Release PR merge)
-
-# Git workflow
-git checkout main && git pull
-git checkout -b feat/something
-# ... make changes ...
+# Run the full check (typecheck + lint + 162 tests)
 pnpm check
-git add . && git commit -m "feat: ..."
-git push -u origin feat/something
-gh pr create --base main --head feat/something --title "..." --body "..."
-gh pr checks <N>           # wait for green
-gh pr merge <N> --squash --delete-branch
-git checkout main && git pull
+
+# OSS publish (only when changesets exist on main)
+# Trusted Publishing fires automatically on push to main
+
+# Run a real audit from the OSS CLI
+pnpm dlx @answerable-kit/cli audit https://vercel.com
 ```
 
 ---
 
-## Files the new session should know about
+## The Opening Message For The New Session
 
-- **`docs/internal/PROJECT-SPEC.md`** — architectural decision record. Read if you need rationale on a design choice.
-- **`docs/internal/ROADMAP.md`** — Phase 1 / 2 / 3 plan. Read if you need to know what's in/out of scope.
-- **`docs/internal/AUDIT-FRAMEWORK.md`** — full 50-check enumeration with severity, points, auto-fix availability.
-- **`docs/internal/SESSION-STARTER.md`** — the original first-session prompt. Outdated now; refer to this handoff doc instead.
-- **`memory/feedback_decision_style.md`** — user's recommend-don't-ask preference, captured early.
-- **`CONTRIBUTING.md`** — public contributing guide.
-- **`README.md`** — production-grade pitch and quickstart.
+When you start the new Claude Code session, paste this exact message as your first prompt:
 
----
-
-## The exact decision the new session should drive first
-
-The user's last action was confirming **`@answerable-kit`** npm org is created and live (screenshot showed "answerable-kit was created with a default team called Developers", owner `anujojha18`). They considered `@answerable-toolkit` first but switched to the shorter `@answerable-kit` after a recommendation comparing on-brand short options (`@answerablejs`, `@answerable-kit`, `@useanswerable`).
-
-**Your opening message in the next session should be something like:**
-
-> "Welcome back. `@answerable-kit` npm org is confirmed live from last session. I'll push the renaming PR now (`@answerable/*` → `@answerable-kit/*`, ~15 min mechanical find-replace) so we can keep moving toward the v0.1.0 publish.
+> Read `docs/internal/SESSION-HANDOFF.md` fully before doing anything else.
 >
-> While you confirm, I'll start prepping the rename PR in the background — touching ~150 references across packages, docs, example, and README. I won't merge until you've confirmed the org exists and reviewed the PR."
-
-Then either:
-
-- **They say yes** → start writing the rename PR. Don't wait for further direction.
-- **They say no / they picked a different name** → ask the new name, adjust, then proceed.
-- **They say "wait, what about X?"** → answer succinctly and steer back to the task. Don't expand scope.
-
----
-
-## What success looks like at the end of the next session
-
-By the end of the next session, the user should have:
-
-1. ✅ `@answerable-kit` org on npm with them as owner
-2. ✅ Renaming PR merged to main
-3. ✅ Old PR #20 closed (stale)
-4. ✅ New Version PR auto-opened (or opened by you with `gh`) with bumps for the renamed packages
-5. ✅ `NPM_TOKEN` in repo secrets
-6. ✅ Version PR merged
-7. ✅ Release workflow green; all 7 packages published as `@answerable-kit/<pkg>@0.1.0`
-8. ✅ `pnpm dlx @answerable-kit/cli audit https://example.com` works from any machine in the world
-9. ✅ Root README updated to remove the "first publish at 50/50 checks" line
-
-After that, **Step 17 — what's next.** Three paths to choose from:
-
-- **Path A:** Fix the Nextra docs build (separate issue, blocked the audit-self workflow)
-- **Path B:** Ship CLI `verify` command (walk local source, validate JSON-LD)
-- **Path C:** More audit checks (push from 33 → 40+)
-
-The user hasn't picked between these yet. Recommend Path A (unblocks docs deploy + audit-self workflow + visible brand surface).
+> We are picking up Answerable, an open-source AI-SEO toolkit launching as a SaaS. All seven foundation documents are locked (STRATEGIC-POSITIONING, BRAND-BRIEF, BRAND-SYSTEM-LOCKED, PRD-V1, CLAUDE-DESIGN-PROMPTS-LOCKED-V33, TRD-V1, SESSION-HANDOFF). The OSS packages are live on npm at v0.1.2. The visual prototype at `prototype/landing/` validates the v3.4 bloom engine and all 5 foundation screens.
+>
+> The active task is Week 1 of the TRD build plan: scaffold `apps/web` with Next.js 15, configure Tailwind with Slate Family tokens, port the v3.4 bloom engine to TypeScript, set up Auth.js v5 with GitHub OAuth, set up Drizzle + Neon Postgres, run initial migrations, wire Sentry + PostHog.
+>
+> Before writing any code, confirm the prototype still runs (start the dev server, check localhost:5500) and propose the exact Week 1 day-by-day plan. I prefer the "recommend, don't ask" style — give me a concrete plan and I'll approve or tweak.
+>
+> Voice rules: zero em-dashes anywhere. Friendly + educational tone. No AI-tells (delve, leverage, harness, unlock the potential, seamless, in today's fast-paced world).
 
 ---
 
-## End of handoff
+## Success Criteria For The Next Session
 
-Read this file once. Don't re-paste it back at the user (they wrote it). Start with the "Welcome back" message above and drive.
+When the next session ends, these should be true:
 
-🤖 Generated by Claude Opus 4.7 (1M context) on 2026-05-17, session end.
+1. The user understands what was built and what is next, with no confusion
+2. `apps/web` directory exists with Next.js 15 scaffolded
+3. Tailwind config has the Slate Family tokens
+4. The Bloom component renders the v3.4 engine in a React app
+5. Auth.js v5 is wired up with at least GitHub OAuth working end-to-end
+6. Drizzle schema is defined per `TRD-V1.md` §5
+7. Initial Neon migration runs cleanly
+8. Sentry + PostHog initialized
+9. A working Landing page renders at `localhost:3000` (or staging URL)
+10. A new commit history exists on a feature branch like `feat/web-foundations-week-1`
+11. This handoff doc gets updated with the new current state
+
+---
+
+## Final Reminders For The Next Agent
+
+1. **Read the strategic positioning doc** before suggesting any pivot or feature. The user has thought hard about positioning.
+2. **Trust the prototype.** The bloom engine v3.4 is the visual truth. Port it faithfully.
+3. **The TRD is the implementation truth.** Every architectural decision is justified there.
+4. **The user is the visual decider.** When the user pushes back on feel ("too brown," "too fast," "too still"), iterate. Don't argue.
+5. **Stay free-tier first.** Cost discipline is part of the strategy.
+6. **No new docs unless asked.** The seven foundation docs are enough. Do not add more.
+7. **Zero em-dashes. Ever.**
+
+---
+
+**Last session ended: 2026-05-29**
+**TRD-V1.md committed on branch `docs/strategic-positioning`. Needs to be merged to main.**
+**Welcome the user with: "Picking up from the v3.4 prototype + TRD lock. Ready to scaffold apps/web for Week 1?"**
