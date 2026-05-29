@@ -11,7 +11,7 @@
 
 > Answerfox is an open-source AI-SEO toolkit for indie developers building SaaS products. It audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 50-check framework, then uses AI to generate the actual code fixes (meta tags, schema markup, content rewrites) which users can download as patches or auto-merge as GitHub PRs.
 >
-> The product has two access modes: a free open-source CLI (`pnpm dlx @answerable-kit/cli`) and a paid hosted SaaS ($29/mo) that adds AI fix generation, citation tracking across ChatGPT/Perplexity/Gemini, and audit history.
+> The product has two access modes: a free open-source CLI (`pnpm dlx @answerfox/cli`) and a paid hosted SaaS ($29/mo) that adds AI fix generation, citation tracking across ChatGPT/Perplexity/Gemini, and audit history.
 >
 > Target user: solo indie developers building Next.js, Astro, or Remix SaaS products. They live in their terminal, ship via Vercel, and find tools through Twitter and Hacker News. They are technically sophisticated, allergic to marketing fluff, and respect tools that respect their intelligence.
 >
@@ -200,7 +200,7 @@ Light mode exists but is not the default. Indie devs prefer dark. Build dark fir
 | 1. Hero | Hook + the single sentence + primary CTA | Aurora gradient background, animated. Single big claim. Demo screenshot or short video below the fold |
 | 2. "See it work" | Show, do not tell | 30-second demo video: terminal → audit → score → PR opens |
 | 3. The three scores | Differentiator section | Three score cards side by side. Aurora-gradient fills. Real example data |
-| 4. How it works (in your code) | Workflow integration story | Code snippet of `pnpm dlx @answerable-kit/cli`. GitHub Action YAML snippet. Real terminal output |
+| 4. How it works (in your code) | Workflow integration story | Code snippet of `pnpm dlx @answerfox/cli`. GitHub Action YAML snippet. Real terminal output |
 | 5. What we check | Build credibility | 50-check breakdown, expandable. Link to public framework spec |
 | 6. Open source proof | Trust marker | GitHub stars badge, contributors, npm downloads, "verify any claim" callout |
 | 7. Pricing | Convert | Free / Pro $29 / Studio $99. Three cards. Friendly comparison table below |

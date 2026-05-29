@@ -1,17 +1,17 @@
-import { organization, webSite } from '@answerable-kit/schemas';
+import { organization, webSite } from '@answerfox/schemas';
 import Link from 'next/link';
 
 const orgSchema = organization({
   name: 'Basic Next.js Example',
   url: 'https://example.com',
-  description: 'The minimal example of an Answerable-powered Next.js site.',
-  sameAs: ['https://github.com/Anuj7411/answerable'],
+  description: 'The minimal example of an Answerfox-powered Next.js site.',
+  sameAs: ['https://github.com/Anuj7411/answerfox'],
 });
 
 const siteSchema = webSite({
   name: 'Basic Next.js Example',
   url: 'https://example.com',
-  description: 'The minimal example of an Answerable-powered Next.js site.',
+  description: 'The minimal example of an Answerfox-powered Next.js site.',
 });
 
 export default function HomePage() {
@@ -29,15 +29,15 @@ export default function HomePage() {
       />
       <h1>Basic Next.js Example</h1>
       <p>
-        This is the minimal Next.js App Router example showing how every{' '}
-        <code>@answerable-kit/*</code> package wires together. Read each file under{' '}
-        <code>app/</code> to see one piece of the toolkit in action.
+        This is the minimal Next.js App Router example showing how every <code>@answerfox/*</code>{' '}
+        package wires together. Read each file under <code>app/</code> to see one piece of the
+        toolkit in action.
       </p>
 
       <h2>Try it</h2>
-      <p>Audit this site (or any live URL) with the Answerable CLI:</p>
+      <p>Audit this site (or any live URL) with the Answerfox CLI:</p>
       <pre>
-        <code>pnpm dlx @answerable-kit/cli audit http://localhost:3000</code>
+        <code>pnpm dlx @answerfox/cli audit http://localhost:3000</code>
       </pre>
 
       <h2>Pages</h2>

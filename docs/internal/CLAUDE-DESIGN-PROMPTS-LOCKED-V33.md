@@ -38,9 +38,9 @@ Product name: Answerfox
 Target domain: answerfox.dev
 Positioning: The only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
-GitHub: https://github.com/Anuj7411/answerable
-npm scope: @answerable-kit
-Install command shown in demos: pnpm dlx @answerable-kit/cli audit yoursite.com
+GitHub: https://github.com/Anuj7411/answerfox
+npm scope: @answerfox
+Install command shown in demos: pnpm dlx @answerfox/cli audit yoursite.com
 
 What it does: audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 55-check framework, then generates the actual code fixes using AI. Three scores side by side. Open source MIT license.
 
@@ -253,7 +253,7 @@ Two pricing cards side by side, each 360px wide, glass surfaces:
   - Feature list with marigold-dot bullets:
     - Audit engine (open source)
     - Three scores: SEO + AEO + GEO
-    - CLI: pnpm dlx @answerable-kit/cli
+    - CLI: pnpm dlx @answerfox/cli
     - GitHub Action for PR audits
     - Public score badge for your README
     - Latest audit in web dashboard

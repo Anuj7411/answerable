@@ -1,4 +1,4 @@
-import { parseAbsoluteUrl } from '@answerable-kit/core';
+import { parseAbsoluteUrl } from '@answerfox/core';
 import { describe, expect, it } from 'vitest';
 import { loadHtml } from '../parser.js';
 import { d4ContactAccessible } from './d4-contact-accessible.js';

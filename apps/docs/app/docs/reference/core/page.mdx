@@ -1,11 +1,11 @@
-# @answerable-kit/core
+# @answerfox/core
 
-The shared foundation every other Answerable package builds on. Branded URL types, error classes with stable codes, severity / category enums, and the `Check<T>` interface that the audit framework runs against.
+The shared foundation every other Answerfox package builds on. Branded URL types, error classes with stable codes, severity / category enums, and the `Check<T>` interface that the audit framework runs against.
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/core
+pnpm add @answerfox/core
 ```
 
 ## Exports
@@ -15,7 +15,7 @@ pnpm add @answerable-kit/core
 | `AbsoluteUrl`, `URLString` | branded types | `string` subtypes that can't be substituted by plain strings at compile time |
 | `parseAbsoluteUrl(s)` | function | Validates `s` and returns an `AbsoluteUrl`; throws `InvalidUrlError` on failure |
 | `tryParseAbsoluteUrl(s)` | function | Non-throwing variant; returns `null` on failure |
-| `AnswerableError` | class | Base error class with a stable `code: string` (survives realm boundaries unlike `instanceof`) |
+| `AnswerfoxError` | class | Base error class with a stable `code: string` (survives realm boundaries unlike `instanceof`) |
 | `InvalidUrlError` | class | Thrown when a value claimed to be a URL fails validation |
 | `SchemaValidationError` | class | Thrown when input validation collects ≥1 issue; carries the full `issues` list |
 | `Severity` | type | `'critical' | 'high' | 'medium' | 'low'` |
@@ -29,7 +29,7 @@ pnpm add @answerable-kit/core
 ## Usage
 
 ```ts
-import { parseAbsoluteUrl, InvalidUrlError } from '@answerable-kit/core';
+import { parseAbsoluteUrl, InvalidUrlError } from '@answerfox/core';
 
 try {
   const url = parseAbsoluteUrl(userInput);
@@ -44,8 +44,8 @@ try {
 Or compose `defineCheck()` to author a custom audit check:
 
 ```ts
-import { defineCheck } from '@answerable-kit/core';
-import type { AuditDom } from '@answerable-kit/audit';
+import { defineCheck } from '@answerfox/core';
+import type { AuditDom } from '@answerfox/audit';
 
 export const customCheck = defineCheck<AuditDom>({
   id: 'X1',
@@ -64,4 +64,4 @@ export const customCheck = defineCheck<AuditDom>({
 
 ## Source
 
-[packages/core](https://github.com/Anuj7411/answerable/tree/main/packages/core)
+[packages/core](https://github.com/Anuj7411/answerfox/tree/main/packages/core)

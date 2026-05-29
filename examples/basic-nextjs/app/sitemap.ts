@@ -1,4 +1,4 @@
-import { buildSitemap } from '@answerable-kit/sitemap';
+import { buildSitemap } from '@answerfox/sitemap';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {

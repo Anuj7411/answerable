@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable-kit/core';
+import { defineCheck } from '@answerfox/core';
 import type { AuditDom } from '../parser.js';
 
 export const d3TermsLinked = defineCheck<AuditDom>({
@@ -9,7 +9,7 @@ export const d3TermsLinked = defineCheck<AuditDom>({
   description: 'Terms of use linked from this page',
   rationale:
     'Terms of use set the contract between site and user — required for any service that takes payment, collects accounts, or limits user behaviour. A missing terms page raises a red flag in trust-signal audits.',
-  docsUrl: 'https://answerable.dev/docs/checks/D3',
+  docsUrl: 'https://answerfox.dev/docs/checks/D3',
   run: ({ dom }) => {
     const links = dom('a[href]').filter((_, el) => {
       const href = dom(el).attr('href') ?? '';
@@ -19,7 +19,7 @@ export const d3TermsLinked = defineCheck<AuditDom>({
       return {
         status: 'fail',
         fixRecommendation:
-          'Link to a /terms page from this page (typically the footer). Use the `terms` template from @answerable-kit/templates.',
+          'Link to a /terms page from this page (typically the footer). Use the `terms` template from @answerfox/templates.',
       };
     }
     return { status: 'pass', evidence: `Found ${links.length} link(s) to /terms` };

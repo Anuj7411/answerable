@@ -41,7 +41,7 @@ These are the only three things that make Answerfox Answerfox. Every feature mus
 **Why it wins:** Every funded competitor (Profound $155M, Peec $29M, Otterly) is closed source. Their investors will not let them open up. We are structurally un-copyable on this axis. They cannot follow without disappointing their cap tables.
 
 **What this gives us:**
-- **Free distribution.** Every `pnpm dlx @answerable-kit/cli` is a marketing event we paid nothing for.
+- **Free distribution.** Every `pnpm dlx @answerfox/cli` is a marketing event we paid nothing for.
 - **Trust at zero cost.** Developers verify code before they trust products. We pass that test automatically.
 - **Community moat.** Once we have 100 contributors, the moat is permanent.
 - **The Lighthouse playbook.** Lighthouse is free, OSS, and dominates the conversation — that brand position is more valuable than any single feature.
@@ -57,7 +57,7 @@ These are the only three things that make Answerfox Answerfox. Every feature mus
 **Why it wins:** Profound, Peec, Otterly all live in browser tabs. Marketers love that; developers ignore that. By the time a marketer sees a bad Lighthouse score on Profound, the developer has already committed bad code. We catch it at commit time.
 
 **What this gives us:**
-- **Workflow lock-in without friction.** Once `answerable audit` is in someone's CI, removing it is friction. Adding it costs 30 seconds.
+- **Workflow lock-in without friction.** Once `answerfox audit` is in someone's CI, removing it is friction. Adding it costs 30 seconds.
 - **Marketing channel = GitHub.** Every public GitHub repo using us is a billboard.
 - **CI integration tells us when sites change.** This is the cheapest possible "what changed?" signal.
 - **Differentiation that's hard to copy.** A GUI tool would need to rewrite as a CLI to follow us. Their UX team won't allow it.
@@ -96,7 +96,7 @@ This is the section you came here for. Read it slowly.
                     │   ┌─────────────────────────────────┐ │
                     │   │ FREE TIER (Open Source)         │ │
                     │   │                                  │ │
-                    │   │ • `pnpm dlx @answerable-kit/...` │ │
+                    │   │ • `pnpm dlx @answerfox/...` │ │
                     │   │ • Audit engine (50 checks)       │ │
                     │   │ • CLI (audit, explain, init)     │ │
                     │   │ • GitHub Action                  │ │
@@ -194,7 +194,7 @@ This is what makes Answerfox feel like ONE product instead of a feature checklis
 ```
 1. Developer reads a tweet about Answerfox.
    ↓
-2. Runs `pnpm dlx @answerable-kit/cli audit mysite.com` in terminal.
+2. Runs `pnpm dlx @answerfox/cli audit mysite.com` in terminal.
    ↓
 3. Sees terminal output: score 64/100, 8 failing checks, fix recommendations.
    ↓
@@ -348,7 +348,7 @@ Audit · https://mysite.com
 ╰─────────────────────╯  ╰─────────────────────╯  ╰─────────────────────╯  ╰─────────────────────╯
 
 You score well on traditional SEO. Your AI search visibility (GEO) lags behind —
-3 fixes would close the gap. Run: pnpm dlx @answerable-kit/cli explain GEO
+3 fixes would close the gap. Run: pnpm dlx @answerfox/cli explain GEO
 ```
 
 Now the user knows *exactly* where to focus. A SaaS founder probably wants GEO. A blog wants AEO. A doc site wants all three. **One tool. Three honest scores. No misleading aggregate.**
@@ -398,7 +398,7 @@ After v0.2.0: **38 checks shipped of an expanded 55-check framework** (50 origin
 **Video (60-90 seconds):**
 
 ```
-[0:00] Terminal: pnpm dlx @answerable-kit/cli audit mysite.com
+[0:00] Terminal: pnpm dlx @answerfox/cli audit mysite.com
 [0:05] Output: 64/100. 8 failing checks. Color-coded.
 [0:10] Cut to web dashboard showing same audit visually
 [0:20] Click "Generate fixes with AI"
@@ -428,7 +428,7 @@ After v0.2.0: **38 checks shipped of an expanded 55-check framework** (50 origin
 
 ### Soft pre-launch (before official PH day)
 
-- [ ] Tweet `pnpm dlx @answerable-kit/cli audit twitter.com` and post the result
+- [ ] Tweet `pnpm dlx @answerfox/cli audit twitter.com` and post the result
 - [ ] Audit 10 famous sites (Vercel, Stripe, Linear, Notion, etc.) and tweet results
 - [ ] Write 3 dev.to / Hashnode posts: technical deep dives on the audit framework
 - [ ] Get 5 dev influencers to test the tool privately
@@ -473,12 +473,12 @@ Goal: make the OSS credible enough to underpin paid SaaS. The first week is the 
 
 This is the differentiator. Everything else builds on this engine output, so it must land first.
 
-- Day 1: Add `engines: ('seo' | 'aeo' | 'geo')[]` field to `Check<T>` interface in `@answerable-kit/core`
-- Day 1: Tag all 33 existing checks with the engines they serve in `@answerable-kit/audit` registry
+- Day 1: Add `engines: ('seo' | 'aeo' | 'geo')[]` field to `Check<T>` interface in `@answerfox/core`
+- Day 1: Tag all 33 existing checks with the engines they serve in `@answerfox/audit` registry
 - Day 2: Add `computeScoresByEngine()` to runner — returns `{seo, aeo, geo, aggregate}`
 - Day 2: Update `consoleReport()` to render three score boxes + aggregate (see Section 7.5 mockup)
 - Day 3: Add 5 GEO-specific checks (G1-G5 from Section 7.5): `llms.txt`, content chunkability, author bylines, date markers, citation-ready paragraphs
-- Day 4: Update CLI output formatting and `pnpm dlx @answerable-kit/cli audit` command
+- Day 4: Update CLI output formatting and `pnpm dlx @answerfox/cli audit` command
 - Day 5: Update `AUDIT-FRAMEWORK.md` spec; ship v0.2.0 (minor bump because of new exported field)
 
 **Week 2 — Polish + new public artifacts**

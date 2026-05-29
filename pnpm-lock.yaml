@@ -23,7 +23,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@answerable-kit/audit':
+      '@answerfox/audit':
         specifier: workspace:*
         version: link:../../packages/audit
       next:
@@ -60,16 +60,16 @@ importers:
 
   examples/basic-nextjs:
     dependencies:
-      '@answerable-kit/audit':
+      '@answerfox/audit':
         specifier: workspace:*
         version: link:../../packages/audit
-      '@answerable-kit/metadata':
+      '@answerfox/metadata':
         specifier: workspace:*
         version: link:../../packages/metadata
-      '@answerable-kit/schemas':
+      '@answerfox/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
-      '@answerable-kit/sitemap':
+      '@answerfox/sitemap':
         specifier: workspace:*
         version: link:../../packages/sitemap
       next:
@@ -97,7 +97,7 @@ importers:
 
   packages/audit:
     dependencies:
-      '@answerable-kit/core':
+      '@answerfox/core':
         specifier: workspace:*
         version: link:../core
       cheerio:
@@ -119,13 +119,13 @@ importers:
 
   packages/cli:
     dependencies:
-      '@answerable-kit/audit':
+      '@answerfox/audit':
         specifier: workspace:*
         version: link:../audit
-      '@answerable-kit/core':
+      '@answerfox/core':
         specifier: workspace:*
         version: link:../core
-      '@answerable-kit/templates':
+      '@answerfox/templates':
         specifier: workspace:*
         version: link:../templates
       '@clack/prompts':
@@ -169,7 +169,7 @@ importers:
 
   packages/metadata:
     dependencies:
-      '@answerable-kit/core':
+      '@answerfox/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -191,7 +191,7 @@ importers:
 
   packages/schemas:
     dependencies:
-      '@answerable-kit/core':
+      '@answerfox/core':
         specifier: workspace:*
         version: link:../core
       schema-dts:
@@ -210,7 +210,7 @@ importers:
 
   packages/sitemap:
     dependencies:
-      '@answerable-kit/core':
+      '@answerfox/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -232,7 +232,7 @@ importers:
 
   packages/templates:
     dependencies:
-      '@answerable-kit/core':
+      '@answerfox/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:

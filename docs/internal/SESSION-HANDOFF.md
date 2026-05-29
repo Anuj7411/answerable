@@ -42,13 +42,13 @@ All seven documents live under `docs/internal/`. Read in this order if catching 
 
 | Package | Version | Status |
 |---|---|---|
-| `@answerable-kit/audit` | 0.1.2 | Live. 33 of 50 checks shipped. Three-score (SEO/AEO/GEO) coverage footer added. |
-| `@answerable-kit/cli` | 0.1.2 | Live. `audit`, `explain`, `init`, `add` commands. |
-| `@answerable-kit/core` | 0.1.2 | Live. Branded types, errors, `Check<T>` interface. |
-| `@answerable-kit/schemas` | 0.1.2 | Live. 8 JSON-LD generators. |
-| `@answerable-kit/metadata` | 0.1.2 | Live. `defineSeo()` for Next.js. |
-| `@answerable-kit/sitemap` | 0.1.2 | Live. `buildSitemap()` + `sitemapIndex()`. |
-| `@answerable-kit/templates` | 0.1.2 | Live. 5 trust-page templates. |
+| `@answerfox/audit` | 0.1.2 | Live. 33 of 50 checks shipped. Three-score (SEO/AEO/GEO) coverage footer added. |
+| `@answerfox/cli` | 0.1.2 | Live. `audit`, `explain`, `init`, `add` commands. |
+| `@answerfox/core` | 0.1.2 | Live. Branded types, errors, `Check<T>` interface. |
+| `@answerfox/schemas` | 0.1.2 | Live. 8 JSON-LD generators. |
+| `@answerfox/metadata` | 0.1.2 | Live. `defineSeo()` for Next.js. |
+| `@answerfox/sitemap` | 0.1.2 | Live. `buildSitemap()` + `sitemapIndex()`. |
+| `@answerfox/templates` | 0.1.2 | Live. 5 trust-page templates. |
 
 **Publishing pipeline:** Trusted Publishing via OIDC (no token). Workflow at `.github/workflows/release.yml`. Runs on push to main.
 
@@ -104,7 +104,7 @@ Per `TRD-V1.md` section 25:
 **Before any code is written, the next session should:**
 1. Read this handoff fully
 2. Confirm the prototype runs (open localhost:5500 with the dev server)
-3. Confirm the OSS packages are live (`npm view @answerable-kit/audit version` returns 0.1.2)
+3. Confirm the OSS packages are live (`npm view @answerfox/audit version` returns 0.1.2)
 4. Ask the user: "Ready to scaffold `apps/web`?" before touching the filesystem
 
 ---
@@ -178,7 +178,7 @@ These are confirmed through many sessions of work. The new agent should internal
 |---|---|---|
 | Nextra docs site does not build (Next 15 + Nextra 4 prerender) | Low | Decoupled from release pipeline. Fix in dedicated PR when there's time. Does not block launch. |
 | 17 audit checks still unshipped (33 of 50) | Medium | Add incrementally. v0.2.0 ships the 5 GEO checks (G1-G5) per STRATEGIC-POSITIONING.md §7.5. |
-| OSS `apps/docs` references old `@answerable/*` scope in a few corners | Low | Already renamed to `@answerable-kit/*` per PR #22. If any lingering references, fix in passing. |
+| OSS `apps/docs` references old `@answerable/*` scope in a few corners | Low | Already renamed to `@answerfox/*` per PR #22. If any lingering references, fix in passing. |
 | No marketing site yet (only the prototype) | Expected | This is the Week 1-2 build per TRD-V1.md §25. |
 
 ---
@@ -220,7 +220,7 @@ cd prototype/landing && npx serve .
 
 # Verify all OSS packages are live at v0.1.2
 for pkg in audit cli core schemas metadata sitemap templates; do
-  echo "@answerable-kit/$pkg -> $(curl -s https://registry.npmjs.org/@answerable-kit/$pkg/latest | python -c "import sys,json; print(json.load(sys.stdin).get('version','MISSING'))" 2>/dev/null)"
+  echo "@answerfox/$pkg -> $(curl -s https://registry.npmjs.org/@answerfox/$pkg/latest | python -c "import sys,json; print(json.load(sys.stdin).get('version','MISSING'))" 2>/dev/null)"
 done
 
 # Run the full check (typecheck + lint + 162 tests)
@@ -230,7 +230,7 @@ pnpm check
 # Trusted Publishing fires automatically on push to main
 
 # Run a real audit from the OSS CLI
-pnpm dlx @answerable-kit/cli audit https://vercel.com
+pnpm dlx @answerfox/cli audit https://vercel.com
 ```
 
 ---

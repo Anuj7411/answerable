@@ -13,8 +13,8 @@
 | **Tagline** | The drop-in SEO toolkit that makes any site answerable by AI search engines. |
 | **One-line pitch** | Install one package. Run one command. Your site is SEO-ready, AI-search-ready, and audited continuously. |
 | **License** | MIT |
-| **GitHub** | `github.com/Anuj7411/answerable` (to be created) |
-| **NPM scope** | `@answerable-kit/*` |
+| **GitHub** | `github.com/Anuj7411/answerfox` (to be created) |
+| **NPM scope** | `@answerfox/*` |
 | **Origin** | Born out of doing manual SEO work on Sotto (sottogames.com) and realizing nothing in the ecosystem combines fix + audit + playbook. |
 
 ## 2. Problem Statement
@@ -85,13 +85,13 @@ answerable/
 │   └── playground/                # Live demo site exercising every feature
 │
 ├── packages/
-│   ├── schemas/                   # @answerable-kit/schemas
-│   ├── metadata/                  # @answerable-kit/metadata
-│   ├── sitemap/                   # @answerable-kit/sitemap
-│   ├── templates/                 # @answerable-kit/templates (page scaffolds)
-│   ├── audit/                     # @answerable-kit/audit (the audit engine)
-│   ├── cli/                       # @answerable-kit/cli (unified entrypoint)
-│   └── core/                      # @answerable-kit/core (shared types, utils)
+│   ├── schemas/                   # @answerfox/schemas
+│   ├── metadata/                  # @answerfox/metadata
+│   ├── sitemap/                   # @answerfox/sitemap
+│   ├── templates/                 # @answerfox/templates (page scaffolds)
+│   ├── audit/                     # @answerfox/audit (the audit engine)
+│   ├── cli/                       # @answerfox/cli (unified entrypoint)
+│   └── core/                      # @answerfox/core (shared types, utils)
 │
 ├── examples/
 │   ├── sotto/                     # Real-world example using sottogames.com
@@ -108,10 +108,10 @@ answerable/
 
 ### Package Responsibilities
 
-#### `@answerable-kit/core`
+#### `@answerfox/core`
 Shared types, utility functions, error classes. Other packages depend on this. No runtime dependencies beyond `zod`.
 
-#### `@answerable-kit/schemas`
+#### `@answerfox/schemas`
 Type-safe JSON-LD generators for:
 - `organization()`
 - `softwareApplication()`
@@ -126,7 +126,7 @@ Type-safe JSON-LD generators for:
 
 Every helper returns a typed JSON-LD object. Components also exported for React/Next.js usage.
 
-#### `@answerable-kit/metadata`
+#### `@answerfox/metadata`
 Next.js metadata API helpers:
 - `defineSeo()` — composes title, description, OG, Twitter, canonical
 - `defineCanonical()`
@@ -136,12 +136,12 @@ Next.js metadata API helpers:
 
 Framework support: Next.js App Router (Phase 1). Pages Router (Phase 2). Astro, Remix (Phase 2).
 
-#### `@answerable-kit/sitemap`
+#### `@answerfox/sitemap`
 - `buildSitemap()` accepts route definitions, returns Next.js-compatible MetadataRoute.Sitemap
 - Smart defaults for priority/changeFrequency based on path patterns
 - `sitemap-index` support for large sites
 
-#### `@answerable-kit/templates`
+#### `@answerfox/templates`
 Page templates the CLI installs into a user's project:
 - `about.tsx`
 - `privacy.tsx`
@@ -152,7 +152,7 @@ Page templates the CLI installs into a user's project:
 
 Templates are TypeScript files with placeholder tokens like `{{PROJECT_NAME}}`. The CLI does the substitution at install time.
 
-#### `@answerable-kit/audit`
+#### `@answerfox/audit`
 **The killer differentiator.** A check engine that:
 
 1. Crawls a target URL (cheerio for static, Playwright for SPA)
@@ -161,16 +161,16 @@ Templates are TypeScript files with placeholder tokens like `{{PROJECT_NAME}}`. 
 4. Optionally outputs in JSON for CI integration
 5. Optionally auto-fixes (writes patches to local code)
 
-#### `@answerable-kit/cli`
+#### `@answerfox/cli`
 Single command-line entrypoint exposing:
 
 ```bash
-answerable init                              # Set up SEO in current project
-answerable add about,privacy,terms,faq      # Add specific templates
-answerable audit <url>                      # Run audit
-answerable audit --ci                       # CI mode (exits non-zero on regressions)
-answerable verify                           # Validate all JSON-LD in current project
-answerable explain <check-id>               # Print full doc for a check
+answerfox init                              # Set up SEO in current project
+answerfox add about,privacy,terms,faq      # Add specific templates
+answerfox audit <url>                      # Run audit
+answerfox audit --ci                       # CI mode (exits non-zero on regressions)
+answerfox verify                           # Validate all JSON-LD in current project
+answerfox explain <check-id>               # Print full doc for a check
 ```
 
 ## 6. Audit Engine Design
@@ -179,7 +179,7 @@ See `AUDIT-FRAMEWORK.md` for the full check list.
 
 ### Run flow
 
-1. User runs `answerable audit https://example.com`
+1. User runs `answerfox audit https://example.com`
 2. CLI fetches the URL (HEAD first to validate)
 3. Renders HTML via cheerio. If SPA detected (e.g., empty body), upgrades to Playwright.
 4. Each check receives the parsed DOM + the raw HTML
@@ -214,8 +214,8 @@ interface Check {
 
 ```bash
 cd my-nextjs-project
-pnpm add @answerable-kit/schemas @answerable-kit/metadata @answerable-kit/sitemap
-npx answerable init
+pnpm add @answerfox/schemas @answerfox/metadata @answerfox/sitemap
+npx answerfox init
 # Interactive prompts:
 # - Project name
 # - Domain
@@ -233,14 +233,14 @@ npx answerable init
 ### Existing project audit (30 seconds)
 
 ```bash
-npx answerable audit https://my-site.com
+npx answerfox audit https://my-site.com
 # Outputs:
 # 📊 Score: 67/100 (Average)
 #
 # ❌ CRITICAL (3 issues)
-#   • Missing canonical URL  →  npx answerable fix canonical
-#   • No FAQPage schema      →  npx answerable add faq
-#   • No Organization schema →  npx answerable add organization
+#   • Missing canonical URL  →  npx answerfox fix canonical
+#   • No FAQPage schema      →  npx answerfox add faq
+#   • No Organization schema →  npx answerfox add organization
 #
 # ⚠️  HIGH (5 issues)
 # ...
@@ -251,7 +251,7 @@ npx answerable audit https://my-site.com
 ```yaml
 # .github/workflows/seo.yml
 - name: SEO audit
-  run: npx answerable audit ${{ env.PREVIEW_URL }} --ci --min-score 80
+  run: npx answerfox audit ${{ env.PREVIEW_URL }} --ci --min-score 80
 ```
 
 ## 8. Documentation Strategy

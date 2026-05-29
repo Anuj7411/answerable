@@ -1,4 +1,4 @@
-import { parseAbsoluteUrl } from '@answerable-kit/core';
+import { parseAbsoluteUrl } from '@answerfox/core';
 import type { AggregateRating, Offer } from 'schema-dts';
 
 /**

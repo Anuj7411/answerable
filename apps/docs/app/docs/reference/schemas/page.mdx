@@ -1,13 +1,13 @@
 import { Callout } from 'nextra/components';
 
-# @answerable-kit/schemas
+# @answerfox/schemas
 
 Type-safe JSON-LD generators backed by [`schema-dts`](https://github.com/google/schema-dts). Each helper returns a `WithContext<T>` object you stringify into a `<script type="application/ld+json">` tag.
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/schemas
+pnpm add @answerfox/schemas
 ```
 
 ## Exports
@@ -29,7 +29,7 @@ All input types (`OrganizationInput`, `FaqPageInput`, etc.) are exported alongsi
 ## Usage
 
 ```tsx
-import { organization } from '@answerable-kit/schemas';
+import { organization } from '@answerfox/schemas';
 
 const orgSchema = organization({
   name: 'Acme',
@@ -64,4 +64,4 @@ So `article({ headline: '', author: {...}, datePublished: '5/14/2026' })` throws
 
 ## Source
 
-[packages/schemas](https://github.com/Anuj7411/answerable/tree/main/packages/schemas)
+[packages/schemas](https://github.com/Anuj7411/answerfox/tree/main/packages/schemas)

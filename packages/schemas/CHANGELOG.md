@@ -1,4 +1,4 @@
-# @answerable-kit/schemas
+# @answerfox/schemas
 
 ## 0.1.1
 
@@ -6,7 +6,7 @@
 
 - 07e0c2f: Refresh package README headers: replace stale "Pre-alpha" notices with accurate v0.1.0 release context. No code or API changes — documentation only.
 - Updated dependencies [07e0c2f]
-  - @answerable-kit/core@0.1.1
+  - @answerfox/core@0.1.1
 
 ## 0.1.0
 
@@ -27,7 +27,7 @@
 
   Both generators batch their validation failures: a single `SchemaValidationError.issues` array enumerates every empty question / answer / breadcrumb name in the input rather than throwing on the first.
 
-- 6757fe6: Add `howTo()` — the eighth and final Phase 1 generator, completing the `@answerable-kit/schemas` package:
+- 6757fe6: Add `howTo()` — the eighth and final Phase 1 generator, completing the `@answerfox/schemas` package:
 
   - **`howTo(input)`** — emits `WithContext<HowTo>` with `name`, ordered `step` array (auto-numbered `position`), optional `description`, `totalTime`, `image`, `supply`, and `tool`. Drives audit check **C8**.
   - **`HowToStepInput`** — `name` + `text` required; optional `image` and `url` for richer steps (e.g. video timestamps).
@@ -40,7 +40,7 @@
   - **`organization()`** — emits a `WithContext<Organization>` with name, url, optional logo, description, sameAs, and a nested ContactPoint (defaulting `contactType` to `"customer support"`).
   - **`webSite()`** — emits a `WithContext<WebSite>`. When `searchUrlTemplate` is supplied, attaches a `SearchAction` with the standard `query-input: "required name=search_term_string"` field.
 
-  All URL inputs are validated as absolute http(s) URLs at runtime via `@answerable-kit/core`; invalid input throws `InvalidUrlError`. A bad `searchUrlTemplate` (missing the `{search_term_string}` placeholder) throws `SchemaValidationError`.
+  All URL inputs are validated as absolute http(s) URLs at runtime via `@answerfox/core`; invalid input throws `InvalidUrlError`. A bad `searchUrlTemplate` (missing the `{search_term_string}` placeholder) throws `SchemaValidationError`.
 
 - e4fd1d6: Add `product()` and `softwareApplication()` generators with shared commerce primitives:
 
@@ -53,4 +53,4 @@
 ### Patch Changes
 
 - Updated dependencies [eeb3966]
-  - @answerable-kit/core@0.1.0
+  - @answerfox/core@0.1.0

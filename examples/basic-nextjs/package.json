@@ -1,8 +1,8 @@
 {
-  "name": "@answerable-kit/example-basic-nextjs",
+  "name": "@answerfox/example-basic-nextjs",
   "version": "0.0.3",
   "private": true,
-  "description": "Minimal Next.js App Router example demonstrating every @answerable-kit/* package wired together.",
+  "description": "Minimal Next.js App Router example demonstrating every @answerfox/* package wired together.",
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -11,10 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@answerable-kit/audit": "workspace:*",
-    "@answerable-kit/metadata": "workspace:*",
-    "@answerable-kit/schemas": "workspace:*",
-    "@answerable-kit/sitemap": "workspace:*",
+    "@answerfox/audit": "workspace:*",
+    "@answerfox/metadata": "workspace:*",
+    "@answerfox/schemas": "workspace:*",
+    "@answerfox/sitemap": "workspace:*",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

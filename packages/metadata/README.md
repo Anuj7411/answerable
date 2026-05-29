@@ -1,13 +1,13 @@
-# @answerable-kit/metadata
+# @answerfox/metadata
 
-Next.js App Router metadata helpers for the [Answerable](https://github.com/Anuj7411/answerable) SEO toolkit. Compose `title`, `description`, canonical URL, OpenGraph, Twitter, and robots directives from a single typed input — with smart fallbacks across the social-card chain.
+Next.js App Router metadata helpers for the [Answerfox](https://github.com/Anuj7411/answerfox) SEO toolkit. Compose `title`, `description`, canonical URL, OpenGraph, Twitter, and robots directives from a single typed input — with smart fallbacks across the social-card chain.
 
 > **v0.1.0.** `defineSeo()` ships today and is stable. Additional helpers (`defineRobots()`, `defineOg()`) are tracked on the [roadmap](../../docs/internal/ROADMAP.md).
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/metadata
+pnpm add @answerfox/metadata
 # requires next >= 14
 ```
 
@@ -15,7 +15,7 @@ pnpm add @answerable-kit/metadata
 
 ```tsx
 // app/layout.tsx
-import { defineSeo } from '@answerable-kit/metadata';
+import { defineSeo } from '@answerfox/metadata';
 
 export const metadata = defineSeo({
   title: { default: 'Acme', template: '%s — Acme' },

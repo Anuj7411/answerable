@@ -1,7 +1,7 @@
 import type { Template } from '../types.js';
 
-const CONTENT = `import { defineSeo } from '@answerable-kit/metadata';
-import { faqPage } from '@answerable-kit/schemas';
+const CONTENT = `import { defineSeo } from '@answerfox/metadata';
+import { faqPage } from '@answerfox/schemas';
 
 export const metadata = defineSeo({
   title: 'FAQ — {{PROJECT_NAME}}',

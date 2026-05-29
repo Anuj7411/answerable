@@ -87,7 +87,7 @@ export function consoleReport(report: AuditReport, options: ConsoleReportOptions
   lines.push('');
   lines.push(
     c.dim(
-      `${DEFAULT_CHECKS.length} of ${TOTAL_PLANNED_CHECKS} audit checks active — see https://github.com/Anuj7411/answerable for the full framework`,
+      `${DEFAULT_CHECKS.length} of ${TOTAL_PLANNED_CHECKS} audit checks active — see https://github.com/Anuj7411/answerfox for the full framework`,
     ),
   );
 

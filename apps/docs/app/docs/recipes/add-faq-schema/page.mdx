@@ -9,13 +9,13 @@ import { Callout } from 'nextra/components';
 ## Step 1 — Install the schema package
 
 ```bash
-pnpm add @answerable-kit/schemas
+pnpm add @answerfox/schemas
 ```
 
 ## Step 2 — Generate the schema
 
 ```tsx filename="app/faq/page.tsx"
-import { faqPage } from '@answerable-kit/schemas';
+import { faqPage } from '@answerfox/schemas';
 
 const faqSchema = faqPage({
   questions: [
@@ -67,7 +67,7 @@ That's it. The page now passes audit checks **C4** (FAQPage JSON-LD on FAQ pages
 If you don't have an FAQ page yet, just run:
 
 ```bash
-pnpm dlx @answerable-kit/cli add faq
+pnpm dlx @answerfox/cli add faq
 ```
 
 …and you'll get a complete FAQ page with starter questions, the JSON-LD wired up, and `defineSeo()` for metadata — in 5 seconds.

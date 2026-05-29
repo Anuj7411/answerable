@@ -1,11 +1,11 @@
 /**
- * @answerable-kit/core — shared types, utilities, and error classes
- * used across the Answerable SEO toolkit.
+ * @answerfox/core — shared types, utilities, and error classes
+ * used across the Answerfox SEO toolkit.
  */
 
 export const VERSION = '0.0.0';
 
-export { AnswerableError, InvalidUrlError, SchemaValidationError } from './errors.js';
+export { AnswerfoxError, InvalidUrlError, SchemaValidationError } from './errors.js';
 
 export { SEVERITY_ORDER, SeveritySchema, severityRank, type Severity } from './severity.js';
 

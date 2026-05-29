@@ -1,16 +1,16 @@
 {
-  "name": "@answerable-kit/sitemap",
+  "name": "@answerfox/sitemap",
   "version": "0.1.1",
-  "description": "Sitemap builder with smart path-based defaults for the Answerable SEO toolkit.",
+  "description": "Sitemap builder with smart path-based defaults for the Answerfox SEO toolkit.",
   "license": "MIT",
   "author": "Anuj Ojha",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anuj7411/answerable.git",
+    "url": "https://github.com/Anuj7411/answerfox.git",
     "directory": "packages/sitemap"
   },
-  "homepage": "https://github.com/Anuj7411/answerable/tree/main/packages/sitemap#readme",
-  "bugs": "https://github.com/Anuj7411/answerable/issues",
+  "homepage": "https://github.com/Anuj7411/answerfox/tree/main/packages/sitemap#readme",
+  "bugs": "https://github.com/Anuj7411/answerfox/issues",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -33,7 +33,7 @@
     "clean": "rimraf dist .tsbuildinfo"
   },
   "dependencies": {
-    "@answerable-kit/core": "workspace:*"
+    "@answerfox/core": "workspace:*"
   },
   "peerDependencies": {
     "next": ">=14.0.0"

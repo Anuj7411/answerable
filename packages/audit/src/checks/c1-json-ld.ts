@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable-kit/core';
+import { defineCheck } from '@answerfox/core';
 import type { AuditDom } from '../parser.js';
 
 interface JsonLdSummary {
@@ -35,14 +35,14 @@ export const c1JsonLd = defineCheck<AuditDom>({
   description: 'At least one <script type="application/ld+json"> with valid JSON',
   rationale:
     'JSON-LD is how Google, Perplexity, ChatGPT, and Claude understand a page beyond its prose. Missing structured data forces engines to infer entity type, often badly. Even one block (Organization, WebSite) lifts most pages out of the lowest tier.',
-  docsUrl: 'https://answerable.dev/docs/checks/C1',
+  docsUrl: 'https://answerfox.dev/docs/checks/C1',
   run: ({ dom }) => {
     const blocks = dom('script[type="application/ld+json"]');
     if (blocks.length === 0) {
       return {
         status: 'fail',
         fixRecommendation:
-          'Add a JSON-LD block. Start with organization() from @answerable-kit/schemas in your root layout.',
+          'Add a JSON-LD block. Start with organization() from @answerfox/schemas in your root layout.',
       };
     }
 

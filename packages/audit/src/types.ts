@@ -1,4 +1,4 @@
-import type { AbsoluteUrl, Category, Severity } from '@answerable-kit/core';
+import type { AbsoluteUrl, Category, Severity } from '@answerfox/core';
 
 /**
  * Outcome of a single check after the runner has resolved any errors

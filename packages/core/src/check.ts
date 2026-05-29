@@ -7,7 +7,7 @@ import type { AbsoluteUrl } from './url.js';
  *
  * Generic over `TDom` so engines built on different parsers (cheerio,
  * playwright, JSDOM) can supply their own typed handle without forcing
- * `@answerable-kit/core` to depend on a parser.
+ * `@answerfox/core` to depend on a parser.
  */
 export interface CheckInput<TDom = unknown> {
   readonly url: AbsoluteUrl;
@@ -64,7 +64,7 @@ export interface Check<TDom = unknown> {
  *
  * @example
  * ```ts
- * import { defineCheck } from '@answerable-kit/core';
+ * import { defineCheck } from '@answerfox/core';
  *
  * export const titlePresent = defineCheck({
  *   id: 'A1',
@@ -73,7 +73,7 @@ export interface Check<TDom = unknown> {
  *   points: 3,
  *   description: '<title> present, 30-60 chars',
  *   rationale: 'Search and AI engines surface the title verbatim.',
- *   docsUrl: 'https://answerable.dev/docs/checks/A1',
+ *   docsUrl: 'https://answerfox.dev/docs/checks/A1',
  *   run: ({ html }) => {
  *     const match = html.match(/<title>([^<]*)<\/title>/i);
  *     if (!match) return { status: 'fail', fixRecommendation: 'Add a <title> tag.' };

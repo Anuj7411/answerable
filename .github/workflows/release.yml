@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     # Skip when the commit was already produced by the release bot itself.
-    if: github.repository == 'Anuj7411/answerable'
+    if: github.repository == 'Anuj7411/answerfox'
 
     steps:
       - name: Checkout
@@ -69,7 +69,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # No NPM_TOKEN — authentication uses Trusted Publishing
           # (OIDC) via the `id-token: write` permission above. Each
-          # @answerable-kit/* package is configured on npm to trust
+          # @answerfox/* package is configured on npm to trust
           # GitHub Actions for this repo's release.yml workflow.
           # See: https://docs.npmjs.com/trusted-publishers
           #

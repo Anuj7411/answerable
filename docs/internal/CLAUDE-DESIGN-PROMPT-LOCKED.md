@@ -32,18 +32,18 @@ Product name: Answerfox
 Target domain: answerfox.dev
 Tagline: The only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
-GitHub repo: https://github.com/Anuj7411/answerable
-npm scope: @answerable-kit
+GitHub repo: https://github.com/Anuj7411/answerfox
+npm scope: @answerfox
 npm packages:
-  - https://www.npmjs.com/package/@answerable-kit/audit
-  - https://www.npmjs.com/package/@answerable-kit/cli
-  - https://www.npmjs.com/package/@answerable-kit/core
-  - https://www.npmjs.com/package/@answerable-kit/schemas
-  - https://www.npmjs.com/package/@answerable-kit/metadata
-  - https://www.npmjs.com/package/@answerable-kit/sitemap
-  - https://www.npmjs.com/package/@answerable-kit/templates
+  - https://www.npmjs.com/package/@answerfox/audit
+  - https://www.npmjs.com/package/@answerfox/cli
+  - https://www.npmjs.com/package/@answerfox/core
+  - https://www.npmjs.com/package/@answerfox/schemas
+  - https://www.npmjs.com/package/@answerfox/metadata
+  - https://www.npmjs.com/package/@answerfox/sitemap
+  - https://www.npmjs.com/package/@answerfox/templates
 
-Install command shown in demos: pnpm dlx @answerable-kit/cli audit yoursite.com
+Install command shown in demos: pnpm dlx @answerfox/cli audit yoursite.com
 
 What Answerfox does: audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 55-check framework, then generates the actual code fixes using AI. Three scores side by side. Open source MIT license. Lives in CLI, GitHub Action, and a hosted web app.
 
@@ -233,7 +233,7 @@ Bloom intensity: 80% (strongest of all screens)
 Bloom position: upper-right corner
 
 Key elements:
-- Top nav: Answerfox logo (left, lockup with ember dot accent), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerable), "Sign in with GitHub" button (right, ghost style with dark ink)
+- Top nav: Answerfox logo (left, lockup with ember dot accent), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerfox), "Sign in with GitHub" button (right, ghost style with dark ink)
 - Animated ember bloom in upper-right area with heavy grain across full canvas
 - Eyebrow text above headline: "Open-source AI-SEO toolkit" (caption size, text-muted)
 - Hero headline (72px, tight tracking, weight 600, dark ink #1A1814): "The only AI-SEO toolkit that lives in your codebase and ships fixes as code."
@@ -242,16 +242,16 @@ Key elements:
 - Secondary CTA: ghost button with dark ink, hairline ember border, label "View on GitHub" with GitHub icon
 - Below CTAs, tiny line in mono caption: "MIT licensed · 500+ stars on GitHub · 50K weekly npm downloads"
 - A floating glass card (lighter slate #D4D1CB with hairline border) to the right or below the headline showing a real terminal mock:
-    $ pnpm dlx @answerable-kit/cli audit vercel.com
+    $ pnpm dlx @answerfox/cli audit vercel.com
     Audit running... done in 2.4s
     Score: 92/100 (Excellent)
     SEO 92  ·  AEO 87  ·  GEO 74  ·  Aggregate 84
 - The composition is asymmetric. NOT centered.
 
 Real data to use:
-- Terminal command exactly: pnpm dlx @answerable-kit/cli audit vercel.com
+- Terminal command exactly: pnpm dlx @answerfox/cli audit vercel.com
 - Scores: SEO 92, AEO 87, GEO 74, Aggregate 84
-- GitHub link: https://github.com/Anuj7411/answerable
+- GitHub link: https://github.com/Anuj7411/answerfox
 - The headline copy verbatim
 
 ────────────────────────────────────────────────────────────────────
@@ -276,7 +276,7 @@ Key elements:
   - "$0 forever"
   - "Audit engine (open source)"
   - "Three scores: SEO + AEO + GEO"
-  - "CLI: pnpm dlx @answerable-kit/cli"
+  - "CLI: pnpm dlx @answerfox/cli"
   - "GitHub Action"
   - "Public score badge for your README"
   - "Latest audit in web dashboard"
@@ -396,7 +396,7 @@ Key elements:
 
 Real data:
 - Use the exact heading and sub-text copy above
-- GitHub link target: https://github.com/Anuj7411/answerable
+- GitHub link target: https://github.com/Anuj7411/answerfox
 - "MIT licensed" reference is real (repo is MIT)
 
 ═══════════════════════════════════════════════════════════════════

@@ -1,11 +1,11 @@
-# @answerable-kit/metadata
+# @answerfox/metadata
 
 Next.js App Router metadata helpers. Compose `title`, `description`, canonical URL, OpenGraph, Twitter cards, and robots directives from a single typed input — with smart fallbacks across the social-card chain.
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/metadata
+pnpm add @answerfox/metadata
 ```
 
 Requires `next >= 14` (peer dependency).
@@ -26,7 +26,7 @@ Requires `next >= 14` (peer dependency).
 The standard pattern in `app/layout.tsx`:
 
 ```tsx
-import { defineSeo } from '@answerable-kit/metadata';
+import { defineSeo } from '@answerfox/metadata';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = defineSeo({
@@ -58,4 +58,4 @@ Googlebot directives must be *at most as permissive* as the top-level directives
 
 ## Source
 
-[packages/metadata](https://github.com/Anuj7411/answerable/tree/main/packages/metadata)
+[packages/metadata](https://github.com/Anuj7411/answerfox/tree/main/packages/metadata)

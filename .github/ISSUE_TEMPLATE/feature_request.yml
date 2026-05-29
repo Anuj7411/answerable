@@ -14,7 +14,7 @@ body:
     id: proposal
     attributes:
       label: Proposed solution
-      description: What should Answerable do? Be as concrete as possible.
+      description: What should Answerfox do? Be as concrete as possible.
     validations:
       required: true
 

@@ -27,7 +27,7 @@
 
 ## 1. Executive Summary
 
-**Architecture in one sentence:** a Next.js App Router web app on Cloudflare Pages, a Neon Postgres database, a Cloudflare R2 object store, a small fleet of Cloudflare Workers for scheduled jobs, the upstream `@answerable-kit/audit` OSS package running inside the workers, Gemini 3.5 Flash for AI fix generation, Stripe for billing, Resend for transactional and digest email, Auth.js for OAuth via GitHub and Google, Sentry plus PostHog for observability.
+**Architecture in one sentence:** a Next.js App Router web app on Cloudflare Pages, a Neon Postgres database, a Cloudflare R2 object store, a small fleet of Cloudflare Workers for scheduled jobs, the upstream `@answerfox/audit` OSS package running inside the workers, Gemini 3.5 Flash for AI fix generation, Stripe for billing, Resend for transactional and digest email, Auth.js for OAuth via GitHub and Google, Sentry plus PostHog for observability.
 
 **Stack philosophy:**
 - Stay on free tiers until forced off (target: $5 to $20/month total operating cost for the first 150 Pro users)
@@ -223,7 +223,7 @@ apps/web/
 │   │   ├── auth.ts                   # Auth.js config
 │   │   ├── stripe.ts
 │   │   ├── gemini.ts
-│   │   ├── audit-runner.ts           # wraps @answerable-kit/audit
+│   │   ├── audit-runner.ts           # wraps @answerfox/audit
 │   │   ├── quota.ts
 │   │   └── ...
 │   └── styles/
@@ -325,7 +325,7 @@ CREATE TABLE audits (
   duration_ms     INTEGER NOT NULL,
   raw_html_r2_key TEXT,                           -- nullable; may purge after 30d on free
   report_r2_key   TEXT,                           -- the full JSON report
-  engine_version  TEXT NOT NULL                   -- e.g. '@answerable-kit/audit@0.2.0'
+  engine_version  TEXT NOT NULL                   -- e.g. '@answerfox/audit@0.2.0'
 );
 CREATE INDEX idx_audits_site_ran ON audits(site_id, ran_at DESC);
 CREATE INDEX idx_audits_user_ran ON audits(user_id, ran_at DESC);
@@ -455,16 +455,16 @@ CREATE INDEX idx_jobs_ready ON jobs(kind, scheduled_at)
 
 ## 6. F1 — Audit Engine with Three Scores
 
-**Owner:** OSS package `@answerable-kit/audit` (already published, v0.2.0+)
+**Owner:** OSS package `@answerfox/audit` (already published, v0.2.0+)
 **Consumed by:** the SaaS via direct npm import inside Workers and Next.js server runtime.
 
 **Integration shape:**
 
 ```ts
 // apps/web/src/lib/audit-runner.ts
-import { runChecks } from '@answerable-kit/audit';
+import { runChecks } from '@answerfox/audit';
 import { fetchPage } from './page-fetcher';
-import { parseAbsoluteUrl } from '@answerable-kit/core';
+import { parseAbsoluteUrl } from '@answerfox/core';
 
 export async function runAuditForSite(siteId: string, source: AuditSource) {
   const site = await db.sites.byId(siteId);
@@ -513,11 +513,11 @@ export async function runAuditForSite(siteId: string, source: AuditSource) {
 
 ### F2 CLI (already shipped at v0.2.0)
 
-Optional v1 addition: `pnpm dlx @answerable-kit/cli login` flow that pairs the CLI to a SaaS account via device code (similar to `gh auth login`). On every subsequent `audit` invocation, if logged in, the CLI POSTs the audit JSON to `/api/cli/audit` so it appears in the user's web history. **Decision:** ship this in v1.1 not v1. v1 CLI stays anonymous.
+Optional v1 addition: `pnpm dlx @answerfox/cli login` flow that pairs the CLI to a SaaS account via device code (similar to `gh auth login`). On every subsequent `audit` invocation, if logged in, the CLI POSTs the audit JSON to `/api/cli/audit` so it appears in the user's web history. **Decision:** ship this in v1.1 not v1. v1 CLI stays anonymous.
 
 ### F3 GitHub Action
 
-Published at `answerable/audit-action@v1` (separate public repo). Composite action structure:
+Published at `answerfox/audit-action@v1` (separate public repo). Composite action structure:
 
 ```yaml
 # action.yml
@@ -530,7 +530,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: npx -y @answerable-kit/cli audit ${{ inputs.url }} --json > result.json
+    - run: npx -y @answerfox/cli audit ${{ inputs.url }} --json > result.json
       shell: bash
     - uses: actions/github-script@v7
       with:
@@ -983,10 +983,10 @@ export async function POST(req: NextRequest, { params }) {
   if (method === 'meta') {
     const html = await fetchSiteHtml(site.url);
     verified = html.includes(
-      `<meta name="answerable-verify" content="${site.verification_token}">`,
+      `<meta name="answerfox-verify" content="${site.verification_token}">`,
     );
   } else if (method === 'file') {
-    const res = await fetch(`${site.url}/.well-known/answerable-verify`);
+    const res = await fetch(`${site.url}/.well-known/answerfox-verify`);
     const text = await res.text();
     verified = text.trim() === site.verification_token;
   } else if (method === 'dns') {
@@ -1106,7 +1106,7 @@ The engine file is the v3.4 module from `prototype/landing/bloom-engine.js`, con
 |---|---|---|---|
 | GET | `/badge/:domain` | Public score SVG | none |
 | GET | `/site/:domain` | Public per-domain page | none |
-| GET | `/.well-known/answerable-policy` | Public policy doc | none |
+| GET | `/.well-known/answerfox-policy` | Public policy doc | none |
 
 ### Authenticated REST endpoints
 
@@ -1167,11 +1167,11 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @answerable-kit/web run build
+      - run: pnpm --filter @answerfox/web run build
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy apps/web/dist --project-name answerable-web
+          command: pages deploy apps/web/dist --project-name answerfox-web
 ```
 
 Workers deploy via `wrangler deploy` per worker, gated on the same workflow.
@@ -1388,7 +1388,7 @@ Working backward from PRD launch target (14.5 weeks).
 - Landing page deployed to staging
 
 **Weeks 3-4 — Audit pipeline**
-- `audit-runner.ts` calling `@answerable-kit/audit` v0.2.0+
+- `audit-runner.ts` calling `@answerfox/audit` v0.2.0+
 - POST `/api/sites/:id/audit` endpoint
 - R2 storage of raw HTML and report JSON
 - Dashboard home screen rendering real audit data

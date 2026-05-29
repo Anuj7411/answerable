@@ -1,11 +1,11 @@
 {
-  "name": "answerable",
+  "name": "answerfox",
   "version": "0.0.0",
   "private": true,
   "description": "The drop-in SEO toolkit that makes any site answerable by AI search engines.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anuj7411/answerable.git"
+    "url": "https://github.com/Anuj7411/answerfox.git"
   },
   "license": "MIT",
   "author": "Anuj Ojha",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "turbo run build",
-    "build:packages": "turbo run build --filter=@answerable-kit/* --filter=!@answerable-kit/docs --filter=!@answerable-kit/example-basic-nextjs",
+    "build:packages": "turbo run build --filter=@answerfox/* --filter=!@answerfox/docs --filter=!@answerfox/example-basic-nextjs",
     "test": "turbo run test",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",

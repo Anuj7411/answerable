@@ -1,5 +1,5 @@
-import { defineSeo } from '@answerable-kit/metadata';
-import { organization } from '@answerable-kit/schemas';
+import { defineSeo } from '@answerfox/metadata';
+import { organization } from '@answerfox/schemas';
 
 export const metadata = defineSeo({
   title: 'About Basic Next.js Example',
@@ -10,7 +10,7 @@ export const metadata = defineSeo({
 const orgSchema = organization({
   name: 'Basic Next.js Example',
   url: 'https://example.com',
-  description: 'The minimal example of an Answerable-powered Next.js site.',
+  description: 'The minimal example of an Answerfox-powered Next.js site.',
 });
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
       <h1>About Basic Next.js Example</h1>
-      <p>The minimal example of an Answerable-powered Next.js site.</p>
+      <p>The minimal example of an Answerfox-powered Next.js site.</p>
 
       <h2>Who we are</h2>
       <p>

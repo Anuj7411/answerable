@@ -1,31 +1,31 @@
-# @answerable-kit/cli
+# @answerfox/cli
 
-The `answerable` command. Wraps the audit engine and templates package for terminal and CI use.
+The `answerfox` command. Wraps the audit engine and templates package for terminal and CI use.
 
 ## Install
 
 Globally:
 
 ```bash
-pnpm add -g @answerable-kit/cli
+pnpm add -g @answerfox/cli
 ```
 
 Or one-off (no install):
 
 ```bash
-pnpm dlx @answerable-kit/cli audit https://example.com
+pnpm dlx @answerfox/cli audit https://example.com
 ```
 
 ## Commands
 
 | Command | Purpose |
 | --- | --- |
-| `answerable init` | Interactive — 3 prompts → 7 files (5 trust pages + sitemap + robots) |
-| `answerable add <names>` | Install specific templates (space or comma-separated) |
-| `answerable audit <url>` | Fetch and run every registered check; print report |
-| `answerable explain <id>` | Full doc for a single check (the same content as `/docs/checks/<id>`) |
+| `answerfox init` | Interactive — 3 prompts → 7 files (5 trust pages + sitemap + robots) |
+| `answerfox add <names>` | Install specific templates (space or comma-separated) |
+| `answerfox audit <url>` | Fetch and run every registered check; print report |
+| `answerfox explain <id>` | Full doc for a single check (the same content as `/docs/checks/<id>`) |
 
-## `answerable audit` flags
+## `answerfox audit` flags
 
 | Flag | Description | Default |
 | --- | --- | --- |
@@ -59,4 +59,4 @@ The CLI is usable as a library — every command has a pure runner that returns 
 
 ## Source
 
-[packages/cli](https://github.com/Anuj7411/answerable/tree/main/packages/cli)
+[packages/cli](https://github.com/Anuj7411/answerfox/tree/main/packages/cli)

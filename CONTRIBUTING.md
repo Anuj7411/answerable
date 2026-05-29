@@ -1,16 +1,16 @@
-# Contributing to Answerable
+# Contributing to Answerfox
 
-Thanks for your interest in Answerable! This project is in pre-alpha — the public contribution flow opens up once Phase 1 lands. Until then, the most valuable contributions are:
+Thanks for your interest in Answerfox! This project is in pre-alpha — the public contribution flow opens up once Phase 1 lands. Until then, the most valuable contributions are:
 
-- **Architectural feedback** in [GitHub Discussions](https://github.com/Anuj7411/answerable/discussions)
+- **Architectural feedback** in [GitHub Discussions](https://github.com/Anuj7411/answerfox/discussions)
 - **Real-world SEO pain points** that should be in the audit framework
 - **Bug reports** on the planning docs ([PROJECT-SPEC](./docs/internal/PROJECT-SPEC.md), [ROADMAP](./docs/internal/ROADMAP.md), [AUDIT-FRAMEWORK](./docs/internal/AUDIT-FRAMEWORK.md))
 
 ## Development setup
 
 ```bash
-git clone https://github.com/Anuj7411/answerable.git
-cd answerable
+git clone https://github.com/Anuj7411/answerfox.git
+cd answerfox
 pnpm install
 pnpm check    # runs typecheck + lint + tests
 ```

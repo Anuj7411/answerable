@@ -1,4 +1,4 @@
-import { parseAbsoluteUrl } from '@answerable-kit/core';
+import { parseAbsoluteUrl } from '@answerfox/core';
 import type { ContactPoint, Organization } from 'schema-dts';
 import type { Schema } from './_internal.js';
 

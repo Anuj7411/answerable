@@ -7,17 +7,17 @@ import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Answerable',
-    template: '%s — Answerable',
+    default: 'Answerfox',
+    template: '%s — Answerfox',
   },
   description: 'The drop-in SEO toolkit that makes any site answerable by AI search engines.',
-  metadataBase: new URL('https://answerable.dev'),
+  metadataBase: new URL('https://answerfox.dev'),
 };
 
 const navbar = (
   <Navbar
-    logo={<span style={{ fontWeight: 700, fontSize: '1.1rem' }}>Answerable</span>}
-    projectLink="https://github.com/Anuj7411/answerable"
+    logo={<span style={{ fontWeight: 700, fontSize: '1.1rem' }}>Answerfox</span>}
+    projectLink="https://github.com/Anuj7411/answerfox"
   />
 );
 
@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/Anuj7411/answerable/tree/main/apps/docs"
+          docsRepositoryBase="https://github.com/Anuj7411/answerfox/tree/main/apps/docs"
           footer={footer}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
         >

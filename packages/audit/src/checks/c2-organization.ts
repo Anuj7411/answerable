@@ -1,4 +1,4 @@
-import { defineCheck } from '@answerable-kit/core';
+import { defineCheck } from '@answerfox/core';
 import type { AuditDom } from '../parser.js';
 
 function nodeHasType(value: unknown, target: string): boolean {
@@ -35,14 +35,14 @@ export const c2Organization = defineCheck<AuditDom>({
   description: 'Organization JSON-LD present',
   rationale:
     'Organization schema is what tells Google and AI answer engines who you are as an entity — name, logo, social profiles, contact. It powers the brand panel in SERPs and is the foundation for E-E-A-T (the second E is for entity).',
-  docsUrl: 'https://answerable.dev/docs/checks/C2',
+  docsUrl: 'https://answerfox.dev/docs/checks/C2',
   run: ({ dom }) => {
     const blocks = dom('script[type="application/ld+json"]');
     if (blocks.length === 0) {
       return {
         status: 'fail',
         fixRecommendation:
-          'Add an Organization JSON-LD block. Use organization() from @answerable-kit/schemas in your root layout.',
+          'Add an Organization JSON-LD block. Use organization() from @answerfox/schemas in your root layout.',
       };
     }
     let found = false;
@@ -63,7 +63,7 @@ export const c2Organization = defineCheck<AuditDom>({
     return {
       status: 'fail',
       fixRecommendation:
-        'Add an Organization JSON-LD block. Use organization() from @answerable-kit/schemas.',
+        'Add an Organization JSON-LD block. Use organization() from @answerfox/schemas.',
     };
   },
 });

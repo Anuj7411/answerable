@@ -1,6 +1,6 @@
 import { Callout } from 'nextra/components';
 
-# Answerable
+# Answerfox
 
 > The drop-in SEO toolkit that makes any site answerable by AI search engines.
 
@@ -8,34 +8,34 @@ Install a few packages, run one command, and your Next.js site is SEO-ready, AI-
 
 ```bash
 # In an existing Next.js project:
-pnpm add @answerable-kit/schemas @answerable-kit/metadata @answerable-kit/sitemap @answerable-kit/audit
+pnpm add @answerfox/schemas @answerfox/metadata @answerfox/sitemap @answerfox/audit
 
 # Scaffold trust pages + sitemap + robots:
-pnpm dlx @answerable-kit/cli init
+pnpm dlx @answerfox/cli init
 
 # Audit the result against 33 production-tested checks:
-pnpm dlx @answerable-kit/cli audit http://localhost:3000
+pnpm dlx @answerfox/cli audit http://localhost:3000
 ```
 
-A score of 85+ on first audit is the design target. The [`examples/basic-nextjs`](https://github.com/Anuj7411/answerable/tree/main/examples/basic-nextjs) example scores 90+ out of the box.
+A score of 85+ on first audit is the design target. The [`examples/basic-nextjs`](https://github.com/Anuj7411/answerfox/tree/main/examples/basic-nextjs) example scores 90+ out of the box.
 
 <Callout type="info">
-  **v0.1.0 is live on npm** under the [`@answerable-kit/*`](https://www.npmjs.com/org/answerable-kit) scope. Currently shipping 33 of 50 audit checks — the remaining 17 land incrementally before v1.0.
+  **v0.1.0 is live on npm** under the [`@answerfox/*`](https://www.npmjs.com/org/answerfox) scope. Currently shipping 33 of 50 audit checks — the remaining 17 land incrementally before v1.0.
 </Callout>
 
 ## What's in the toolkit
 
 | Package | Purpose |
 | --- | --- |
-| `@answerable-kit/core` | Branded URL types, errors, the `Check<T>` interface |
-| `@answerable-kit/schemas` | Type-safe JSON-LD generators (8 of them) |
-| `@answerable-kit/metadata` | `defineSeo()` — Next.js metadata helpers |
-| `@answerable-kit/sitemap` | `buildSitemap()` with smart path-based defaults |
-| `@answerable-kit/templates` | Five trust-signal page templates |
-| `@answerable-kit/audit` | Cheerio-backed audit engine (33 of 50 checks) |
-| `@answerable-kit/cli` | The `answerable` command |
+| `@answerfox/core` | Branded URL types, errors, the `Check<T>` interface |
+| `@answerfox/schemas` | Type-safe JSON-LD generators (8 of them) |
+| `@answerfox/metadata` | `defineSeo()` — Next.js metadata helpers |
+| `@answerfox/sitemap` | `buildSitemap()` with smart path-based defaults |
+| `@answerfox/templates` | Five trust-signal page templates |
+| `@answerfox/audit` | Cheerio-backed audit engine (33 of 50 checks) |
+| `@answerfox/cli` | The `answerfox` command |
 
-## Why Answerable?
+## Why Answerfox?
 
 Indie developers and SaaS founders waste **20–40 hours per launch** on SEO that should be automated. No other tool combines drop-in code + automated audit + plain-English explanations in one MIT-licensed package — that's the wedge.
 
@@ -45,7 +45,7 @@ Indie developers and SaaS founders waste **20–40 hours per launch** on SEO tha
 | Lighthouse | ❌ | partial | ❌ |
 | Ahrefs / Semrush | ❌ | ✅ | ❌ |
 | AI-SEO checklists | ❌ | partial | ✅ |
-| **Answerable** | ✅ | ✅ | ✅ |
+| **Answerfox** | ✅ | ✅ | ✅ |
 
 ## Next steps
 
@@ -59,16 +59,16 @@ Short, problem-shaped solutions:
 
 - **[How to add FAQ schema in 60 seconds →](/docs/recipes/add-faq-schema)**
 - **[How to fix a missing canonical URL →](/docs/recipes/fix-missing-canonical)**
-- **[How to wire Answerable into CI →](/docs/recipes/ci-integration)**
+- **[How to wire Answerfox into CI →](/docs/recipes/ci-integration)**
 
 ## API reference
 
 One page per package, listing every public symbol with examples:
 
-- [`@answerable-kit/core`](/docs/reference/core) — branded URL types, errors, `Check<T>` interface
-- [`@answerable-kit/schemas`](/docs/reference/schemas) — JSON-LD generators (8 of them)
-- [`@answerable-kit/metadata`](/docs/reference/metadata) — `defineSeo()` for Next.js
-- [`@answerable-kit/sitemap`](/docs/reference/sitemap) — smart-default sitemap builder
-- [`@answerable-kit/templates`](/docs/reference/templates) — page-template registry
-- [`@answerable-kit/audit`](/docs/reference/audit) — audit engine + reporter
-- [`@answerable-kit/cli`](/docs/reference/cli) — the `answerable` command
+- [`@answerfox/core`](/docs/reference/core) — branded URL types, errors, `Check<T>` interface
+- [`@answerfox/schemas`](/docs/reference/schemas) — JSON-LD generators (8 of them)
+- [`@answerfox/metadata`](/docs/reference/metadata) — `defineSeo()` for Next.js
+- [`@answerfox/sitemap`](/docs/reference/sitemap) — smart-default sitemap builder
+- [`@answerfox/templates`](/docs/reference/templates) — page-template registry
+- [`@answerfox/audit`](/docs/reference/audit) — audit engine + reporter
+- [`@answerfox/cli`](/docs/reference/cli) — the `answerfox` command

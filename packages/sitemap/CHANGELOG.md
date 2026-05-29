@@ -1,4 +1,4 @@
-# @answerable-kit/sitemap
+# @answerfox/sitemap
 
 ## 0.1.1
 
@@ -6,13 +6,13 @@
 
 - 07e0c2f: Refresh package README headers: replace stale "Pre-alpha" notices with accurate v0.1.0 release context. No code or API changes — documentation only.
 - Updated dependencies [07e0c2f]
-  - @answerable-kit/core@0.1.1
+  - @answerfox/core@0.1.1
 
 ## 0.1.0
 
 ### Minor Changes
 
-- 89f1298: Scaffold the `@answerable-kit/sitemap` package — the fourth workspace package — and ship two exports:
+- 89f1298: Scaffold the `@answerfox/sitemap` package — the fourth workspace package — and ship two exports:
 
   - **`buildSitemap(routes, { baseUrl })`** — returns a Next.js `MetadataRoute.Sitemap`. Each route is just `{ path }` plus optional `lastModified`, `changeFrequency`, `priority`, and locale `alternates`. URL composition is automatic; explicit `priority`/`changeFrequency` always overrides inferred defaults.
   - **`sitemapIndex(entries)`** — typed builder for sites that exceed Google's 50k-URL per-file limit. Validates URLs and `lastModified` values; returns a typed array the caller serializes.
@@ -35,4 +35,4 @@
 ### Patch Changes
 
 - Updated dependencies [eeb3966]
-  - @answerable-kit/core@0.1.0
+  - @answerfox/core@0.1.0

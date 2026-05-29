@@ -1,8 +1,8 @@
 # Basic Next.js Example
 
-The minimal example of an [Answerable](https://github.com/Anuj7411/answerable)-powered Next.js site. Every file under `app/` demonstrates one piece of the toolkit wired together.
+The minimal example of an [Answerfox](https://github.com/Anuj7411/answerfox)-powered Next.js site. Every file under `app/` demonstrates one piece of the toolkit wired together.
 
-This is the committed equivalent of what `answerable init` would produce in a fresh Next.js project. Open each file to trace how a single package contributes to a polished, audit-ready site.
+This is the committed equivalent of what `answerfox init` would produce in a fresh Next.js project. Open each file to trace how a single package contributes to a polished, audit-ready site.
 
 ## What's in here
 
@@ -33,7 +33,7 @@ Visit http://localhost:3000 and try:
 
 ```bash
 # In another terminal — audit your local dev server:
-pnpm dlx @answerable-kit/cli audit http://localhost:3000
+pnpm dlx @answerfox/cli audit http://localhost:3000
 ```
 
 You should see a score around 80+ out of 100. The remaining points are content-quality checks (B-series) and off-site signals (E-series) that this minimal example doesn't bother to fake.
@@ -46,16 +46,16 @@ You should see a score around 80+ out of 100. The remaining points are content-q
 
 ## Regenerating from templates
 
-These files match what `answerable init` would write with these tokens:
+These files match what `answerfox init` would write with these tokens:
 
 ```text
 PROJECT_NAME    = Basic Next.js Example
 DOMAIN          = example.com
 URL             = https://example.com
-DESCRIPTION     = The minimal example of an Answerable-powered Next.js site.
+DESCRIPTION     = The minimal example of an Answerfox-powered Next.js site.
 CONTACT_EMAIL   = hello@example.com
 EFFECTIVE_DATE  = 2026-05-15
 JURISDICTION    = the State of Delaware, USA
 ```
 
-If you change the templates in `@answerable-kit/templates`, run `answerable init` in this directory and accept overwrites to regenerate.
+If you change the templates in `@answerfox/templates`, run `answerfox init` in this directory and accept overwrites to regenerate.

@@ -1,19 +1,19 @@
-# @answerable-kit/schemas
+# @answerfox/schemas
 
-Type-safe JSON-LD generators for the [Answerable](https://github.com/Anuj7411/answerable) SEO toolkit. Each generator returns a fully-typed `WithContext<T>` object validated at the type level by [`schema-dts`](https://github.com/google/schema-dts).
+Type-safe JSON-LD generators for the [Answerfox](https://github.com/Anuj7411/answerfox) SEO toolkit. Each generator returns a fully-typed `WithContext<T>` object validated at the type level by [`schema-dts`](https://github.com/google/schema-dts).
 
 > **v0.1.0.** All eight generators ship today: `organization`, `webSite`, `article`, `breadcrumb`, `faqPage`, `howTo`, `product`, and `softwareApplication`.
 
 ## Install
 
 ```bash
-pnpm add @answerable-kit/schemas
+pnpm add @answerfox/schemas
 ```
 
 ## Usage
 
 ```ts
-import { organization, webSite } from '@answerable-kit/schemas';
+import { organization, webSite } from '@answerfox/schemas';
 
 const org = organization({
   name: 'Acme',
@@ -32,7 +32,7 @@ const site = webSite({
 // <script type="application/ld+json">{JSON.stringify(org)}</script>
 ```
 
-All URL inputs are validated as absolute `http(s)` URLs at runtime — invalid input throws `InvalidUrlError` from `@answerable-kit/core`.
+All URL inputs are validated as absolute `http(s)` URLs at runtime — invalid input throws `InvalidUrlError` from `@answerfox/core`.
 
 ## License
 

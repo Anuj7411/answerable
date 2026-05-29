@@ -1,4 +1,4 @@
-<!-- Thanks for contributing to Answerable! Please fill this out so review can move quickly. -->
+<!-- Thanks for contributing to Answerfox! Please fill this out so review can move quickly. -->
 
 ## What does this PR do?
 

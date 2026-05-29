@@ -23,18 +23,18 @@ Product name: Answerfox
 Target domain: answerfox.dev
 Tagline: The only open-source AI-SEO toolkit (SEO + AEO + GEO unified) that lives in your codebase and ships fixes as code.
 
-GitHub repo: https://github.com/Anuj7411/answerable
-npm scope: @answerable-kit
+GitHub repo: https://github.com/Anuj7411/answerfox
+npm scope: @answerfox
 npm packages:
-  - https://www.npmjs.com/package/@answerable-kit/audit (the audit engine)
-  - https://www.npmjs.com/package/@answerable-kit/cli (the CLI tool)
-  - https://www.npmjs.com/package/@answerable-kit/core (branded types)
-  - https://www.npmjs.com/package/@answerable-kit/schemas (JSON-LD generators)
-  - https://www.npmjs.com/package/@answerable-kit/metadata (Next.js metadata)
-  - https://www.npmjs.com/package/@answerable-kit/sitemap (sitemap builder)
-  - https://www.npmjs.com/package/@answerable-kit/templates (trust-page templates)
+  - https://www.npmjs.com/package/@answerfox/audit (the audit engine)
+  - https://www.npmjs.com/package/@answerfox/cli (the CLI tool)
+  - https://www.npmjs.com/package/@answerfox/core (branded types)
+  - https://www.npmjs.com/package/@answerfox/schemas (JSON-LD generators)
+  - https://www.npmjs.com/package/@answerfox/metadata (Next.js metadata)
+  - https://www.npmjs.com/package/@answerfox/sitemap (sitemap builder)
+  - https://www.npmjs.com/package/@answerfox/templates (trust-page templates)
 
-Install command shown in demos: pnpm dlx @answerable-kit/cli audit yoursite.com
+Install command shown in demos: pnpm dlx @answerfox/cli audit yoursite.com
 
 What Answerfox does: audits any website across SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) using a 55-check framework, then generates the actual code fixes using AI. Three scores side by side. Open source MIT license. Lives in CLI, GitHub Action, and a hosted web app.
 
@@ -205,7 +205,7 @@ Fidelity: HIGH FIDELITY
 Purpose: A solo developer arrives from a tweet linking to answerfox.dev. Within 8 seconds they must understand what Answerfox does, see proof it works, and want to click. This is the most important moment of the entire product.
 
 Key elements:
-- Top nav: Answerfox logo (left), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerable), "Sign in with GitHub" button (right)
+- Top nav: Answerfox logo (left), nav links (Pricing, Docs, GitHub link to https://github.com/Anuj7411/answerfox), "Sign in with GitHub" button (right)
 - Animated aurora gradient mesh background (shader-gradient.co style, low opacity over #0A0E1A)
 - Eyebrow text above headline: "Open-source AI-SEO toolkit"
 - Hero headline (72px, tight tracking, weight 600): "The only AI-SEO toolkit that lives in your codebase and ships fixes as code."
@@ -214,16 +214,16 @@ Key elements:
 - Secondary CTA (ghost button): "View on GitHub" with GitHub icon
 - Below CTAs: a tiny line "MIT licensed - 500+ stars on GitHub - 50K weekly npm downloads"
 - A floating glass card to the right or below containing a real terminal mock:
-  $ pnpm dlx @answerable-kit/cli audit vercel.com
+  $ pnpm dlx @answerfox/cli audit vercel.com
   Audit running... done in 2.4s
   Score: 92/100 (Excellent)
   ┌─ SEO 92 ──── AEO 87 ──── GEO 74 ──── Aggregate 84 ─┐
 - Asymmetric composition. NOT centered hero.
 
 Real data shown on screen:
-- Terminal command exactly: pnpm dlx @answerable-kit/cli audit vercel.com
+- Terminal command exactly: pnpm dlx @answerfox/cli audit vercel.com
 - Scores in mock: SEO 92, AEO 87, GEO 74, Aggregate 84
-- GitHub link: https://github.com/Anuj7411/answerable
+- GitHub link: https://github.com/Anuj7411/answerfox
 - The headline copy verbatim
 
 ────────────────────────────────────────────────────────────────────
@@ -244,7 +244,7 @@ Key elements:
   - "$0 forever"
   - "Audit engine (open source)"
   - "Three scores: SEO + AEO + GEO"
-  - "CLI: pnpm dlx @answerable-kit/cli"
+  - "CLI: pnpm dlx @answerfox/cli"
   - "GitHub Action"
   - "Public score badge for your README"
   - "Latest audit in web dashboard"
@@ -352,7 +352,7 @@ Key elements:
 
 Real data:
 - Use the exact heading and sub-text copy above
-- GitHub link target: https://github.com/Anuj7411/answerable (the OAuth would go to the actual repo's OAuth)
+- GitHub link target: https://github.com/Anuj7411/answerfox (the OAuth would go to the actual repo's OAuth)
 - "MIT licensed" reference real (the repo is MIT)
 
 ═══════════════════════════════════════════════════════════════════
@@ -407,8 +407,8 @@ Once these are locked, every other screen (audit details, settings, billing, err
 
 **Product (5 URLs):**
 - answerfox.dev (target domain)
-- https://github.com/Anuj7411/answerable
-- 7 npm package URLs under @answerable-kit (audit, cli, core, schemas, metadata, sitemap, templates)
+- https://github.com/Anuj7411/answerfox
+- 7 npm package URLs under @answerfox (audit, cli, core, schemas, metadata, sitemap, templates)
 
 **Visual inspiration to pull from (5 URLs):**
 - https://www.shader-gradient.co/

@@ -1,16 +1,16 @@
 {
-  "name": "@answerable-kit/cli",
+  "name": "@answerfox/cli",
   "version": "0.1.2",
-  "description": "The `answerable` command — runs audits, prints reports, explains checks.",
+  "description": "The `answerfox` command — runs audits, prints reports, explains checks.",
   "license": "MIT",
   "author": "Anuj Ojha",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anuj7411/answerable.git",
+    "url": "https://github.com/Anuj7411/answerfox.git",
     "directory": "packages/cli"
   },
-  "homepage": "https://github.com/Anuj7411/answerable/tree/main/packages/cli#readme",
-  "bugs": "https://github.com/Anuj7411/answerable/issues",
+  "homepage": "https://github.com/Anuj7411/answerfox/tree/main/packages/cli#readme",
+  "bugs": "https://github.com/Anuj7411/answerfox/issues",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -21,7 +21,7 @@
     }
   },
   "bin": {
-    "answerable": "./dist/bin.js"
+    "answerfox": "./dist/bin.js"
   },
   "files": ["dist", "README.md"],
   "sideEffects": false,
@@ -39,9 +39,9 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@answerable-kit/audit": "workspace:*",
-    "@answerable-kit/core": "workspace:*",
-    "@answerable-kit/templates": "workspace:*",
+    "@answerfox/audit": "workspace:*",
+    "@answerfox/core": "workspace:*",
+    "@answerfox/templates": "workspace:*",
     "@clack/prompts": "^0.9.0",
     "commander": "^13.0.0",
     "kleur": "^4.1.5"

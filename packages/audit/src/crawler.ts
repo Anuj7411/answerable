@@ -1,7 +1,7 @@
-import { AnswerableError, parseAbsoluteUrl } from '@answerable-kit/core';
+import { AnswerfoxError, parseAbsoluteUrl } from '@answerfox/core';
 import { type AuditDom, loadHtml } from './parser.js';
 
-export const DEFAULT_USER_AGENT = 'Answerable/0.0.0 (+https://github.com/Anuj7411/answerable)';
+export const DEFAULT_USER_AGENT = 'Answerfox/0.0.0 (+https://github.com/Anuj7411/answerfox)';
 
 export const DEFAULT_TIMEOUT_MS = 15_000;
 
@@ -24,7 +24,7 @@ export interface FetchAndParseResult {
  * Thrown when the crawler can't reach the target URL or the response
  * isn't a 2xx with HTML-shaped content.
  */
-export class CrawlError extends AnswerableError {
+export class CrawlError extends AnswerfoxError {
   readonly url: string;
   readonly httpStatus: number | undefined;
 

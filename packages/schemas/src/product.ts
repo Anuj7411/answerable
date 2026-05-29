@@ -1,4 +1,4 @@
-import { SchemaValidationError, parseAbsoluteUrl } from '@answerable-kit/core';
+import { SchemaValidationError, parseAbsoluteUrl } from '@answerfox/core';
 import type { Brand, Product } from 'schema-dts';
 import type { Schema } from './_internal.js';
 import {

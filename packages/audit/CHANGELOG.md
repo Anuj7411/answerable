@@ -1,4 +1,4 @@
-# @answerable-kit/audit
+# @answerfox/audit
 
 ## 0.1.2
 
@@ -12,7 +12,7 @@
 
 - 07e0c2f: Refresh package README headers: replace stale "Pre-alpha" notices with accurate v0.1.0 release context. No code or API changes — documentation only.
 - Updated dependencies [07e0c2f]
-  - @answerable-kit/core@0.1.1
+  - @answerfox/core@0.1.1
 
 ## 0.1.0
 
@@ -93,11 +93,11 @@
 
   F7 implements the OpenGraph → Twitter fallback chain: a missing `twitter:image` passes if `og:image` is present, since X/Twitter falls back to it.
 
-- ab812b8: Scaffold the `@answerable-kit/audit` package — the sixth workspace package and the project's killer differentiator — with foundations and the first 5 checks.
+- ab812b8: Scaffold the `@answerfox/audit` package — the sixth workspace package and the project's killer differentiator — with foundations and the first 5 checks.
 
   **Foundations:**
 
-  - **`fetchAndParse(url)`** — cheerio-backed static crawler. Polite User-Agent (`Answerable/0.0.0 (+https://github.com/Anuj7411/answerable)`), redirect-follow, abort-on-timeout (15s default), `CrawlError` on non-2xx or network failure with cause preserved.
+  - **`fetchAndParse(url)`** — cheerio-backed static crawler. Polite User-Agent (`Answerfox/0.0.0 (+https://github.com/Anuj7411/answerfox)`), redirect-follow, abort-on-timeout (15s default), `CrawlError` on non-2xx or network failure with cause preserved.
   - **`loadHtml(html)` + `AuditDom`** — thin cheerio wrapper exporting the DOM type so check authors don't depend on cheerio directly.
   - **`runChecks({ url, html, dom, checks? })`** — pure runner with no network. Each check runs in parallel via `Promise.all`. Thrown checks captured as `skip` with the error message — the audit always completes.
   - **`audit(url, options?)`** — convenience wrapper that fetches then runs.
@@ -121,4 +121,4 @@
 ### Patch Changes
 
 - Updated dependencies [eeb3966]
-  - @answerable-kit/core@0.1.0
+  - @answerfox/core@0.1.0

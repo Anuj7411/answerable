@@ -26,7 +26,7 @@ function Pricing() {
           <div className="nav-links">
             <a href="#pricing">Pricing</a>
             <a href="#docs">Docs</a>
-            <a href="https://github.com/Anuj7411/answerable">GitHub</a>
+            <a href="https://github.com/Anuj7411/answerfox">GitHub</a>
           </div>
           <div className="nav-right">
             <button className="btn btn-quiet"><GitHubIcon /> Sign in with GitHub</button>
@@ -51,7 +51,7 @@ function Pricing() {
               <ul className="pr-list">
                 <li><b>Audit engine</b> (open source)</li>
                 <li>Three scores: <b>SEO + AEO + GEO</b></li>
-                <li><b>CLI:</b> pnpm dlx @answerable-kit/cli</li>
+                <li><b>CLI:</b> pnpm dlx @answerfox/cli</li>
                 <li><b>GitHub Action</b> for PR audits</li>
                 <li><b>Public score badge</b> for your README</li>
                 <li>Latest audit in web dashboard</li>

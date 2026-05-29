@@ -2,7 +2,7 @@ import { Callout, Steps, Tabs } from 'nextra/components';
 
 # Getting Started
 
-This walks through scaffolding a fresh Next.js project with Answerable end-to-end. Five minutes from `pnpm add` to a 90+ audit score.
+This walks through scaffolding a fresh Next.js project with Answerfox end-to-end. Five minutes from `pnpm add` to a 90+ audit score.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ cd my-site
 ### Install the runtime packages
 
 ```bash
-pnpm add @answerable-kit/schemas @answerable-kit/metadata @answerable-kit/sitemap @answerable-kit/audit
+pnpm add @answerfox/schemas @answerfox/metadata @answerfox/sitemap @answerfox/audit
 ```
 
 These are the building blocks `init` writes against. They stay in your `dependencies` because the generated code imports them at runtime.
@@ -32,7 +32,7 @@ These are the building blocks `init` writes against. They stay in your `dependen
 ### Run `init`
 
 ```bash
-pnpm dlx @answerable-kit/cli init
+pnpm dlx @answerfox/cli init
 ```
 
 Three questions: project name, domain, contact email. Everything else is derived from sensible defaults you'll edit in your editor.
@@ -59,7 +59,7 @@ app/
 `init` doesn't touch your root layout (yet). Add this to its `metadata` export:
 
 ```tsx filename="app/layout.tsx"
-import { defineSeo } from '@answerable-kit/metadata';
+import { defineSeo } from '@answerfox/metadata';
 
 export const metadata = defineSeo({
   title: { default: 'My Site', template: '%s — My Site' },
@@ -84,7 +84,7 @@ pnpm dev
 In another terminal:
 
 ```bash
-pnpm dlx @answerable-kit/cli audit http://localhost:3000
+pnpm dlx @answerfox/cli audit http://localhost:3000
 ```
 
 You should see a score around 75–90 out of 100, with specific findings flagged for the remaining points. Each finding includes a fix recommendation and a link to its full documentation.
@@ -93,7 +93,7 @@ You should see a score around 75–90 out of 100, with specific findings flagged
 
 ```yaml filename=".github/workflows/seo.yml"
 - name: SEO audit
-  run: pnpm dlx @answerable-kit/cli audit ${{ env.PREVIEW_URL }} --ci --min-score 80
+  run: pnpm dlx @answerfox/cli audit ${{ env.PREVIEW_URL }} --ci --min-score 80
 ```
 
 The `--ci` flag exits non-zero if the score drops below `--min-score`. Fails the build, surfaces the regression in the PR check, and you fix before merging.
@@ -108,7 +108,7 @@ Indie-dev tools that ask seven questions get abandoned mid-init. We ask the thre
 
 ### What if I already have an /about page?
 
-`answerable init` prompts before overwriting any existing file. Say no and the existing file stays. Or run `answerable add <template>` for a specific template (skipping the others), still with the overwrite prompt.
+`answerfox init` prompts before overwriting any existing file. Say no and the existing file stays. Or run `answerfox add <template>` for a specific template (skipping the others), still with the overwrite prompt.
 
 ### Does this support frameworks other than Next.js?
 
