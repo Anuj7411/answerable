@@ -23,7 +23,7 @@
     "typecheck": "turbo run typecheck",
     "check": "pnpm typecheck && pnpm lint && pnpm test",
     "changeset": "changeset",
-    "version-packages": "changeset version",
+    "version-packages": "changeset version && pnpm format",
     "release": "pnpm build:packages && changeset publish",
     "clean": "turbo run clean"
   },
